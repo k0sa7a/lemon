@@ -1,0 +1,4 @@
+<h1>Locations Index</h1>
+<% @locations.each do |location| %>
+  <%= link_to "#{location.title}", location_path(location) %>
+<% end %>
