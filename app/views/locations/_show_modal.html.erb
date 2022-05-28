@@ -1,0 +1,57 @@
+<!-- Button trigger modal -->
+
+<a class="modal__link" data-bs-toggle="modal" data-bs-target="#locationModal<%= num %>"><%= location.title %></a>
+
+<!-- Modal -->
+<div class="modal fade" id="locationModal<%= num %>" tabindex="-1" aria-labelledby="locationModalLabel<%= num %>" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered"">
+    <div class="modal-content">
+      <div class="modal-header kill-padding">
+        <div class="carousel-container">
+          <div id="carouselLocationIndicators<%= num %>" class="carousel slide" data-bs-ride="true">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselLocationIndicators<%= num %>" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselLocationIndicators<%= num %>" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselLocationIndicators<%= num %>" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <%= image_tag "stock_location1", class:"d-block w-100", style:'height: 200px;
+                    object-fit: cover;' %>
+              </div>
+              <div class="carousel-item">
+                <%= image_tag "stock_location2", class:"d-block w-100", style:'height: 200px;
+                    object-fit: cover;' %>
+              </div>
+              <div class="carousel-item">
+                <%= image_tag "stock_location3", class:"d-block w-100", style:'height: 200px;
+                    object-fit: cover;' %>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselLocationIndicators<%= num %>" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselLocationIndicators<%= num %>" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="detail-container">
+          <h2><%= location.title %></h2>
+          <p><%= location.description %></p>
+          <p><%= location.address %></p>
+        </div>
+      </div>
+      <div class="modal-footer d-flex justify-content-between">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Place Holder</button>
+        <button type="button" class="btn btn-secondary">Place Holder</button>
+      </div>
+    </div>
+  </div>
+</div>
