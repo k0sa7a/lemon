@@ -39,7 +39,8 @@ class LocationsController < ApplicationController
     params.require(:location).permit(
       :title,
       :description,
-      :address
+      :address,
+      photos: []
     )
   end
 
