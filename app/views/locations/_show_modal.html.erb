@@ -5,7 +5,7 @@
 <!-- Modal -->
 <div class="modal fade" id="locationModal<%= num %>" tabindex="-1" aria-labelledby="locationModalLabel<%= num %>" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered"">
-    <div class="modal-content">
+    <div class="modal-content border-killer">
       <div class="modal-header kill-padding">
 
       <!-- carousel added -->
@@ -30,7 +30,8 @@
               <% if location.photos.attached? %>
                 <% location.photos.each_with_index do |photo, index| %>
                   <%= index == 0 ? '<div class="carousel-item active">'.html_safe : '<div class="carousel-item">'.html_safe  %>
-                    <img src="<%= cl_image_path photo.key, crop: :fill, width: 1000, height: 1000 %>" class="d-block w-100" alt="...">
+                    <img src="<%= cl_image_path photo.key, crop: :fill, width: 1000, height: 1000 %>" class="d-block w-100" alt="..." style='height: 200px;
+                      object-fit: cover;'>
                   </div>
                 <% end %>
               <% else %>

@@ -104,9 +104,10 @@ users = [user_one, user_two, user_three, user_four]
   images.delete_at(0)
 end
 
-# Location.all.each_with_index do |location, i|
-#   location.photos.attach(io: File.open("app/assets/images/stock_location#{i}.jpg"), filename: "stock_location#{i + 1}.jpg", content_type: 'image/jpg')
-#   plant.save!
-# end
+arr = [1, 2, 3]
+Location.all.each do |location|
+  location.photos.attach(io: File.open("app/assets/images/stock_location#{arr.sample}.jpg"), filename: "stock_location#{arr.sample}.jpg", content_type: 'image/jpg')
+  location.save!
+end
 
 puts "Done! #{Location.count} locations and #{User.count} users created!"
