@@ -11,4 +11,29 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-@import "pages/home";
+
+
+.home-wrapper {
+  min-height: calc(100vh - 60px);
+}
+
+.btn {
+  font-family: 'Bangers', cursive;
+  padding: 10px;
+  width: 150px;
+  align-items: center;
+  border-radius: 20px;
+  border-style: dashed;
+  border-color: $color-black;
+  border-width: medium;
+  align-content: center;
+  text-align: center;
+  font-size: 30px;
+}
+
+.btn:hover {
+  border-style: solid;
+  border-width: medium;
+  border-color: $color-secondary;
+  color: $color-secondary;
+}
