@@ -1,6 +1,12 @@
 .navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+  background:transparent !important;
+  transition: 0.5s ease;
+  position: sticky;
+  top: 0;
+}
+
+.navbar-lewagon.scrolled {
+  background:$color-primary !important;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -8,5 +14,28 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 90px;
+}
+
+.container-fluid{
+  justify-content: space-between;
+}
+
+.form_width{
+  width: 600px;
+}
+
+@media(max-width: 992px) {
+  .form_width{
+    width: 350px;
+  }
+}
+
+@media(max-width: 768px) {
+  .form_width{
+    width: 200px;
+  }
+  .kill-mx-auto{
+    margin-left: 0 !important;
+  }
 }
