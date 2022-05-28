@@ -1,4 +1,27 @@
 // Specific CSS for your home-page
 body {
-  background-color: $color-grey-5;
+  background-color: $color-white;
 }
+
+.home_video {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  object-fit: cover;
+  top: 0;
+  z-index: -2;
+ }
+
+ .home-video-wrapper {
+ height: 100vh;
+ display: flex;
+ }
+
+ h1.home {
+   color: white;
+   z-index: 1000;
+ }
+
+ #main_video {
+  opacity: 45%;
+ }
