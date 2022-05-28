@@ -40,11 +40,11 @@ html_doc.search('.info h3').each do |element|
 end
 
 
-
+arr = [1, 2, 3]
 images = []
 html_doc.search('.image img').each do |element|
   if element.attr('src') == "https://www.skateparks.co.uk/wp-content/themes/FoundationSkate/assets/img/placeholder.png"
-    image_url = 'app/assets/images/stock_location1.jpg'
+    image_url = "app/assets/images/stock_location#{arr.sample}.jpg"
   else
     image_url = element.attr('src')
   end
@@ -104,7 +104,6 @@ users = [user_one, user_two, user_three, user_four]
   images.delete_at(0)
 end
 
-arr = [1, 2, 3]
 Location.all.each do |location|
   location.photos.attach(io: File.open("app/assets/images/stock_location#{arr.sample}.jpg"), filename: "stock_location#{arr.sample}.jpg", content_type: 'image/jpg')
   location.save!
