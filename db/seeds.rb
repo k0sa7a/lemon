@@ -10,8 +10,8 @@ require'nokogiri'
 
 puts "Clearing Database..."
 
-# Location.destroy_all
-# User.destroy_all
+Location.destroy_all
+User.destroy_all
 
 puts "Creating a new database..."
 
@@ -44,7 +44,7 @@ end
 images = []
 html_doc.search('.image img').each do |element|
   if element.attr('src') == "https://www.skateparks.co.uk/wp-content/themes/FoundationSkate/assets/img/placeholder.png"
-    image_url = '../app/assets/images/stock_location1.jpg'
+    image_url = 'app/assets/images/stock_location1.jpg'
   else
     image_url = element.attr('src')
   end
@@ -87,7 +87,7 @@ users = [user_one, user_two, user_three, user_four]
   attributes[:description] = descriptions[0]
 
   # setting address
-  address[:address] = addresses[0]
+  attributes[:address] = addresses[0]
 
 
   location = Location.new(attributes)
@@ -104,9 +104,9 @@ users = [user_one, user_two, user_three, user_four]
   images.delete_at(0)
 end
 
-Location.all.each_with_index do |location, i|
-  location.photos.attach(io: File.open("app/assets/images/stock_location#{i}.jpg"), filename: "stock_location#{i + 1}.jpg", content_type: 'image/jpg')
-  plant.save!
-end
+# Location.all.each_with_index do |location, i|
+#   location.photos.attach(io: File.open("app/assets/images/stock_location#{i}.jpg"), filename: "stock_location#{i + 1}.jpg", content_type: 'image/jpg')
+#   plant.save!
+# end
 
 puts "Done! #{Location.count} locations and #{User.count} users created!"
