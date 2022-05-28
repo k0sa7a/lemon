@@ -1,0 +1,20 @@
+.kill-padding {
+  padding: 0 !important;
+}
+
+.modal-header {
+  .carousel-container {
+    width: 100%;
+  }
+  .btn-close {
+    position: absolute;
+    z-index: 9999;
+    top: 10px;
+    right: 10px;
+  }
+}
+
+.modal__link {
+  cursor: pointer;
+  text-decoration: none;
+}
