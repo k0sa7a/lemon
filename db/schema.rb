@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_28_113436) do
+ActiveRecord::Schema.define(version: 2022_05_28_142430) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,24 @@ ActiveRecord::Schema.define(version: 2022_05_28_113436) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "itineraries", force: :cascade do |t|
+    t.boolean "privacy"
+    t.string "title"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_itineraries_on_user_id"
+  end
+
+  create_table "list_items", force: :cascade do |t|
+    t.bigint "itinerary_id", null: false
+    t.bigint "location_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["itinerary_id"], name: "index_list_items_on_itinerary_id"
+    t.index ["location_id"], name: "index_list_items_on_location_id"
+  end
+
   create_table "locations", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -69,5 +87,8 @@ ActiveRecord::Schema.define(version: 2022_05_28_113436) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "itineraries", "users"
+  add_foreign_key "list_items", "itineraries"
+  add_foreign_key "list_items", "locations"
   add_foreign_key "locations", "users"
 end
