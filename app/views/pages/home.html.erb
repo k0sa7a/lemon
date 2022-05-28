@@ -1,2 +1,6 @@
-<h1>Pages#home</h1>
-<p style="height:150vh">Find me in app/views/pages/home.html.erb</p>
+<div class="home-video-wrapper">
+  <div id="main_video">
+    <%= video_tag "banner_video.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, class: "home_video" %>
+  </div>
+  <h1 class="home">Welcome to Lemon</h1>
+</div>
