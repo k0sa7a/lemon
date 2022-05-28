@@ -18,10 +18,15 @@ body {
  }
 
  h1.home {
-   color: white;
+   color: $color-white;
    z-index: 1000;
+   font-family: 'Bangers', cursive;
  }
 
  #main_video {
-  opacity: 45%;
+  opacity: 75%;
+ }
+
+ #in_video_wrap {
+
  }
