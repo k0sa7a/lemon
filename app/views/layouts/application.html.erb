@@ -16,10 +16,14 @@
 
   <body>
     <div class="home-wrapper">
+      <% unless ["not_found", "internal_server"].include? action_name %>
       <%= render "shared/navbar" %>
+      <% end %>
       <%= yield %>
     </div>
+    <% unless action_name == "not_found" || action_name == "internal_server" %>
     <%= render "shared/footer" %>
+    <% end %>
     <%= render 'shared/flashes' %>
   </body>
 </html>
