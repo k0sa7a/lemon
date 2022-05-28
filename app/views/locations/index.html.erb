@@ -1,6 +1,4 @@
 <h1>Locations Index</h1>
-<% num = 0 %>
 <% @locations.each do |location| %>
-  <% num += 1 %>
-  <p><%= render "show_modal", location: location, num: num %></p>
+  <p><%= render "show_modal", location: location, num: location.id %></p>
 <% end %>
