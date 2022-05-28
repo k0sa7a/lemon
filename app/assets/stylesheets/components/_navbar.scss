@@ -4,7 +4,6 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  justify-content: space-between;
 }
 
 .navbar-lewagon.scrolled {
@@ -12,6 +11,15 @@
 }
 
 .nav-item.textcolor a{
+  color: $color-black !important;
+}
+
+
+.nav-item-loggedin a{
+  color: $color-white;
+}
+
+.nav-item-loggedin.textcolor a{
   color: $color-black !important;
 }
 
@@ -33,7 +41,6 @@ a.nav-link:hover {
 }
 
 .container-fluid{
-  justify-content: space-between;
   margin: 16px 16px 16px 16px;
 }
 
