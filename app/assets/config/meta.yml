@@ -1,0 +1,5 @@
+meta_product_name: "Lemon"
+meta_title: "Lemon - Bringing skaters together"
+meta_description: "Lemon | Create and share your favourite skate routes with friends"
+meta_image: "cover.jpg" # should exist in `app/assets/images/`
+twitter_account: "@lemonskate"   # required for Twitter Cards
