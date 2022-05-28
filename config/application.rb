@@ -12,9 +12,12 @@ module Lemon
       generate.assets false
       generate.helper false
       generate.test_framework :test_unit, fixture: false
+      # config.assets.paths << "#{Rails.root}/app/assets/videos"
     end
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
+    # Homepage video setup
+    config.assets.paths << "#{Rails.root}/app/assets/videos"
 
     # Configuration for the application, engines, and railties goes here.
     #
