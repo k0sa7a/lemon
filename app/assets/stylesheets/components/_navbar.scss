@@ -3,10 +3,16 @@
   transition: 0.5s ease;
   position: sticky;
   top: 0;
+  z-index: 1000;
+  justify-content: space-between;
 }
 
 .navbar-lewagon.scrolled {
   background:$color-primary !important;
+}
+
+.nav-item.textcolor a{
+  color: $color-black !important;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -14,11 +20,25 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 90px;
+  width: 200px;
+}
+
+a.nav-link {
+  text-decoration: none;
+  color: $color-white;
+}
+
+a.nav-link:hover {
+  color: $color-grey-1;
 }
 
 .container-fluid{
   justify-content: space-between;
+  margin: 16px 16px 16px 16px;
+}
+
+.nav-link{
+  color: $color-grey-3;
 }
 
 .form_width{
