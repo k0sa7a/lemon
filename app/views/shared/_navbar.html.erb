@@ -26,7 +26,7 @@
             </div>
           </li>
         <% else %>
-          <li class="nav-item">
+          <li class="nav-item" data-action="scroll@window->navbar-scroller#scroller" data-navbar-scroller-target="link">
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>
           </li>
         <% end %>
@@ -34,9 +34,3 @@
     </div>
   </div>
 </div>
-
-<script>
- $(window).scroll(function(){
- $('nav').toggleClass('scrolled', $(this).scrollTop() > 10);
- });
-</script>
