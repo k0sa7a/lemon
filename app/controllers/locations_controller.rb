@@ -1,8 +1,12 @@
 class LocationsController < ApplicationController
   before_action :set_location, only: [:show, :destroy, :edit, :update]
   def index
-    @locations = Location.all
-
+    if params[:query].present?
+      distance = params[:distance].present? ? params[:distance] : 1
+      @locations = Location.near(params[:query], distance)
+    else
+      @locations = Location.all
+    end
     @markers = @locations.geocoded.map do |location|
       {
         lat: location.latitude,
