@@ -1,4 +1,13 @@
 <h1>Locations Index</h1>
+
+<div class="search-form">
+  <%= form_with url: locations_path, method: :get, class: "d-flex" do |form| %>
+    <%= form.text_field :query, value: params[:query], placeholder: "Postcode/Location" %>
+    <%= form.number_field :distance, in: 1.0..70.0, step: 0.5, placeholder: "Distance: 1km", value: params[:distance] %>
+    <%= form.submit "Search" %>
+  <% end %>
+</div>
+
 <% @locations.each do |location| %>
   <p><%= render "show_modal", location: location, num: location.id %></p>
 <% end %>
