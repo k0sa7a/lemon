@@ -52,9 +52,22 @@ a.nav-link:hover {
   width: 600px;
 }
 
+.nav-item-weather {
+    // Adjusted position as a test, to fit better in the navbar: this can be changed
+    position: absolute;
+    right: 341px;
+    top: 7.8px;
+}
+
 .p__weather{
   color: $color-white;
   font-weight: 700;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item.textcolor .p__weather{
+  color: $color-black !important;
 }
 
 
