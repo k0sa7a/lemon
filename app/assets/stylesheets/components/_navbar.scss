@@ -52,6 +52,12 @@ a.nav-link:hover {
   width: 600px;
 }
 
+.p__weather{
+  color: $color-white;
+  font-weight: 700;
+}
+
+
 @media(max-width: 992px) {
   .form_width{
     width: 350px;

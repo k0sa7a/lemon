@@ -13,6 +13,13 @@
         <% if user_signed_in? %>
           <div class="d-flex justify-content-end nav-item" data-action="scroll@window->navbar-scroller#scroller" data-navbar-scroller-target="link">
             <div>
+              <li class="nav-item">
+                <!-- <%= link_to "Weather", "#", class: "nav-link" %> -->
+                <%= image_tag @weather_icon, class: "avatar"  %>
+                <p class="p__weather"><%= "#{@temp}°C" %></p>
+              </li>
+            </div>
+            <div>
               <li class="nav-item active" >
                 <%= link_to "Home", "#", class: "nav-link" %>
               </li>
