@@ -17,6 +17,18 @@
                 <%= link_to "Home", "#", class: "nav-link" %>
               </li>
             </div>
+            <li class="nav-item dropdown">
+              <a class="dropdown-toggle nav-link" data-bs-toggle="dropdown">My Routes</a>
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <% unless current_user.itineraries.empty? %>
+                  <% current_user.itineraries.each do |itinerary| %>
+                    <%= link_to "#{itinerary.title}", itinerary_path(itinerary), class: "dropdown-item" %>
+                  <% end %>
+                <% else %>
+                  <p>You have no routes saved</p>
+                <% end %>
+              </div>
+            </li>
             <div>
               <li class="nav-item">
                 <%= link_to "Messages", "#", class: "nav-link" %>

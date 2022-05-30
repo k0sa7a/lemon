@@ -1,7 +1,4 @@
 // Specific CSS for your home-page
-body {
-  background-color: $color-white;
-}
 
 .home_video {
   width: 100vw;
@@ -10,20 +7,20 @@ body {
   object-fit: cover;
   top: 0;
   z-index: -2;
- }
+}
 
- .home-video-wrapper {
- height: 100vh;
- display: flex;
- }
+.home-video-wrapper {
+  height: 100vh;
+  display: flex;
+}
 
- h1.home {
-   color: $color-white;
-   z-index: 1000;
-   font-family: 'Bangers', cursive;
-   font-size: 200px;
-   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
- }
+h1.home {
+  color: $color-white;
+  z-index: 500;
+  font-family: 'Bangers', cursive;
+  font-size: 200px;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
 
 .call_to_action {
   z-index: 1000;
@@ -36,20 +33,18 @@ body {
   align-content: center;
   text-align: center;
   font-size: 45px;
+}
 
- }
-
- .call_to_action:hover {
+.call_to_action:hover {
   border-style: solid;
   border-width: medium;
   border-color: $color-secondary;
   color: $color-secondary;
+}
 
- }
-
- #main_video {
+#main_video {
   opacity: 90%;
- }
+}
 
 #in_video_wrap {
   margin-left: 24px;

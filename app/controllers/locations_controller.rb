@@ -11,10 +11,12 @@ class LocationsController < ApplicationController
       {
         lat: location.latitude,
         lng: location.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { location: location }),
+        info_window: render_to_string(partial: "shared/info_window", locals: { location: location }),
         image_url: helpers.asset_url("wheel_icon.webp")
       }
     end
+    @list_item = ListItem.new
+    @itinerary = Itinerary.new
   end
 
   def show

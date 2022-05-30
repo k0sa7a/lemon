@@ -1,3 +1,4 @@
+
 <h1>Locations Index</h1>
 
 <div class="search-form">
@@ -7,13 +8,17 @@
     <%= form.submit "Search" %>
   <% end %>
 </div>
-
-<% @locations.each do |location| %>
-  <p><%= render "show_modal", location: location, num: location.id %></p>
-<% end %>
-
-<div style="width: 100%; height: 600px;"
-  data-controller="mapbox"
-  data-mapbox-markers-value="<%= @markers.to_json %>"
-  data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+<div class="d-flex justify-content-between mx-0">
+  <div class="locations-container">
+    <% @locations.each do |location| %>
+      <p><%= render "show_modal", location: location, num: location.id, list_item: @list_item, itinerary: @itinerary %></p>
+    <% end %>
+  </div>
+  <div class="map-container" >
+    <div style="width: 100%; height: 100%;"
+      data-controller="mapbox"
+      data-mapbox-markers-value="<%= @markers.to_json %>"
+      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
 </div>

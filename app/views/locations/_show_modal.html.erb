@@ -7,73 +7,25 @@
   <div class="modal-dialog modal-dialog-centered"">
     <div class="modal-content border-killer">
       <div class="modal-header kill-padding">
-
-      <!-- carousel added -->
-        <div class="carousel-container">
-          <div id="carouselLocationIndicators<%= num %>" class="carousel slide" data-bs-ride="true">
-            <div class="carousel-indicators">
-                <% if location.photos.attached? %>
-                  <% location.photos.each_with_index do |photo, index| %>
-                    <% if  index == 0 %>
-                      <button type="button" data-bs-target="#carouselLocationIndicators<%= num %>" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <% else %>
-                      <button type="button" data-bs-target="#carouselLocationIndicators<%= num %>" data-bs-slide-to="<%= index %>" aria-label="Slide <%= index + 1 %>"></button>
-                    <% end %>
-                  <% end %>
-                <% else %>
-                  <button type="button" data-bs-target="#carouselLocationIndicators<%= num %>" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#carouselLocationIndicators<%= num %>" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                  <button type="button" data-bs-target="#carouselLocationIndicators<%= num %>" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                <% end %>
-            </div>
-            <div class="carousel-inner">
-              <% if location.photos.attached? %>
-                <% location.photos.each_with_index do |photo, index| %>
-                  <%= index == 0 ? '<div class="carousel-item active">'.html_safe : '<div class="carousel-item">'.html_safe  %>
-                    <img src="<%= cl_image_path photo.key, crop: :fill, width: 1000, height: 1000 %>" class="d-block w-100" alt="..." style='height: 200px;
-                      object-fit: cover;'>
-                  </div>
-                <% end %>
-              <% else %>
-                <div class="carousel-item active">
-                  <%= image_tag "stock_location1.jpg", class:"d-block w-100", style:'height: 200px;
-                      object-fit: cover;' %>
-                </div>
-                <div class="carousel-item">
-                  <%= image_tag "stock_location2.jpg", class:"d-block w-100", style:'height: 200px;
-                      object-fit: cover;' %>
-                </div>
-                <div class="carousel-item">
-                  <%= image_tag "stock_location3.jpg", class:"d-block w-100", style:'height: 200px;
-                      object-fit: cover;' %>
-                </div>
-              <% end %>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselLocationIndicators<%= num %>" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselLocationIndicators<%= num %>" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
-        </div>
-
+        <!-- render carousel partial -->
+        <%= render "show_carousel", location: location, num: location.id %>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
 
       <div class="modal-body">
         <div class="detail-container">
-          <h2><%= location.title %></h2>
+          <h3><%= location.title %></h3>
           <p><%= location.description %></p>
           <p><%= location.address %></p>
         </div>
       </div>
 
       <div class="modal-footer d-flex justify-content-between">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Place Holder</button>
-        <button type="button" class="btn btn-secondary">Place Holder</button>
+        <button type="button" class="btn btn-secondary d-none" data-bs-dismiss="modal">Place Holder</button>
+
+        <button type="button" class="btn btn-secondary d-none">Add to custom route</button>
+
+        <%= current_user.itineraries.empty? ? (render "shared/itinerary_form", itinerary: itinerary) : (render "shared/list_item_form", location: location, list_item: list_item) %>
       </div>
 
     </div>
