@@ -2,6 +2,14 @@ class ItinerariesController < ApplicationController
   before_action :set_itinerary, only: [:show, :destroy, :edit, :update]
 
   def show
+    @markers = @itinerary.locations.geocoded.map do |location|
+      {
+        lat: location.latitude,
+        lng: location.longitude,
+        info_window: render_to_string(partial: "shared/info_window", locals: { location: location }),
+        image_url: helpers.asset_url("wheel_icon.webp")
+      }
+    end
   end
 
   def create
