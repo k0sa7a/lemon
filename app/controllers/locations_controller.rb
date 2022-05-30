@@ -15,6 +15,8 @@ class LocationsController < ApplicationController
         image_url: helpers.asset_url("wheel_icon.webp")
       }
     end
+    @list_item = ListItem.new
+    @itinerary = Itinerary.new
   end
 
   def show

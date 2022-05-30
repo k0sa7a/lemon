@@ -9,7 +9,7 @@
 </div>
 
 <% @locations.each do |location| %>
-  <p><%= render "show_modal", location: location, num: location.id %></p>
+  <p><%= render "show_modal", location: location, num: location.id, list_item: @list_item, itinerary: @itinerary %></p>
 <% end %>
 
 <div style="width: 100%; height: 600px;"

@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :locations
+  resources :locations do
+    resources :list_items, only: [:create, :destroy]
+  end
+
+  resources :itineraries
   get '/404', to: 'errors#not_found'
   get '/500', to: 'errors#internal_server'
 end

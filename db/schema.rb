@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_28_142430) do
+ActiveRecord::Schema.define(version: 2022_05_30_065002) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2022_05_28_142430) do
   end
 
   create_table "itineraries", force: :cascade do |t|
-    t.boolean "privacy"
+    t.boolean "privacy", default: false
     t.string "title"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
