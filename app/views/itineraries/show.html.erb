@@ -1,0 +1,5 @@
+<h1><%= @itinerary.title %></h1>
+<% @itinerary.list_items.each do |item| %>
+  <p><%= item.location.title %></p>
+<% end %>
+<%= link_to "Add more skate spots", locations_path  %>

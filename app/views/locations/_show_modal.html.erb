@@ -14,26 +14,18 @@
 
       <div class="modal-body">
         <div class="detail-container">
-          <h2><%= location.title %></h2>
+          <h3><%= location.title %></h3>
           <p><%= location.description %></p>
           <p><%= location.address %></p>
         </div>
       </div>
 
       <div class="modal-footer d-flex justify-content-between">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Place Holder</button>
+        <button type="button" class="btn btn-secondary d-none" data-bs-dismiss="modal">Place Holder</button>
 
-        <button type="button" class="btn btn-secondary">Add to custom route</button>
+        <button type="button" class="btn btn-secondary d-none">Add to custom route</button>
 
-        <%= simple_form_for([itinerary]) do |f| %>
-          <%= f.input :title %>
-          <%= f.submit "create itinerary", class: "btn btn-primary" %>
-        <% end %>
-        <%= simple_form_for([location, list_item]) do |f| %>
-          <%= f.input :location_id %>
-          <%= f.input :itinerary_id %>
-          <%= f.submit "create list item", class: "btn btn-primary" %>
-        <% end %>
+        <%= current_user.itineraries.empty? ? (render "shared/itinerary_form", itinerary: itinerary) : (render "shared/list_item_form", location: location, list_item: list_item) %>
       </div>
 
     </div>

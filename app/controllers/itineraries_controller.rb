@@ -7,7 +7,12 @@ class ItinerariesController < ApplicationController
   def create
     @itinerary = Itinerary.new(itinerary_params)
     @itinerary.user = current_user
-    @itinerary.save
+    if @itinerary.save
+    else
+      puts @itinerary.errors.full_messages
+      puts "something went wrong"
+    end
+    redirect_to locations_path
   end
 
   private
