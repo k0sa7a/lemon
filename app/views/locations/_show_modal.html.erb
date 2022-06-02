@@ -1,10 +1,11 @@
 <!-- Button trigger modal -->
 
-<a class="modal__link" data-bs-toggle="modal" data-bs-target="#locationModal<%= num %>"><%= location.title %></a>
+<a class="modal__link" data-bs-toggle="modal" data-bs-target="#locationModal<%= num %>"><%= render "card", location: location %></a>
+
 
 <!-- Modal -->
 <div class="modal fade" id="locationModal<%= num %>" tabindex="-1" aria-labelledby="locationModalLabel<%= num %>" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered"">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content border-killer">
       <div class="modal-header kill-padding">
         <!-- render carousel partial -->

@@ -1,5 +1,5 @@
 
-<h1>Locations Index</h1>
+<h1>Locations</h1>
 
 <div class="search-form">
   <%= form_with url: locations_path, method: :get, class: "d-flex" do |form| %>
@@ -10,10 +10,13 @@
     <%= form.submit "Search" %>
   <% end %>
 </div>
-<div class="d-flex justify-content-between mx-0">
+
+<div class="index-content mx-1">
   <div class="locations-container">
     <% @locations.each do |location| %>
-      <p><%= render "show_modal", location: location, num: location.id, list_item: @list_item, itinerary: @itinerary %></p>
+      <div>
+        <p><%= render "show_modal", location: location, num: location.id, list_item: @list_item, itinerary: @itinerary %></p>
+      </div>
     <% end %>
   </div>
   <div class="map-container" >
