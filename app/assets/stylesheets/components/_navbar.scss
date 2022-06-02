@@ -6,8 +6,8 @@
   z-index: 1000;
 }
 
-.navbar-lewagon-loggedin {
-  background:$color-grey-6 !important;
+.navbar-lewagon-nothome {
+  background:$color-secondary !important;
   transition: 0.5s ease;
   position: sticky;
   top: 0;
@@ -15,6 +15,10 @@
 }
 
 .navbar-lewagon.scrolled {
+  background:$color-primary !important;
+}
+
+.navbar-lewagon-nothome.scrolled {
   background:$color-primary !important;
 }
 

@@ -35,7 +35,11 @@
   <body>
     <div class="app-wrapper">
       <% unless ["not_found", "internal_server"].include? action_name %>
-      <%= render "shared/navbar" %>
+        <% if action_name == "home" %>
+          <%= render "shared/navbarhome" %>
+        <% else %>
+          <%= render "shared/navbar" %>
+        <% end %>
       <% end %>
       <%= yield %>
     </div>
