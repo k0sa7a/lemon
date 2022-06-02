@@ -6,7 +6,7 @@
   z-index: 1000;
 }
 
-.navbar-lewagon-nothome {
+.navbar-nothome {
   background:$color-secondary !important;
   transition: 0.5s ease;
   position: sticky;
@@ -18,7 +18,7 @@
   background:$color-primary !important;
 }
 
-.navbar-lewagon-nothome.scrolled {
+.navbar-nothome.scrolled {
   background:$color-primary !important;
 }
 
@@ -39,7 +39,15 @@
   flex-grow: 0;
 }
 
+.navbar-nothome .navbar-collapse {
+  flex-grow: 0;
+}
+
 .navbar-lewagon .navbar-brand img {
+  width: 200px;
+}
+
+.navbar-nothome .navbar-brand img {
   width: 200px;
 }
 
