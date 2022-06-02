@@ -6,6 +6,14 @@
   z-index: 1000;
 }
 
+.navbar-lewagon-loggedin {
+  background:$color-grey-6 !important;
+  transition: 0.5s ease;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
 .navbar-lewagon.scrolled {
   background:$color-primary !important;
 }
