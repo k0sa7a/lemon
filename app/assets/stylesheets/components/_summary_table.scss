@@ -1,0 +1,21 @@
+.image_col {
+  width:75px;
+  margin-right: 50px;
+}
+
+.itinerary-cell {
+  display: flex;
+  height: 75px;
+  align-items: center;
+}
+
+.cart-foot {
+  color: darkgreen;
+}
+
+.title-cell {
+  a {
+    color: gray !important;
+    font-weight: 400;
+  }
+}

@@ -1,6 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 import mapboxgl from "mapbox-gl"
-import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
+import { connectChunkAndModule } from "webpack/lib/GraphHelpers";
 
 export default class extends Controller {
   static values = {
@@ -10,20 +10,9 @@ export default class extends Controller {
   }
 
   connect() {
-    console.log(this.coordsValue)
-    let testCoords = [[-0.0394004, 51.6673125],
-      [-0.0394004, 51.6673125],
-      [0.008032527616080642, 51.5318385307792],
-      [-0.13161205881021942, 51.59522623673902],
-      [-0.14587838530709973, 51.501766527707616],
-      [-0.21878659646091592, 51.51183314085651]
-    ]
-    testCoords = this.coordsValue
+    let testCoords = this.coordsValue;
 
-
-
-
-    mapboxgl.accessToken = this.apiKeyValue
+    mapboxgl.accessToken = this.apiKeyValue;
 
     if ( testCoords.length <= 0) {
       this.map = new mapboxgl.Map({
@@ -35,29 +24,22 @@ export default class extends Controller {
     }
     else {
       const self = this
-      const truckLocation = testCoords[0]//[-0.0496004, 51.6693125];
-      const warehouseLocation = [-0.0498004, 51.7693125];
-      const lastAtRestaurant = 0;
+      const truckLocation = testCoords[0]
       let keepTrack = [];
       const pointHopper = {};
-      // Create a GeoJSON feature collection for the warehouse
-      const warehouse = turf.featureCollection([turf.point(warehouseLocation)]);
       // Create an empty GeoJSON feature collection for drop-off locations
       const dropoffs = turf.featureCollection([]);
       // Create an empty GeoJSON feature collection, which will be used as the data source for the route before users add any new data
       const nothing = turf.featureCollection([]);
 
-      // mapboxgl.accessToken = this.apiKeyValue;
 
       this.map = new mapboxgl.Map({
         container: this.element,
         style: "mapbox://styles/mapbox/streets-v11",
-        center: this.#mapCenter(),
-        zoom: 12
       })
 
       this.#addMarkersToMap()
-      // this.#fitMapToMarkers()
+      this.#fitMapToMarkers()
 
 
       this.map.on('load', async () => {
@@ -138,38 +120,53 @@ export default class extends Controller {
           'waterway-label'
         );
 
+        function genCoords(testCoords) {
 
-        testCoords.forEach(element => {
-          let coords = {
-            lng: element[0],
-            lat: element[1]
-          }
-          this.map.on('load', addWaypoints(coords))
-        });
+          let formattedCoords = testCoords.map(element => {
+            let coord = {
+              lng: element[0],
+              lat: element[1]
+            }
+            return coord
+          });
+          createPoints(formattedCoords)
+        }
+
+
 
 
 
         function addWaypoints(coords) {
-          newDropoff(coords);
+          let formattedCoords = coords.map(element => {
+            let coord = {
+              lng: element[0],
+              lat: element[1]
+            }
+            return coord
+          });
+          createPoints(formattedCoords)
           updateDropoffs(dropoffs);
         }
+
+        addWaypoints(testCoords)
 
       });
 
 
-      async function newDropoff(coordinates) {
-        // Store the clicked point as a new GeoJSON feature with
-        // two properties: `orderTime` and `key`
-        const pt = turf.point([coordinates.lng, coordinates.lat], {
-          orderTime: Date.now(),
-          key: Math.random()
-        });
 
-        dropoffs.features.push(pt);
-        pointHopper[pt.properties.key] = pt;
-        // Make a request to the Optimization API
+      async function createPoints(coordinates) {
+        coordinates.forEach( coord => {
+          const pt = turf.point([coord.lng, coord.lat], {
+            orderTime: Date.now(),
+            key: Math.random()
+          });
+          dropoffs.features.push(pt);
+          pointHopper[pt.properties.key] = pt;
+        })
         const query = await fetch(assembleQueryURL(), { method: 'GET' });
         const response = await query.json();
+
+        steps(response.trips[0].legs)
 
         // Create an alert for any requests that return an error
         if (response.code !== 'Ok') {
@@ -179,10 +176,11 @@ export default class extends Controller {
               : 'Try a different point.';
           alert(`${response.code} - ${response.message}\n\n${handleMessage}`);
           // Remove invalid point
-          dropoffs.features.pop();
-          delete pointHopper[pt.properties.key];
+          // dropoffs.features.pop();
+          // delete pointHopper[pt.properties.key];
           return;
         }
+
         // Create a GeoJSON feature collection
         const routeGeoJSON = turf.featureCollection([
           turf.feature(response.trips[0].geometry)
@@ -191,6 +189,7 @@ export default class extends Controller {
         // and setting the data equal to routeGeoJSON
         self.map.getSource('route').setData(routeGeoJSON);
       }
+
 
       function updateDropoffs(geojson) {
         self.map.getSource('dropoffs-symbol').setData(geojson);
@@ -206,7 +205,6 @@ export default class extends Controller {
 
         // Create an array of GeoJSON feature collections for each point
         const restJobs = Object.keys(pointHopper).map((key) => pointHopper[key]);
-        console.log(restJobs)
         // If there are any orders from this restaurant
         if (restJobs.length > 0) {
 
@@ -228,6 +226,24 @@ export default class extends Controller {
         }`;
       }
     }
+
+    async function steps(legs) {
+
+      const instructions = document.getElementById('instructions');
+      // const steps = data.legs[0].steps;
+      let duration = 0;
+      let tripInstructions = '';
+      for (const leg of legs) {
+        duration += leg.duration
+        for (const step of leg.steps) {
+          tripInstructions += `<li>${step.maneuver.instruction}</li>`;
+        }
+      }
+      instructions.innerHTML = `<p><strong>Trip duration: ${Math.floor(
+        duration / 60
+      )} min 🚴 </strong></p><ol>${tripInstructions}</ol>`;
+    }
+
   }
 
   #addMarkersToMap() {
@@ -267,5 +283,6 @@ export default class extends Controller {
     });
     return [longTotal/sum, latTotal/sum]
   }
+
 
 }

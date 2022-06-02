@@ -1,5 +1,5 @@
 class ListItemsController < ApplicationController
-
+  before_action :set_list_item, only: [:destroy]
   def create
     @list_item = ListItem.new(list_item_params)
     @list_item.location = Location.find(params[:location_id])
@@ -12,7 +12,16 @@ class ListItemsController < ApplicationController
     redirect_to locations_path
   end
 
+  def destroy
+    @list_item.destroy
+    redirect_to itinerary_path(@list_item.itinerary)
+  end
+
   private
+
+  def set_list_item
+    @list_item = ListItem.find(params[:id])
+  end
 
   def list_item_params
     params.require(:list_item).permit(
