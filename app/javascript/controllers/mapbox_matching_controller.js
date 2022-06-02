@@ -5,22 +5,20 @@ import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 export default class extends Controller {
   static values = {
     apiKey: String,
-    markers: Array
+    markers: Array,
+    coords: Array
   }
-
-
-
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
-    mapboxgl.center = [-122.42136449,37.80176523]
     this.map = new mapboxgl.Map({
       container: this.element,
       style: "mapbox://styles/mapbox/streets-v11",
       center: [-122.42136449,37.80176523], // Specify the starting position
       zoom: 14.5, // Specify the starting zoom
     })
-
     let self = this;
+
+    console.log(this.coordsValue)
 
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
@@ -37,7 +35,9 @@ export default class extends Controller {
       const data = draw.getAll();
       const lastFeature = data.features.length - 1;
       const coords = data.features[lastFeature].geometry.coordinates;
+      // const coords = [[-0.05576253522718844, 51.652186545514525], [-0.05913813630189679, 51.64892857133077], [-0.07001507309706767, 51.644739403304385]]
       console.log(coords)
+      console.log(self.coordsValue)
       // Format the coordinates
       const newCoords = coords.join(';');
       console.log(newCoords)
