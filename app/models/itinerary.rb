@@ -6,8 +6,8 @@ class Itinerary < ApplicationRecord
   def coords
     coord_arr = locations.map do |location|
       if location.longitude.nil? || location.latitude.nil?
-        location.latitude = 51.5942234
-        location.longitude = -0.1308851122175931
+        location.latitude = 51.51183314085651
+        location.longitude = -0.21878659646091592
       end
       [location.longitude, location.latitude]
     end

@@ -21,7 +21,7 @@ export default class extends Controller {
     console.log(this.coordsValue)
 
     this.#addMarkersToMap()
-    this.#fitMapToMarkers()
+    // this.#fitMapToMarkers()
     this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
       mapboxgl: mapboxgl }))
     this.map.addControl(draw);
