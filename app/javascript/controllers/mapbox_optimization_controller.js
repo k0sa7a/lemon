@@ -120,22 +120,6 @@ export default class extends Controller {
           'waterway-label'
         );
 
-        function genCoords(testCoords) {
-
-          let formattedCoords = testCoords.map(element => {
-            let coord = {
-              lng: element[0],
-              lat: element[1]
-            }
-            return coord
-          });
-          createPoints(formattedCoords)
-        }
-
-
-
-
-
         function addWaypoints(coords) {
           let formattedCoords = coords.map(element => {
             let coord = {
@@ -217,7 +201,7 @@ export default class extends Controller {
 
         // Set the profile to `driving`
         // Coordinates will include the current location of the truck,
-        return `https://api.mapbox.com/optimized-trips/v1/mapbox/walking/${coordinates.join(
+        return `https://api.mapbox.com/optimized-trips/v1/mapbox/cycling/${coordinates.join(
           ';'
         )}?distributions=${distributions.join(
           ';'
