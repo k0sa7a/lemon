@@ -1,6 +1,6 @@
 .image_col {
   width:75px;
-  margin-right: 50px;
+  margin-right: 30px;
 }
 
 .itinerary-cell {
@@ -9,13 +9,14 @@
   align-items: center;
 }
 
-.cart-foot {
-  color: darkgreen;
+.title-cell {
+  margin-right: 2rem
 }
 
-.title-cell {
-  a {
-    color: gray !important;
-    font-weight: 400;
-  }
+.itinerary_table {
+  padding: 2rem;
+}
+
+.cell__delete {
+  padding-right: 1rem;
 }

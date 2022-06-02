@@ -7,12 +7,11 @@
       </tr>
     </thead>
     <tbody>
-  <% total = 0 %>
   <% itinerary.list_items.each do |item| %>
     <tr>
-      <th scope="row"><img src="<%= cl_image_path item.location.photos.first.key, crop: :fill %>"class= "location_preview image_col" alt=""></th>
+      <th scope="row"><img src="<%= cl_image_path item.location.photos.first.key, crop: :fill, width: 400, height: 400 %>"class= "location_preview image_col" alt=""></th>
       <td><div class='itinerary-cell title-cell'> <%= item.location.title %> </div></td>
-      <td><div class='itinerary-cell'>
+      <td><div class='itinerary-cell cell__delete'>
               <%= link_to '<i class="fas fa-trash"></i>'.html_safe,
               list_item_path(item),
               method: :delete,
