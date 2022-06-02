@@ -1,16 +1,31 @@
+<style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+
+  </style>
+
 <div class="d-flex justify-content-between mx-0">
   <div class="list-items-container">
     <h1><%= @itinerary.title %></h1>
-    <% @itinerary.list_items.each do |item| %>
-      <p><%= item.location.title %></p>
-    <% end %>
+    <%= render "shared/itinerary_summary", itinerary: @itinerary %>
     <%= link_to "Add more skate spots", locations_path  %>
   </div>
+
   <div class="map-container" >
     <div style="width: 100%; height: 100%;"
-      data-controller="mapbox"
-      data-mapbox-markers-value="<%= @markers.to_json %>"
-      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      data-controller="mapbox-optimization"
+      data-mapbox-optimization-coords-value = "<%= @itinerary.coords %>"
+      data-mapbox-optimization-markers-value="<%= @markers.to_json %>"
+      data-mapbox-optimization-api-key-value="<%= ENV['MAPBOX_API_KEY_MATCHING'] %>">
+    </div>
+    <div class="info-box" id="instructions">
+      <p>
+        Draw your route using the draw tools on the right. To get the most
+        accurate route match, draw points at regular intervals.
+      </p>
     </div>
   </div>
 </div>

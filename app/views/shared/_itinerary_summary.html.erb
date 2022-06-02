@@ -1,0 +1,25 @@
+<table class="table itinerary_table">
+    <thead>
+      <tr>
+        <th scope="col" class='image_col'></th>
+        <th scope="col">Location</th>
+        <th scope="col" class='bin-col'></th>
+      </tr>
+    </thead>
+    <tbody>
+  <% itinerary.list_items.each do |item| %>
+    <tr>
+      <th scope="row"><img src="<%= cl_image_path item.location.photos.first.key, crop: :fill, width: 400, height: 400 %>"class= "location_preview image_col" alt=""></th>
+      <td><div class='itinerary-cell title-cell'> <%= item.location.title %> </div></td>
+      <td><div class='itinerary-cell cell__delete'>
+              <%= link_to '<i class="fas fa-trash"></i>'.html_safe,
+              list_item_path(item),
+              method: :delete,
+              remote: true,
+              data: { confirm: "Are you sure?" } %>
+          </div>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
