@@ -1,0 +1,14 @@
+item = document.getElementById('list-item-<%= @list_item.id %>');
+item.remove();
+
+
+<% coords = @items.map do |item| %>
+  <% item.location.coords %>
+<% end %>
+console.log(<%= coords %>)
+
+map = document.getElementById('itinerary-map');
+items = '<%= coords %>';
+<%# map.dataset.mapboxOptimizationCoordsValue = `${items}`%>
+<%# console.log(items) %>
+<%# console.log(map.dataset.mapboxOptimizationCoordsValue) %>

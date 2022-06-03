@@ -14,7 +14,12 @@ class ListItemsController < ApplicationController
 
   def destroy
     @list_item.destroy
-    redirect_to itinerary_path(@list_item.itinerary)
+    itinerary = @list_item.itinerary
+    @items = itinerary.list_items
+    respond_to do |format|
+      format.html { redirect_to itinerary_path(@list_item.itinerary), notice: 'Location was removed.' }
+      format.js
+    end
   end
 
   private
