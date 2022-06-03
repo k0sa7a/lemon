@@ -4,8 +4,9 @@
   width: 300px;
 }
 
-.card:hover{
-  box-shadow: 0 2px 20px $color-secondary;
+.card:hover {
+  box-shadow: 0 2px 10px $color-secondary;
+  color: $color-grey-6 !important
 }
 
 .card-header {
@@ -25,19 +26,18 @@
   font-size: 16px;
   font-weight: bold;
   margin: 0;
+  text-align: center;
+  color: $color-grey-6 !important;
 }
+
 
 .card p {
   font-size: 12px;
   opacity: .7;
   margin: 0;
   text-align: center;
+  color: $color-grey-6 !important
 }
-
-.card p:hover {
-color: $color-secondary !important;
-}
-
 
 
 .card-body {
@@ -60,4 +60,54 @@ color: $color-secondary !important;
 .index-content {
   padding: 16px;
   display: flex;
+  grid-template-columns: 1fr 1fr;
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .locations-container {
+    grid-template-columns: 1fr;
+  }
+  .map-container{
+    visibility: hidden;
+  }
+}
+
+@media (min-width: 576px) {
+  .locations-container {
+    grid-template-columns: 1fr;
+  }
+  .map-container{
+    visibility: hidden;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .locations-container {
+    grid-template-columns: 1fr 1fr;
+  }
+  .map-container{
+    visibility: hidden;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .locations-container {
+    grid-template-columns: 1fr 1fr;
+  }
+  .map-container{
+    visibility: visible;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .locations-container {
+    grid-template-columns: 1fr 1fr;
+  }
+  .map-container{
+    visibility: visible;
+  }
 }
