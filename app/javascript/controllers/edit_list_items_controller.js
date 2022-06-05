@@ -32,15 +32,18 @@ export default class extends Controller {
       headers: headers,
       body: JSON.stringify(this.itemTarget)
     })
-    .then(response => console.log(response))
-    .then(() => console.log(this.itemTarget))
+    // .then(response => response)
+    // .then(() => console.log(this.itemTarget))
     .then(() => this.itemTarget.remove())
+    .then(() => this.cleanupMarkers())
     .then(() => this.setCoords())
     .then(() => this.mapController.reload())
     .catch(err => console.log(err))
 
+
     // .then(data => console.log(data)) // Manipulate the data retrieved back, if we want to do something with it
     // .catch(err => console.log(err))
+
 
 
     // console.log(this.mapController)
@@ -54,8 +57,18 @@ export default class extends Controller {
       items.push(element.dataset.editListItemsValue)
     });
     map.dataset.mapboxOptimizationCoordsValue = `[${items}]`
-    console.log(items)
-    console.log(map.dataset.mapboxOptimizationCoordsValue)
+    // console.log(items)
+    // console.log(map.dataset.mapboxOptimizationCoordsValue)
+  }
+
+  cleanupMarkers() {
+    let deleted = this.itemTarget.dataset.editListItemsValue
+    document.querySelectorAll('.marker').forEach(element => {
+      if (element.id == deleted) {
+        element.remove()
+      }
+    });
+    document.querySelector('.truck').remove()
   }
 
   get mapController() {

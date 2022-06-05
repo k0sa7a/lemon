@@ -66,7 +66,7 @@ export default class extends Controller {
 
       // Create an HTML element for your custom marker
       const customMarker = document.createElement("div")
-      customMarker.id = `[ ${marker.lng}, ${marker.lat} ]`
+      customMarker.id = `[${marker.lng}, ${marker.lat}]`
       customMarker.className = "marker"
       customMarker.style.backgroundImage = `url('${marker.image_url}')`
       customMarker.style.backgroundSize = "contain"
