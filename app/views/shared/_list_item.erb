@@ -5,7 +5,7 @@
     <div class='itinerary-cell cell__delete'>
           <%= link_to '<i class="fas fa-trash"></i>'.html_safe,
           list_item_path(item),
-          # method: :delete,
+          method: :delete,
           remote: true,
           data: { edit_list_items_target: 'link', action: "click->edit-list-items#update" } %>
       </div>
