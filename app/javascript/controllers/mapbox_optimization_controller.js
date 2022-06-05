@@ -82,8 +82,6 @@ export default class extends Controller {
   }
 
   routing() {
-    console.log('hi')
-
     // const theMap = this.map
     mapboxgl.accessToken = this.apiKeyValue;
 
@@ -287,9 +285,7 @@ export default class extends Controller {
 
 
 
-  routing2() {
-    console.log('hi')
-
+  rerouting() {
     // const theMap = this.map
     mapboxgl.accessToken = this.apiKeyValue;
 
@@ -303,99 +299,24 @@ export default class extends Controller {
     const nothing = turf.featureCollection([]);
 
 
-      const marker = document.createElement('div');
-      marker.classList = 'truck';
-      new mapboxgl.Marker(marker).setLngLat(truckLocation).addTo(this.map);
+    const marker = document.createElement('div');
+    marker.classList = 'truck';
+    new mapboxgl.Marker(marker).setLngLat(truckLocation).addTo(this.map);
 
-      // this.map.addLayer({
-      //   id: 'dropoffs-symbol',
-      //   type: 'symbol',
-      //   source: {
-      //     data: dropoffs,
-      //     type: 'geojson'
-      //   },
-      //   layout: {
-      //     'icon-allow-overlap': true,
-      //     'icon-ignore-placement': true,
-      //     'icon-image': 'marker-15'
-      //   }
-      // });
+    function addWaypoints(coords) {
+      let formattedCoords = coords.map(element => {
+        let coord = {
+          lng: element[0],
+          lat: element[1]
+        }
+        return coord
+      });
+      createPoints(formattedCoords)
+      updateDropoffs(dropoffs);
+    }
 
-      // this.map.addSource('route', {
-      //   type: 'geojson',
-      //   data: nothing
-      // });
+    addWaypoints(this.coordsValue)
 
-      // this.map.addLayer(
-      //   {
-      //     id: 'routeline-active',
-      //     type: 'line',
-      //     source: 'route',
-      //     layout: {
-      //       'line-join': 'round',
-      //       'line-cap': 'round'
-      //     },
-      //     paint: {
-      //       'line-color': '#3887be',
-      //       'line-width': ['interpolate', ['linear'], ['zoom'], 12, 3, 22, 12]
-      //     }
-      //   },
-      //   'waterway-label'
-      // );
-
-      // this.map.addLayer(
-      //   {
-      //     id: 'routearrows',
-      //     type: 'symbol',
-      //     source: 'route',
-      //     layout: {
-      //       'symbol-placement': 'line',
-      //       'text-field': '▶',
-      //       'text-size': [
-      //         'interpolate',
-      //         ['linear'],
-      //         ['zoom'],
-      //         12,
-      //         24,
-      //         22,
-      //         60
-      //       ],
-      //       'symbol-spacing': [
-      //         'interpolate',
-      //         ['linear'],
-      //         ['zoom'],
-      //         12,
-      //         30,
-      //         22,
-      //         160
-      //       ],
-      //       'text-keep-upright': false
-      //     },
-      //     paint: {
-      //       'text-color': '#3887be',
-      //       'text-halo-color': 'hsl(55, 11%, 96%)',
-      //       'text-halo-width': 3
-      //     }
-      //   },
-      //   'waterway-label'
-      // );
-
-      function addWaypoints(coords) {
-        let formattedCoords = coords.map(element => {
-          let coord = {
-            lng: element[0],
-            lat: element[1]
-          }
-          return coord
-        });
-        createPoints(formattedCoords)
-        updateDropoffs(dropoffs);
-      }
-
-      addWaypoints(this.coordsValue)
-
-
-  // }
 
 
 
@@ -515,12 +436,11 @@ export default class extends Controller {
   }
 
   reload() {
-    console.log(this.map.getStyle().markers)
-
+    // console.log(this.map.getStyle().markers)
     // this.map.removeLayer("dropoffs-symbol");
     // this.map.removeLayer("routeline-active");
     // this.map.removeLayer("routearrows");
     // this.map.removeSource("route");
-    setTimeout(()=> {this.routing2()}, 500);
+    this.rerouting()
   }
 }

@@ -4,20 +4,6 @@ import { csrfToken } from "@rails/ujs"
 export default class extends Controller {
   static targets = ["link", "item"];
 
-
-  // connect() {
-  //   let map = document.getElementById('itinerary-map');
-  //   // console.log(map.dataset.mapboxOptimizationCoordsValue)
-  //   let items = [];
-  //   document.querySelectorAll('.itinerary-list-item').forEach(element => {
-  //     items.push(element.dataset.editListItemsValue)
-  //   });
-  //   console.log(map.setAttribute('data-mapbox-optimization-coords-value', `[${items}]` ))
-  // }
-  connect(){
-    console.log(this.linkTarget.href)
-  }
-
   update(e) {
 
     e.preventDefault();
@@ -40,14 +26,6 @@ export default class extends Controller {
     .then(() => this.mapController.reload())
     .catch(err => console.log(err))
 
-
-    // .then(data => console.log(data)) // Manipulate the data retrieved back, if we want to do something with it
-    // .catch(err => console.log(err))
-
-
-
-    // console.log(this.mapController)
-    // this.mapController.reload();
   }
 
   setCoords() {
@@ -57,8 +35,6 @@ export default class extends Controller {
       items.push(element.dataset.editListItemsValue)
     });
     map.dataset.mapboxOptimizationCoordsValue = `[${items}]`
-    // console.log(items)
-    // console.log(map.dataset.mapboxOptimizationCoordsValue)
   }
 
   cleanupMarkers() {
