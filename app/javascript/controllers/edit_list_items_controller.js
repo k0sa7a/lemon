@@ -1,4 +1,5 @@
 import { Controller } from "stimulus"
+import { csrfToken } from "@rails/ujs"
 
 export default class extends Controller {
   static targets = ["link", "item"];
@@ -13,13 +14,37 @@ export default class extends Controller {
   //   });
   //   console.log(map.setAttribute('data-mapbox-optimization-coords-value', `[${items}]` ))
   // }
+  connect(){
+    console.log(this.linkTarget.href)
+  }
 
-  update() {
-    setTimeout(()=> {this.setCoords()}, 500);
+  update(e) {
+
+    e.preventDefault();
+    e.stopPropagation();
+    let url = this.linkTarget.href
+    let headers = {
+      'Content-type': 'application/json; charset=UTF-8',
+      'X-CSRF-Token': csrfToken()
+    }
+    fetch(url, {
+      method: 'DELETE',
+      headers: headers,
+      body: JSON.stringify(this.itemTarget)
+    })
+    .then(response => console.log(response))
+    .then(() => console.log(this.itemTarget))
+    .then(() => this.itemTarget.remove())
+    .then(() => this.setCoords())
+    .then(() => this.mapController.reload())
+    .catch(err => console.log(err))
+
+    // .then(data => console.log(data)) // Manipulate the data retrieved back, if we want to do something with it
+    // .catch(err => console.log(err))
+
 
     // console.log(this.mapController)
     // this.mapController.reload();
-    setTimeout(()=> {this.mapController.reload()}, 500);
   }
 
   setCoords() {

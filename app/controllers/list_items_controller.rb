@@ -13,12 +13,12 @@ class ListItemsController < ApplicationController
   end
 
   def destroy
+    @itinerary = @list_item.itinerary
     @list_item.destroy
-    itinerary = @list_item.itinerary
-    @items = itinerary.list_items
+    # @items = @itinerary.list_items
     respond_to do |format|
-      format.html { redirect_to itinerary_path(@list_item.itinerary), notice: 'Location was removed.' }
-      format.js
+      # format.html { redirect_to list_item_path(@list_item), notice: 'Location was removed.' }
+      format.json { head :ok }
     end
   end
 
