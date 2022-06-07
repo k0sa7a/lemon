@@ -1,28 +1,30 @@
 <h1>Locations</h1>
-
-<div class="search-form">
-  <%= form_with url: locations_path, method: :get, class: "d-flex" do |form| %>
-    <div data-controller="geoform" data-geoform-api-key-value= <%= ENV['MAPBOX_API_KEY'] %> >
-      <%= form.text_field :query, value: params[:query], placeholder: "Postcode/Location", class: "d-none", data: {geoform_target: "address"} %>
-    </div>
-    <%= form.number_field :distance, in: 1.0..70.0, step: 0.5, placeholder: "Distance: 1km", value: params[:distance] %>
-    <%= form.submit "Search" %>
-  <% end %>
-</div>
-
-<div class="index-content mx-1">
-  <div class="locations-container">
-    <% @locations.each do |location| %>
-      <div>
-        <p><%= render "show_modal", location: location, num: location.id, list_item: @list_item, itinerary: @itinerary %></p>
+<div data-controller="locations-search">
+  <div class="search-form">
+    <%= form_with url: locations_path, method: :get, class: "d-flex", data: {locations_search_target: 'form'} do |form| %>
+      <div data-controller="geoform" data-geoform-api-key-value= <%= ENV['MAPBOX_API_KEY'] %> >
+        <%= form.text_field :query, value: params[:query], placeholder: "Postcode/Location", class: "d-none", data: {geoform_target: "address"} %>
       </div>
+      <%= form.number_field :distance, in: 1.0..70.0, step: 0.5, placeholder: "Distance: 1km", value: params[:distance], data: {locations_search_target: 'input'} %>
+      <%= form.submit "Search" %>
     <% end %>
   </div>
-  <div class="map-container" >
-    <div style="width: 100%; height: 100%;"
-      data-controller="mapbox"
-      data-mapbox-markers-value="<%= @markers.to_json %>"
-      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+
+  <div class="index-content mx-1">
+    <div class="locations-container" data-locations-search-target="list">
+      <% @locations.each do |location| %>
+        <div>
+          <p><%= render "show_modal", location: location, num: location.id, list_item: @list_item, itinerary: @itinerary %></p>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="map-container" >
+      <div style="width: 100%; height: 100%;"
+        data-controller="mapbox"
+        data-mapbox-markers-value="<%= @markers.to_json %>"
+        data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
     </div>
   </div>
 </div>
