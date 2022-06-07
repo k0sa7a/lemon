@@ -1,11 +1,20 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ "form", "input", "list" ]
+  static targets = [ "form", "input", "list", "address" ]
 
   connect() {
     console.log(this.inputTarget)
     console.log(this.formTarget)
     console.log(this.listTarget)
+  }
+
+  update(event) {
+   const url = `${this.formTarget.action}?query=${this.addressTarget.value}&distance=${this.inputTarget.value}`
+   fetch(url, {headers: {"Accept": "text/plain"}})
+   .then(response => response.text())
+   .then((data) => {
+     this.listTarget.outerHTML = data
+   })
   }
 }
