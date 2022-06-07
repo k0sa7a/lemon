@@ -25,7 +25,13 @@ export default class extends Controller {
     .then(() => this.setCoords())
     .then(() => this.mapController.reload())
     .catch(err => console.log(err))
-
+    //WIP
+    // .finally(() => {
+    //   if (document.querySelectorAll('.itinerary-list-item').length == 0) {
+    //     console.log('empty')
+    //     window.location.reload();
+    //   }
+    // })
   }
 
   setCoords() {
