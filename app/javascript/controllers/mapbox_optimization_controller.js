@@ -296,11 +296,6 @@ export default class extends Controller {
   }
 
   reload() {
-    // console.log(this.map.getStyle().markers)
-    // this.map.removeLayer("dropoffs-symbol");
-    // this.map.removeLayer("routeline-active");
-    // this.map.removeLayer("routearrows");
-    // this.map.removeSource("route");
     this.rerouting()
   }
 }
