@@ -10,6 +10,8 @@ require 'nokogiri'
 
 puts "Clearing Database..."
 
+Itinerary.destroy_all
+ListItem.destroy_all
 Location.destroy_all
 User.destroy_all
 

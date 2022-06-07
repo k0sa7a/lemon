@@ -10,28 +10,6 @@ export default class extends Controller {
     coords: Array
   }
 
-  // initialize() {
-  //   mapboxgl.accessToken = this.apiKeyValue;
-
-  //   if ( this.coordsValue.length <= 0) {
-  //     this.map = new mapboxgl.Map({
-  //       container: this.element,
-  //       style: "mapbox://styles/mapbox/streets-v11",
-  //       center: [-0.11878659646091592, 51.51183314085651], // starting position
-  //       zoom: 12
-  //     })
-  //   }
-  //   else {
-  //     this.map = new mapboxgl.Map({
-  //       container: this.element,
-  //       style: "mapbox://styles/mapbox/streets-v11",
-  //     })
-
-  //     this.#addMarkersToMap()
-  //     this.#fitMapToMarkers()
-  //   }
-  // }
-
   connect() {
 
     mapboxgl.accessToken = this.apiKeyValue;
@@ -55,8 +33,6 @@ export default class extends Controller {
     }
 
     this.routing()
-
-  // }
   }
 
 
@@ -82,7 +58,6 @@ export default class extends Controller {
   }
 
   routing() {
-    // const theMap = this.map
     mapboxgl.accessToken = this.apiKeyValue;
 
     const self = this
@@ -267,7 +242,6 @@ export default class extends Controller {
     async function steps(legs) {
 
       const instructions = document.getElementById('instructions');
-      // const steps = data.legs[0].steps;
       let duration = 0;
       let tripInstructions = '';
       for (const leg of legs) {
@@ -282,6 +256,21 @@ export default class extends Controller {
     }
   }
 
+  // async steps(legs) {
+
+  //   const instructions = document.getElementById('instructions');
+  //   let duration = 0;
+  //   let tripInstructions = '';
+  //   for (const leg of legs) {
+  //     duration += leg.duration
+  //     for (const step of leg.steps) {
+  //       tripInstructions += `<li>${step.maneuver.instruction}</li>`;
+  //     }
+  //   }
+  //   instructions.innerHTML = `<p><strong>Trip duration: ${Math.floor(
+  //     duration / 60
+  //   )} min 🚴 </strong></p><ol>${tripInstructions}</ol>`;
+  // }
 
 
 
