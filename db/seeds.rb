@@ -10,6 +10,8 @@ require 'nokogiri'
 
 puts "Clearing Database..."
 
+Itinerary.destroy_all
+ListItem.destroy_all
 Location.destroy_all
 User.destroy_all
 
@@ -108,5 +110,26 @@ Location.all.each do |location|
   location.photos.attach(io: File.open("app/assets/images/stock_location#{arr.sample}.jpg"), filename: "stock_location#{arr.sample}.jpg", content_type: 'image/jpg')
   location.save!
 end
+
+# manual fix to locations that did not get correct long/lat
+location = Location.find_by(title: "Acton Skatepark")
+location.address = "W3 7LB"
+location.save
+
+location = Location.find_by(title: "Barking Better Extreme Skatepark")
+location.address = "RM8 2JR"
+location.save
+
+location = Location.find_by(title: "Barking Skatpark")
+location.address = "IG11 8SL"
+location.save
+
+location = Location.find_by(title: "Beddington Mini-Ramp")
+location.address = "SM6 7NN"
+location.save
+
+location = Location.find_by(title: "Bedfont Skatepark")
+location.address = "TW14 8JA"
+location.save
 
 puts "Done! #{Location.count} locations and #{User.count} users created!"
