@@ -3,6 +3,7 @@
   <td><div class='itinerary-cell title-cell'> <%= item.location.title %> </div></td>
   <td>
     <div class='itinerary-cell cell__delete'>
+    <%# button_to will work for non js link_to requires js %>
           <%= link_to '<i class="fas fa-trash"></i>'.html_safe,
           list_item_path(item),
           method: :delete,
