@@ -111,4 +111,25 @@ Location.all.each do |location|
   location.save!
 end
 
+# manual fix to locations that did not get correct long/lat
+location = Location.find_by(title: "Acton Skatepark")
+location.address = "W3 7LB"
+location.save
+
+location = Location.find_by(title: "Barking Better Extreme Skatepark")
+location.address = "RM8 2JR"
+location.save
+
+location = Location.find_by(title: "Barking Skatpark")
+location.address = "IG11 8SL"
+location.save
+
+location = Location.find_by(title: "Beddington Mini-Ramp")
+location.address = "SM6 7NN"
+location.save
+
+location = Location.find_by(title: "Bedfont Skatepark")
+location.address = "TW14 8JA"
+location.save
+
 puts "Done! #{Location.count} locations and #{User.count} users created!"
