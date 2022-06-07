@@ -14,9 +14,11 @@
 @import "components/index";
 @import "pages/index";
 
-body {
+.body {
   background-color: $color-white;
 }
+
+
 
 .app-wrapper {
   min-height: calc(100vh - 60px);

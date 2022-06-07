@@ -13,16 +13,26 @@
         <% if user_signed_in? %>
           <div class="d-flex justify-content-end nav-item" data-action="scroll@window->navbar-scroller#scroller" data-navbar-scroller-target="link">
             <div>
-              <li class="nav-item nav-item-weather">
+              <li class="nav-item nav-item-weather mr-auto p-2">
                 <!-- <%= link_to "Weather", "#", class: "nav-link" %> -->
                 <!-- We can move the weather to the footer too or transform it to a link that brings us to weather page or modal that pops up with more details -->
-                <%= image_tag @weather_icon, class: "avatar"  %>
+                <%= image_tag @weather_icon, class: "avatar" %>
                 <p class="p__weather"><%= "#{@temp}°C" %></p>
               </li>
             </div>
             <div>
               <li class="nav-item active" >
-                <%= link_to "Home", "#", class: "nav-link" %>
+                <%= link_to "Home", root_path, class: "nav-link" %>
+              </li>
+            </div>
+            <div>
+              <li class="nav-item active" >
+                <%= link_to "Locations", locations_path , class: "nav-link" %>
+            </li>
+            </div>
+            <div>
+              <li class="nav-item active" >
+                <%= link_to "Add location", new_location_path , class: "nav-link" %>
               </li>
             </div>
             <li class="nav-item dropdown">
