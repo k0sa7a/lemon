@@ -1,0 +1,5 @@
+<% if current_user.id == params[:id].to_i %>
+  <%= render "shared/current_user_show" %>
+<% else %>
+  <%= render "shared/other_user_show" %>
+<% end %>

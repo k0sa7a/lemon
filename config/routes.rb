@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   resources :itineraries
 
+  resources :users
+
   get '/404', to: 'errors#not_found'
   get '/500', to: 'errors#internal_server'
 end
