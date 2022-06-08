@@ -32,7 +32,7 @@
 
   </head>
 
-  <body>
+  <body class="<%= @location_page ? 'form-bg' : ''%>">
     <div class="app-wrapper">
       <% unless ["not_found", "internal_server"].include? action_name %>
         <% if action_name == "home" %>

@@ -24,6 +24,7 @@ class LocationsController < ApplicationController
 
   def new
     @location = Location.new
+    @location_page = true
   end
 
   def create
@@ -36,6 +37,7 @@ class LocationsController < ApplicationController
   end
 
   def edit
+    @location_page = true
   end
 
   def update

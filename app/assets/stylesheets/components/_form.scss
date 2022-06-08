@@ -1,0 +1,39 @@
+.form-design{
+  text-align: center;
+  padding: 24px;
+  background-color: $color-grey-5;
+  color: $color-white;
+  font-weight:900;
+  vertical-align: middle !important;
+}
+
+.parent-form {
+  min-height: 100vh;
+}
+
+.btn__lemon_form {
+  font-family: 'Bangers', cursive;
+  height: 50px;
+  width: 150px;
+  border-radius: 15px;
+  border-style: dashed;
+  border-color: $color-white;
+  border-width: medium;
+  font-size: 20px;
+  color: $color-white;
+}
+
+.btn__lemon_form:hover {
+  border-style: solid;
+  border-width: medium;
+  border-color: $color-primary;
+  color: $color-primary;
+}
+
+.form-font{
+  color: $color-white;
+}
+
+.form-bg {
+  background-image: url("lemon-background.png") !important;
+}
