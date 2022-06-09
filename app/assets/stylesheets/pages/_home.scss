@@ -26,6 +26,7 @@ h1.home {
   z-index: 1000;
   font-family: 'Bangers', cursive;
   padding: 10px;
+  margin-bottom: 90px;
   width: 380px;
   border-radius: 20px;
   border-style: dashed;
@@ -50,4 +51,11 @@ h1.home {
   margin-left: 24px;
   align-items: center;
   width: 100%;
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  padding: 20px;
 }

@@ -1,5 +1,6 @@
 class LocationsController < ApplicationController
   before_action :set_location, only: [:show, :destroy, :edit, :update]
+
   def index
     if params[:query].present?
       distance = params[:distance].present? ? params[:distance] : 1

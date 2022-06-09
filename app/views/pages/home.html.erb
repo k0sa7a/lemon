@@ -4,6 +4,45 @@
   </div>
   <div class="d-flex flex-column justify-content-center" id="in_video_wrap">
     <h1 class="home">BRINGING SKATERS TOGETHER</h1>
-    <h2 class="call_to_action">Join our community</h1>
+    <%# <h2 class="call_to_action">Start exploring</h1> %>
+    <%= link_to "Start Exploring", locations_path, class:"call_to_action" %>
+  </div>
+</div>
+<div class="container">
+  <h2 class="text-center">
+    HELPING SKATERS TO ROLL
+  </h2>
+  <div class="row">
+    <div class="card col-sm">
+      <%= image_tag "coach.svg"%>
+      <h3>Getting Started</h3>
+      <p>We connect you to the best skating teachers in town</p>
+    </div>
+    <div class="card col-sm">
+      <%= image_tag "community.svg"%>
+      <h3>Make friends</h3>
+      <p>Join a community of like-minded people that loves to skate</p>
+    </div>
+    <div class="card col-sm">
+      <%= image_tag "route.svg"%>
+      <h3>Create routes</h3>
+      <p>Use our ultimate routing solution to create your own skating experience across the town</p>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <h2 class="text-center">
+    LEMON RADIO
+  </h2>
+  <div class="row">
+    <div class="card col-sm">
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2GZCAtXOXZAnD3Ge5jPnMO?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+    </div>
+      <div class="card col-sm">
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2b7XZpN3r6uC370VTXSPx8?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+    </div>
+      <div class="card col-sm">
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2EgkgvPJv1YRplDT00Zudz?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+    </div>
   </div>
 </div>
