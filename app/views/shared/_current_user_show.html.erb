@@ -1,8 +1,6 @@
-<div class="container mt-5">
-  <div class="profile_container">
-
-    <div class="user_banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path("user-banner2.jpg")%>);">
-    </div>
+<div class="profile_container">
+  <div class="item1">
+    <%= link_to "edit", edit_user_path , style:"color:black; text-decoration:underline"%>
 
     <div class="profile-image">
       <% if current_user.photo.attached? %>
@@ -12,26 +10,22 @@
       <% end %>
     </div>
 
-    <div class="profile_details">
-      <h1><strong><%=current_user.first_name%></strong></h1>
+    <div class="profile_details mt-2">
+      <h2><strong><%=current_user.first_name%></strong></h2>
       <p><%=current_user.address%></p>
-      <%= link_to "edit", edit_user_path , style:"color:black; text-decoration:underline"%>
     </div>
 
-    <div class="profile-grid">
-      <div class="profile-about">
-        <h2 class="about-left">About</h2>
-        <p class="about-left-p">Hi, I love roller skating. Been skating for 5 years. My roller blades are super cool.</p>
-
-      </div>
-
-      <div class="profile-itineraries">
-        <h2 class="about-left">My itineraries</h2>
-      </div>
-
-
-    </div>
-
+    <h3>Skating level</h3>
+      <% if current_user.skater_level.length == 0 %>
+        <p>Unknown</p>
+      <% else %>
+        <p><%=current_user.skater_level%></p>
+      <% end %>
 
   </div>
+  <div class="item2">Favourites</div>
+  <div class="item3">Routes</div>
+  <div class="item4">Calendar</div>
+  <div class="item5">Other</div>
+
 </div>

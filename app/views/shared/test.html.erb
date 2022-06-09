@@ -1,0 +1,35 @@
+  <div class="profile_container">
+
+    <div class="user_banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path("user-banner2.jpg")%>);">
+    </div>
+
+    <div class="profile-image">
+      <% if current_user.photo.attached? %>
+        <img src="<%= cl_image_path current_user.photo.key, gravity: :face,  crop: :fill, width: 400, height: 400 %>" class="avatar-bordered", data-bs-toggle="dropdown", aria-haspopup=true, aria-expanded=false>
+      <% else %>
+        <%= image_tag "empty_avatar.jpg", class: "avatar-bordered", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <% end %>
+    </div>
+
+    <div class="profile_details">
+      <h1><strong><%=current_user.first_name%></strong></h1>
+      <p><%=current_user.address%></p>
+    </div>
+
+
+    <div class="profile-grid">
+      <div class="profile-about">
+        <h2 class="about-left">About</h2>
+        <p class="about-left-p">Hi, I love roller skating. Been skating for 5 years. My roller blades are super cool.</p>
+      </div>
+
+
+      <div class="profile-itineraries">
+        <h2 class="about-left">My itineraries</h2>
+      </div>
+
+
+    </div>
+
+
+  </div>

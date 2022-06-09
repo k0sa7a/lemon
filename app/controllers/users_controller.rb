@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def show
-    @user = User.new
+    @user = User.find(params[:id])
+    @user_page = true
   end
 
   def edit
@@ -16,26 +17,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :first_name, :photo, :address)
+    params.require(:user).permit(:email, :first_name, :photo, :address, :skater_level)
   end
-
-  def my_listings
-    @listings = Plant.where(user_id: current_user)
-  end
-
-  def other_user_listings
-    @listings = Plant.where(user_id: params[:id])
-  end
-
-  def my_sales
-    all_sales = Purchase.all
-    sales = []
-    all_sales.each do |purchase|
-      if purchase.plant.user_id == current_user.id
-        sales << purchase
-      end
-    end
-    return sales
-  end
-
 end

@@ -55,10 +55,10 @@ html_doc.search('.image img').each do |element|
 end
 
 # create two users so that we can link them with our plants
-first_user_hash = { first_name: "Alfonso", email: "test@test.test", address: "10 Downing St, London", password: "123456" }
-second_user_hash = { first_name: "Galadriel", email: "test1@test.test", address: "138 Kingsland Rd, London", password: "654321" }
-third_user_hash = { first_name: "Paolo", email: "test2@test.test", address: "23 Parkway, London", password: "123456" }
-fourth_user_hash = { first_name: "Nana", email: "test3@test.test", address: "111 Bellenden Rd, London", password: "123456" }
+first_user_hash = { first_name: "Alfonso", email: "test@test.test", address: "10 Downing St, London", password: "123456", skater_level: "Expert"}
+second_user_hash = { first_name: "Galadriel", email: "test1@test.test", address: "138 Kingsland Rd, London", password: "654321",skater_level: "Beginner"}
+third_user_hash = { first_name: "Paolo", email: "test2@test.test", address: "23 Parkway, London", password: "123456", skater_level: "Intermediate"}
+fourth_user_hash = { first_name: "Nana", email: "test3@test.test", address: "111 Bellenden Rd, London", password: "123456", skater_level: "Beginner"}
 
 first_user_image = URI.open("https://images.unsplash.com/photo-1485528562718-2ae1c8419ae2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1116&q=80")
 second_user_image = URI.open("https://images.unsplash.com/photo-1485893086445-ed75865251e0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80")
