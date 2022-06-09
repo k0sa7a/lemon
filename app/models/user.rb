@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  acts_as_favoritor
   has_many :locations
   has_many :itineraries
   # Include default devise modules. Others available are:
