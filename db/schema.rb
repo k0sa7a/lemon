@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 2022_06_09_185003) do
     t.bigint "location_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "start", default: false
     t.index ["itinerary_id"], name: "index_list_items_on_itinerary_id"
     t.index ["location_id"], name: "index_list_items_on_location_id"
   end

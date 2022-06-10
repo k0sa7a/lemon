@@ -10,7 +10,9 @@ Rails.application.routes.draw do
 
   resources :list_items, only: [:destroy]
 
-  resources :itineraries
+  resources :itineraries do
+    resources :list_items, only: [:update]
+  end
 
   resources :users
 
