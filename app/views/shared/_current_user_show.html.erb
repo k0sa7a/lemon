@@ -23,7 +23,6 @@
     <div class="mx-auto" style="width:300px">
       <div class="mt-5 profile_dropdown d-flex d-flex justify-content-between">
         <div><h3>Skating level</h3></div>
-
           <% if current_user.skater_level.length == 0 %>
             <div><p>Unknown</p></div>
           <% else %>
@@ -41,9 +40,9 @@
   </div>
   <div class="item4">
     <h2>Calendar</h2>
-    <%= month_calendar do |date| %>
-      <%= date %>
-    <% end %>
+      <%= month_calendar do |date| %>
+        <%= date %>
+      <% end %>
   </div>
 
 </div>
