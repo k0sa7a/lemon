@@ -12,20 +12,38 @@
 
     <div class="profile_details mt-2">
       <h2><strong><%=current_user.first_name%></strong></h2>
-      <p><%=current_user.address%></p>
+      <h3><%=current_user.address%></h3>
+      <% if current_user.about.blank?%>
+        <p>Tell us more about you here!</p>
+      <% else %>
+        <p><%=current_user.about%></p>
+      <% end %>
     </div>
 
-    <h3>Skating level</h3>
-      <% if current_user.skater_level.length == 0 %>
-        <p>Unknown</p>
-      <% else %>
-        <p><%=current_user.skater_level%></p>
-      <% end %>
+    <div class="mx-auto" style="width:300px">
+      <div class="mt-5 profile_dropdown d-flex d-flex justify-content-between">
+        <div><h3>Skating level</h3></div>
+
+          <% if current_user.skater_level.length == 0 %>
+            <div><p>Unknown</p></div>
+          <% else %>
+            <div><p><%=current_user.skater_level%></p></div>
+          <% end %>
+      </div>
+    </div>
 
   </div>
-  <div class="item2">Favourites</div>
-  <div class="item3">Routes</div>
-  <div class="item4">Calendar</div>
-  <div class="item5">Other</div>
+  <div class="item2">
+    <h2>Favourite locations</h2>
+  </div>
+  <div class="item3">
+    <h2>Routes</h2>
+  </div>
+  <div class="item4">
+    <h2>Calendar</h2>
+    <%= month_calendar do |date| %>
+      <%= date %>
+    <% end %>
+  </div>
 
 </div>

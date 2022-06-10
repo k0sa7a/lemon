@@ -1,20 +1,19 @@
 .profile-bg{
-  background-color: $color-profile-secondary !important;
+  background-color: white;
 }
 
 .item1 { grid-area: u; }
 .item2 { grid-area: fave; }
 .item3 { grid-area: routes; }
 .item4 { grid-area: cal; }
-.item5 { grid-area: other; }
 
 .profile_container{
   margin: 16px;
   display: grid;
   grid-template-areas:
     'u u u fave fave fave fave routes routes'
-    'u u u cal cal other other routes routes';
-  grid-template-rows: 325px 325px;
+    'u u u cal cal cal cal routes routes';
+  grid-template-rows: 325px 400px;
   grid-template-columns: 200px 100px;
   gap: 20px;
   padding: 10px;
@@ -22,16 +21,37 @@
 
 .profile_container h2{
   font-size: 50px;
+  color: $color-grey-6;
+}
+
+.profile_details h3 {
+  margin-top: -20px;
+}
+
+.profile_container h3{
+  font-size: 30px;
+  font-family: 'Bangers', cursive;
+  color: $color-grey-6;
+}
+
+.profile_details p{
+  margin-top: 16px;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 16px;
 }
 
 .profile_container p {
   font-size: 16px;
 }
 
+.profile_dropdown p{
+  margin-top: 5px;
+}
 
 .item1{
   align-items: center;
-  padding: 24px;
 }
 
 .profile_container > div {
@@ -39,14 +59,16 @@
   text-align: center;
   padding: 20px 0;
   font-size: 30px;
-  border-radius: 16px;
+  border-radius: 8px;
 }
 
 .avatar-bordered {
   height: 250px;
   width: 250px;
+  border-style: solid;
+  border-color: $color-profile-primary;
 }
 
 .profile-image {
-  margin: 50px 50px 0px 50px;
+  margin: 30px 50px 0px 50px;
 }

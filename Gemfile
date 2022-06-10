@@ -68,3 +68,5 @@ gem 'cloudinary', '~> 1.16.0'
 
 # geocoding
 gem "geocoder"
+
+gem "simple_calendar", "~> 2.4"
