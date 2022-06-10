@@ -7,10 +7,13 @@ export default class extends Controller {
   static values = {
     apiKey: String,
     markers: Array,
-    coords: Array
+    coords: Array,
+    start: Array
   }
 
   connect() {
+    // console.log(this.startValue)
+    // console.log(this.coordsValue[0])
 
     mapboxgl.accessToken = this.apiKeyValue;
 
@@ -61,7 +64,7 @@ export default class extends Controller {
     mapboxgl.accessToken = this.apiKeyValue;
 
     // const self = this
-    this.truckLocation = this.coordsValue[0]
+    this.truckLocation = this.startValue
     this.keepTrack = [];
     this.pointHopper = {};
     // Create an empty GeoJSON feature collection for drop-off locations
@@ -260,7 +263,7 @@ export default class extends Controller {
   rerouting() {
     mapboxgl.accessToken = this.apiKeyValue;
 
-    this.truckLocation = this.coordsValue[0]
+    this.truckLocation = this.startValue
     this.keepTrack = [];
     this.pointHopper = {};
     // Create an empty GeoJSON feature collection for drop-off locations

@@ -20,7 +20,7 @@ export default class extends Controller {
     //   this.geocoder.setInput(this.addressTarget.value)
     // }
     if (this.addressTarget.value != "") {
-     this.geocoder.setPlaceholder(this.addressTarget.value)
+      this.geocoder.setPlaceholder(this.addressTarget.value)
     }
 
     this.geocoder.on("result", event => this.#setInputValue(event))
