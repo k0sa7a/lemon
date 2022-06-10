@@ -18,15 +18,15 @@ class ListItemsController < ApplicationController
   def destroy
     @itinerary = @list_item.itinerary
     @list_item.destroy
-    if @list_item.start
-      if @itinerary.list_items.empty?
-        p 'none left'
-      elsif @itinerary.list_items.first == @list_item
-        @itinerary.list_items[1].update(start: true)
-      else
-        @itinerary.list_items.first.update(start: true)
-      end
-    end
+    # if @list_item.start
+    #   if @itinerary.list_items.empty?
+    #     p 'none left'
+    #   elsif @itinerary.list_items.first == @list_item
+    #     @itinerary.list_items[1].update(start: true)
+    #   else
+    #     @itinerary.list_items.first.update(start: true)
+    #   end
+    # end
     # @items = @itinerary.list_items
     respond_to do |format|
       # format.html { redirect_to itinerary_path(@list_item.itinerary), notice: 'Location was removed.' } - enable if using button_to instead of link_to
@@ -37,8 +37,9 @@ class ListItemsController < ApplicationController
   def update
     @itinerary = @list_item.itinerary
     previous_start = ListItem.where(itinerary: @itinerary, start: true).first
-    previous_start.update(start: false)
-    @list_item.update(list_item_params)
+    previous_start.update(start: false) unless previous_start.nil?
+
+    @list_item.update!(list_item_params)
     render partial: "shared/list_item", locals: {item: @list_item}
     # respond_to do |format|
     #   format.html { redirect_to itinerary_path(@itinerary) }
