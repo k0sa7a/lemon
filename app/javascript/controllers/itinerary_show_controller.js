@@ -24,15 +24,9 @@ export default class extends Controller {
   }
 
   async InitialStartCoords() {
-    // this.listItemTargets[1].click();
     await this.itemController.resetStart()
     console.log('completed initialstars')
     return true
-    // let coords = this.listItemTargets[1].dataset.editListItemsCoordsValue
-    // this.listItemTargets[1].dataset.itineraryShowTarget = 'listItem startPoint'
-    // this.listItemTargets[1].classList.add('itinerary_table__start-point')
-    // this.mapTarget.dataset.mapboxOptimizationStartValue = coords
-
   }
 
   get itemController() {
