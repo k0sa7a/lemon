@@ -24,9 +24,9 @@
       </div>
     </div>
     <% end %>
-    <div class="locations-container">
+    <div class="locations-container" >
       <% @locations.each do |location| %>
-        <div>
+        <div data-controller="favorites">
           <p><%= render "show_modal", location: location, num: location.id, list_item: @list_item, itinerary: @itinerary %></p>
         </div>
       <% end %>

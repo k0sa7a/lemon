@@ -15,7 +15,12 @@
 
       <div class="modal-body">
         <div class="detail-container">
-          <h3><%= location.title %></h3>
+          <div class="d-flex">
+            <h3><%= location.title %></h3>
+            <%= link_to toggle_favorite_path(id: location.id), remote: true, method: :post do %>
+              <i class="fas fa-heart <%= current_user.favorited?(location) ? "favorited-heart" : "not-favorited-heart" %>" data-favorites-target="heart" data-action="click->favorites#LikeOrUnlike"></i>
+            <% end %>
+          </div>
           <p><%= location.description %></p>
           <p><%= location.address %></p>
         </div>
