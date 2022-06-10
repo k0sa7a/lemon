@@ -1,6 +1,20 @@
-<tr id='list-item-<%= item.id %>' class='itinerary-list-item' data-edit-list-items-target="item" data-controller="edit-list-items" data-edit-list-items-value = "<%= item.location.coords %>">
+<tr id='list-item-<%= item.id %>' class='itinerary-list-item <%= item.start ? 'itinerary_table__start-point' : '' %>' data-itinerary-show-target="listItem <%= item.start ? 'startPoint' : '' %>" data-edit-list-items-target="item" data-controller="edit-list-items" data-edit-list-items-coords-value = "<%= item.location.coords %>">
   <th scope="row"><img src="<%= cl_image_path item.location.photos.first.key, crop: :fill, width: 400, height: 400 %>"class= "location_preview image_col" alt=""></th>
   <td><div class='itinerary-cell title-cell'> <%= item.location.title %> </div></td>
+  <td><div class='itinerary-cell start-cell'>
+    <% if item.start %>
+      <p>Starting Here</p>
+        <%= simple_form_for [item.itinerary, item], html: {class: 'form d-none', data: {edit_list_items_target: "form", action: "submit->edit-list-items#setStart"}} do |f| %>
+          <%= f.input :start, input_html: { checked: true }, label:false %>
+          <%= f.submit "Make start", class: "btn btn-primary" %>
+        <% end %>
+    <% else %>
+      <%= simple_form_for [item.itinerary, item], html: {class: 'form', data: {edit_list_items_target: "form", action: "submit->edit-list-items#setStart"}} do |f| %>
+        <%= f.input :start, input_html: { checked: true }, label:false %>
+        <%= f.submit "Make start", class: "btn btn-primary" %>
+      <% end %>
+    <% end %>
+  </div></td>
   <td>
     <div class='itinerary-cell cell__delete'>
     <%# button_to will work for non js link_to requires js %>
