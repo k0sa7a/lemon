@@ -1,3 +1,11 @@
+.cards-user-show-container {
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 56px;
+  padding: 24px;
+}
+
 .card-product {
   overflow: hidden;
   height: 120px;
@@ -7,6 +15,7 @@
   align-items: center;
   max-width: 500px;
   min-width: 400px;
+  border-radius: 8px;
 }
 
 .card-product img {
