@@ -30,19 +30,27 @@
           <% end %>
       </div>
     </div>
-
   </div>
+
   <div class="item2">
     <h2>Favourite locations</h2>
   </div>
   <div class="item3">
-    <h2>Routes</h2>
+    <h2>Friends</h2>
   </div>
   <div class="item4">
     <h2>Calendar</h2>
-      <%= month_calendar do |date| %>
+    <div class="calendar-container">
+      <%= month_calendar(events: @meetings, end_attribute: :end_time) do |date, meetings| %>
         <%= date %>
+        <% meetings.each do |meeting| %>
+          <div class="meeting">
+            <p><%= meeting.name %></p>
+            <small><%= meeting.time unless meeting.multi_days? %></small>
+          </div>
+        <% end %>
       <% end %>
+    </div>
   </div>
 
 </div>

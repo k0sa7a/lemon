@@ -1,0 +1,16 @@
+<div class="wrapper bg-white">
+  <div class="container">
+    <h2 class="p-4">Change your details below</h2>
+
+    <%= simple_form_for(@meeting) do |f| %>
+      <%= f.input :name %>
+      <%= f.input :start_time, as: :datetime, html5: true %>
+      <%= f.input :end_time, as: :datetime, html5: true %>
+
+      <%= f.button :submit, "Confirm changes" %>
+    <% end %>
+
+    <%= link_to "or go back to profile page", user_path(current_user) %>
+
+  </div>
+</div>
