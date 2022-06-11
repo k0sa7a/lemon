@@ -58,6 +58,11 @@ class LocationsController < ApplicationController
     redirect_to locations_path
   end
 
+  def toggle_favorite
+    @location = Location.find_by(id: params[:id])
+    current_user.favorited?(@location) ? current_user.unfavorite(@location) : current_user.favorite(@location)
+  end
+
   private
 
   def location_params

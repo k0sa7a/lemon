@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   resources :list_items, only: [:destroy]
 
+  post 'toggle_favorite', to: "locations#toggle_favorite"
+  
   resources :itineraries do
     resources :list_items, only: [:update]
   end
