@@ -17,3 +17,13 @@
 .favorited-heart:hover {
   text-shadow: 2px 2px 2px rgba(0,0,0,0.1) !important;
 }
+
+.favorited-cardheart {
+  font-size: 21px;
+  margin-left: 6px;
+  color: $red
+}
+
+.not-favorited-cardheart {
+  opacity: 0;
+}
