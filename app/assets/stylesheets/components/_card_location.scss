@@ -1,5 +1,6 @@
 .card {
-  margin: 10px;
+  margin: 10px !important;
+  margin-left: 30px !important;
   overflow: hidden;
   width: 300px;
 }
@@ -12,6 +13,8 @@
 .card-header {
   height: 250px;
   border-bottom-style: none;
+  background-color: white !important;
+  border-radius: 10px !important;
 }
 
 .card-header img {
@@ -20,6 +23,8 @@
   display: block;
   height: 100%;
   width: 100%;
+  background-color: white;
+  border-radius: 10px !important;
 }
 
 .card h2 {
@@ -39,13 +44,20 @@
   color: $color-grey-6 !important
 }
 
+.card-body h3 {
+  font-size: medium !important;
+  text-align: center;
+}
+
+.card-body h4 {
+  text-align: center;
+}
 
 .card-body {
   border-top-style: none;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
   padding: 8px;
   min-height: 100px;
 }

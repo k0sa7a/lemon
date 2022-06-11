@@ -6,8 +6,8 @@
   <div class="card-body">
     <div>
       <i class="heart-icon fas fa-heart <%= current_user.favorited?(location) ? "favorited-cardheart" : "not-favorited-cardheart" %>" data-favorites-target="cardheart"></i>
-      <h2><%= location.title %></h2>
-      <p><%= location.address%></p>
+      <h3><%= location.title %></h3>
+      <h4><%= location.address%></h4>
     </div>
   </div>
 </div>
