@@ -8,58 +8,57 @@
     <%= link_to "Start Exploring", locations_path, class:"call_to_action" %>
   </div>
 </div>
-<div class="container">
-  <h2 class="text-center" id="h2__black">
+<div class="container mt-0">
+  <h2 class="text-center mt-0" id="h2__black">
     HELPING SKATERS TO ROLL
   </h2>
-  <div class="row">
+  <%= link_to locations_path, class: "cards__link" do %>
+  <div class="row mb-4">
     <div class="card col-sm">
-      <%= image_tag "coach.svg"%>
-      <h3>Getting Started</h3>
-      <p>We connect you to the best skating teachers in town</p>
+      <%= image_tag "coach.svg", :class => "card__img"%>
+      <h3>Get Started</h3>
+      <h4>We connect you to the best skating teachers in town</h4>
     </div>
     <div class="card col-sm">
-      <%= image_tag "community.svg"%>
+      <%= image_tag "community.svg", :class => "card__img"%>
       <h3>Make friends</h3>
-      <p>Join a community of like-minded people that loves to skate</p>
+      <h4>Join a community of like-minded people that love to skate</h4>
     </div>
     <div class="card col-sm">
-      <%= image_tag "route.svg"%>
+      <%= image_tag "route.svg", :class => "card__img"%>
       <h3>Create routes</h3>
-      <p>Use our ultimate routing solution to create your own skating experience across the town</p>
+      <h4>Create your own skating experience across the town</h4>
     </div>
   </div>
+  <% end %>
 </div>
 <div class="container">
   <h2 class="text-center" id="h2__black">
     SHOP FROM OUR PARTNERS
   </h2>
-  <div class="card-group">
+  <div class="card-group mb-4">
     <div class="card align-items-middle">
-      <%= image_tag "Dc_shoes_logo.png"%>
+      <%= image_tag "Dc_shoes_logo.png", :class => "brand__img"%>
     </div>
     <div class="card align-items-middle">
-      <%= image_tag "Santa-Cruz-logo.jpeg"%>
+      <%= image_tag "Santa-Cruz-logo.jpg", :class => "brand__img"%>
     </div>
     <div class="card align-items-middle">
-      <%= image_tag "element.png"%>
+      <%= image_tag "element.png", :class => "brand__img"%>
     </div>
     <div class="card align-items-middle">
-      <%= image_tag "vans.png"%>
+      <%= image_tag "vans.png", :class => "brand__img"%>
     </div>
   </div>
 </div>
-<div class="container">
-  <h2 class="text-center" id="h2__black">
-    ONLINE STORE
-  </h2>
+<div class="container m-8">
   <div class="row">
    <div class="card col-sm">
       <%= image_tag "shop.png"%>
     </div>
   </div>
 </div>
-<div class="container-fluid p-8 m-4" id="radio__lemon">
+<div class="container-fluid mb-0" id="radio__lemon">
   <h2 class="text-center mt-8 pt-4">
     LEMON RADIO
   </h2>
