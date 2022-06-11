@@ -12,6 +12,7 @@
 .home-video-wrapper {
   height: 100vh;
   display: flex;
+  margin-bottom: 10px;
 }
 
 h1.home {
@@ -56,7 +57,7 @@ h1.home {
 .card {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 40px;
+  margin-bottom: 80px;
   padding: 20px;
   border-style: none;
 }
@@ -90,4 +91,45 @@ h2.text-center {
 #h2__black {
   font-family: 'Bangers', cursive;
   color: black;
+  margin-top: 0;
+  margin-bottom: 50px;
+}
+
+.brand__img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 70%;
+}
+
+
+.card__img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: 40px;
+  width: 70%;
+}
+
+h3 {
+  text-align: center;
+  margin: 4px;
+  padding: 5px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+h4 {
+  text-align: center;
+  margin-top: 4px;
+  padding: 5px;
+  font-size: 15px;
+
+}
+
+.cards__link {
+  text-decoration: none !important;
 }

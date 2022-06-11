@@ -1,17 +1,18 @@
 
 .item1 { grid-area: u; }
 .item2 { grid-area: fave; }
-.item3 { grid-area: routes; }
+.item3 { grid-area: other; }
 .item4 { grid-area: cal; }
 
 .profile_container{
   margin: 16px;
   display: grid;
   grid-template-areas:
-    'u u u fave fave fave fave routes routes'
-    'u u u cal cal cal cal routes routes';
+    'u fave'
+    'u cal'
+    'other cal';
   grid-template-rows: 325px 400px;
-  grid-template-columns: 200px 100px;
+  grid-template-columns: 40% 58%;
   gap: 20px;
   padding: 10px;
 }
@@ -49,6 +50,11 @@
 
 .item1{
   align-items: center;
+  height: 745px;
+  background-image: linear-gradient(180deg, $color-profile-primary 40%, $color-white 40%);
+  border-style: solid;
+  border-color: $color-profile-primary;
+  border-width: thick;
 }
 
 .profile_container > div {
@@ -64,8 +70,13 @@
   width: 250px;
   border-style: solid;
   border-color: $color-profile-primary;
+  border-width: thick;
 }
 
 .profile-image {
   margin: 30px 50px 0px 50px;
+}
+
+.item3{
+  height: 400px;
 }
