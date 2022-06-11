@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @user_page = true
+    @fav_locations = current_user.all_favorited
   end
 
   def edit

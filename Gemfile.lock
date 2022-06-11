@@ -149,6 +149,7 @@ GEM
     nokogiri (1.13.6-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    particles-js-rails (2.0.0)
     pg (1.3.5)
     pry (0.13.1)
       coderay (~> 1.1)
@@ -286,6 +287,7 @@ DEPENDENCIES
   geocoder
   jbuilder (~> 2.7)
   listen (~> 3.3)
+  particles-js-rails
   pg (~> 1.1)
   pry-byebug
   pry-rails
