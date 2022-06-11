@@ -15,7 +15,7 @@
 
 <div class="index-content mx-1">
   <div>
-    <% if params[:query] %>
+    <% if params[:query] && @query_loc != nil %>
       <div class="weather d-flex justify-content-center">
       <%= image_tag @weather_icon %>
       <div class="d-flex flex-column align-items-center">
