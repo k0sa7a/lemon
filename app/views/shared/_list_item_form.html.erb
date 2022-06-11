@@ -1,7 +1,7 @@
 <div class="modal__form__container w-100 <%= empty ? 'd-none' : '' %>" data-location-modal-target="addListItemForm">
   <%= simple_form_for([location, list_item]) do |f| %>
     <div class="d-flex justify-content-between">
-      <%= f.association :itinerary, collection: current_user.itineraries, prompt: "Select a route", label: false, input_html: {class: "m-0"} %>
+      <%= render :partial => 'shared/itinerary_select', :locals => { :f => f } %>
       <%= f.submit "Add to route", class: "btn btn-primary modal__form__button" %>
     </div>
   <% end %>
