@@ -10,7 +10,13 @@ Rails.application.routes.draw do
 
   resources :list_items, only: [:destroy]
 
-  resources :itineraries
+  post 'toggle_favorite', to: "locations#toggle_favorite"
+  
+  resources :itineraries do
+    resources :list_items, only: [:update]
+  end
+
+  resources :users
 
   get '/404', to: 'errors#not_found'
   get '/500', to: 'errors#internal_server'
