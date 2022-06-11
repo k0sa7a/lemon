@@ -1,0 +1,19 @@
+<div class="wrapper bg-white">
+  <div class="container">
+    <h2 class="p-4">Change your details below</h2>
+
+    <%= simple_form_for(@user) do |f| %>
+      <%= f.input :first_name %>
+      <%= f.input :address %>
+      <%= f.input :email %>
+      <%= f.input :photos, as: :file, input_html: { multiple: false } %>
+      <%= f.input :about%>
+      <%= f.label :skater_level %>
+      <%= f.select :skater_level, ["Beginner", "Intermediate", "Expert"], :prompt => 'Select your level' %>
+      <%= f.button :submit, "Confirm changes" %>
+    <% end %>
+
+    <%= link_to "or go back to profile page", user_path %>
+
+  </div>
+</div>

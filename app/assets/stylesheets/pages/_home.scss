@@ -26,6 +26,7 @@ h1.home {
   z-index: 1000;
   font-family: 'Bangers', cursive;
   padding: 10px;
+  margin-bottom: 90px;
   width: 380px;
   border-radius: 20px;
   border-style: dashed;
@@ -50,4 +51,43 @@ h1.home {
   margin-left: 24px;
   align-items: center;
   width: 100%;
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  padding: 20px;
+  border-style: none;
+}
+
+#radio__lemon {
+  background-color: black;
+  width: 100%;
+}
+
+#radio__lemon:hover {
+  border-style: none !important;
+  background-color: black;
+}
+
+#radio__card {
+  background-color: black;
+  padding-top: 30px;
+  margin-bottom: 40px;
+}
+
+#radio__card:hover {
+  border-style: none !important;
+  background-color: black;
+}
+
+h2.text-center {
+  font-family: 'Bangers', cursive;
+  color: white;
+}
+
+#h2__black {
+  font-family: 'Bangers', cursive;
+  color: black;
 }
