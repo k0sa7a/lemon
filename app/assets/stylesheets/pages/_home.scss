@@ -95,7 +95,7 @@ h2.text-center {
 #h2__black {
   font-family: 'Bangers', cursive;
   color: black;
-  margin-top: 0;
+  margin-top: 10px !important;
   margin-bottom: 50px;
 }
 
@@ -136,4 +136,53 @@ h4 {
 
 .cards__link {
   text-decoration: none !important;
+}
+
+
+.arrow{
+  position: absolute;
+  top: 85%;
+  left: 90%;
+  transform: translate(-50%,-50%);
+}
+
+
+.arrow span{
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-bottom: 5px solid #FFC65A;
+  border-right: 5px solid #FFC65A;
+  transform: rotate(45deg);
+  margin: -10px;
+  animation: animate 2s infinite;
+}
+.arrow span:nth-child(2){
+  animation-delay: -0.2s;
+}
+.arrow span:nth-child(3){
+  animation-delay: -0.4s;
+}
+@keyframes animate {
+  0%{
+      opacity: 0;
+      transform: rotate(45deg) translate(-20px,-20px);
+  }
+  50%{
+      opacity: 1;
+  }
+  100%{
+      opacity: 0;
+      transform: rotate(45deg) translate(20px,20px);
+  }
+}
+
+#text_arrow {
+  color: #FFC65A !important;
+  font-family: 'Bangers', cursive;
+  font-size: xx-large !important;
+  position: absolute;
+  margin-top: 65% !important;
+  margin-left: 70% !important;
+
 }
