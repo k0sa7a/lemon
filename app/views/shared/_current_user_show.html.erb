@@ -36,7 +36,7 @@
     <h2>Favourite locations</h2>
     <div class="cards-user-show-container">
       <% @fav_locations.each do |location|%>
-
+      <%= link_to location_path(location) do %>
       <div class="card-product">
         <% url = location.photos.attached? ? cl_image_path(location.photos.first.key) : "stock_location1.jpg" %>
         <%= image_tag(url) %>
@@ -45,6 +45,7 @@
           <p><%= location.description[0..64] %>...</p>
         </div>
       </div>
+      <% end %>
 
 
       <% end %>
