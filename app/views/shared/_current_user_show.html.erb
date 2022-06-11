@@ -1,0 +1,48 @@
+<div class="profile_container">
+  <div class="item1">
+    <%= link_to "edit", edit_user_path , style:"color:black; text-decoration:underline"%>
+
+    <div class="profile-image">
+      <% if current_user.photo.attached? %>
+        <img src="<%= cl_image_path current_user.photo.key, gravity: :face,  crop: :fill, width: 400, height: 400 %>" class="avatar-bordered", data-bs-toggle="dropdown", aria-haspopup=true, aria-expanded=false>
+      <% else %>
+        <%= image_tag "empty_avatar.jpg", class: "avatar-bordered", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <% end %>
+    </div>
+
+    <div class="profile_details mt-2">
+      <h2><strong><%=current_user.first_name%></strong></h2>
+      <h3><%=current_user.address%></h3>
+      <% if current_user.about.blank?%>
+        <p>Tell us more about you here!</p>
+      <% else %>
+        <p><%=current_user.about%></p>
+      <% end %>
+    </div>
+
+    <div class="mx-auto" style="width:300px">
+      <div class="mt-5 profile_dropdown d-flex d-flex justify-content-between">
+        <div><h3>Skating level</h3></div>
+          <% if current_user.skater_level.length == 0 %>
+            <div><p>Unknown</p></div>
+          <% else %>
+            <div><p><%=current_user.skater_level%></p></div>
+          <% end %>
+      </div>
+    </div>
+
+  </div>
+  <div class="item2">
+    <h2>Favourite locations</h2>
+  </div>
+  <div class="item3">
+    <h2>Routes</h2>
+  </div>
+  <div class="item4">
+    <h2>Calendar</h2>
+      <%= month_calendar do |date| %>
+        <%= date %>
+      <% end %>
+  </div>
+
+</div>

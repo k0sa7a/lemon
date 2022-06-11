@@ -54,31 +54,31 @@ html_doc.search('.image img').each do |element|
   images << image_url
 end
 
-first_user_hash = { email: "test@test.test", password: "123456" }
-second_user_hash = { email: "test1@test.test", password: "654321" }
-third_user_hash = { email: "test2@test.test", password: "123456" }
-fourth_user_hash = { email: "test3@test.test", password: "123456" }
+# create two users so that we can link them with our plants
+first_user_hash = { first_name: "Alfonso", email: "test@test.test", address: "10 Downing St, London", password: "123456", skater_level: "Expert"}
+second_user_hash = { first_name: "Galadriel", email: "test1@test.test", address: "138 Kingsland Rd, London", password: "654321",skater_level: "Beginner"}
+third_user_hash = { first_name: "Paolo", email: "test2@test.test", address: "23 Parkway, London", password: "123456", skater_level: "Intermediate"}
+fourth_user_hash = { first_name: "Nana", email: "test3@test.test", address: "111 Bellenden Rd, London", password: "123456", skater_level: "Beginner"}
 
-
-# first_user_image = URI.open("https://images.unsplash.com/photo-1485528562718-2ae1c8419ae2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1116&q=80")
-# second_user_image = URI.open("https://images.unsplash.com/photo-1485893086445-ed75865251e0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80")
-# third_user_image = URI.open("https://images.unsplash.com/photo-1618077360395-f3068be8e001?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880")
-# fourth_user_image = URI.open("https://images.unsplash.com/photo-1547212371-eb5e6a4b590c?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880")
+first_user_image = URI.open("https://images.unsplash.com/photo-1485528562718-2ae1c8419ae2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1116&q=80")
+second_user_image = URI.open("https://images.unsplash.com/photo-1485893086445-ed75865251e0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80")
+third_user_image = URI.open("https://images.unsplash.com/photo-1618077360395-f3068be8e001?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880")
+fourth_user_image = URI.open("https://images.unsplash.com/photo-1547212371-eb5e6a4b590c?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880")
 
 user_one = User.new(first_user_hash)
-# user_one.photo.attach(io: first_user_image, filename: 'user1.png', content_type: 'image/png')
+user_one.photo.attach(io: first_user_image, filename: 'user1.png', content_type: 'image/png')
 user_one.save!
 sleep(1)
 user_two = User.new(second_user_hash)
-# user_two.photo.attach(io: second_user_image, filename: 'user2.png', content_type: 'image/png')
+user_two.photo.attach(io: second_user_image, filename: 'user2.png', content_type: 'image/png')
 user_two.save!
 sleep(1)
 user_three = User.new(third_user_hash)
-# user_three.photo.attach(io: third_user_image, filename: 'user3.png', content_type: 'image/png')
+user_three.photo.attach(io: third_user_image, filename: 'user3.png', content_type: 'image/png')
 user_three.save!
 sleep(1)
 user_four = User.new(fourth_user_hash)
-# user_four.photo.attach(io: fourth_user_image, filename: 'user4.png', content_type: 'image/png')
+user_four.photo.attach(io: fourth_user_image, filename: 'user4.png', content_type: 'image/png')
 user_four.save!
 
 users = [user_one, user_two, user_three, user_four]
