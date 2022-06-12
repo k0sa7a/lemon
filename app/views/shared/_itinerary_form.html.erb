@@ -1,4 +1,4 @@
-<div class="location-modal__itinerary_form w-100 <%= empty ? '' : 'd-none' %>" data-location-modal-target="createItineraryCont">
+<div class="location-modal__itinerary_form w-100 <%= empty ? '' : 'd-none' %>" data-location-modal-target="createItineraryCont" data-location-index-target="createItineraryCont">
   <p>Create a new skate route</p>
     <%= simple_form_for([itinerary], data: { location_modal_target: "createItineraryForm", action: "submit->location-modal#createItinerary" }) do |f| %>
     <div class="d-flex justify-content-between mb-3">

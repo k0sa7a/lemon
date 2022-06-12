@@ -12,13 +12,14 @@ export default class extends Controller {
 
     mapboxgl.accessToken = this.apiKeyValue
 
-    if (this.markersValue.length == 0) {
-      this.map = new mapboxgl.Map({
-        container: this.element,
-        style: "mapbox://styles/piresgabrielgit/cl3q0t37l000s14rr07vgoms0",
-        center: [-0.11878659646091592, 51.51183314085651], // starting position
-      })
-    } else {
+    // if (this.markersValue.length == 0) {
+    //   this.map = new mapboxgl.Map({
+    //     container: this.element,
+    //     style: "mapbox://styles/piresgabrielgit/cl3q0t37l000s14rr07vgoms0",
+    //     center: [-0.11878659646091592, 51.51183314085651], // starting position
+    //     zoom: 12
+    //   })
+    // } else {
 
     this.map = new mapboxgl.Map({
       container: this.element,
@@ -27,7 +28,7 @@ export default class extends Controller {
 
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
-    }
+    // }
     this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
     mapboxgl: mapboxgl }))
   }

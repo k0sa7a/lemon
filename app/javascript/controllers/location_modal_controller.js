@@ -2,23 +2,20 @@ import { Controller } from "stimulus"
 import { csrfToken } from "@rails/ujs"
 
 export default class extends Controller {
-  static targets = ["addListItemForm", "createItineraryForm", "cancelItineraryButton", "createItineraryCont", "inputTitle"];
-
+  static targets = ["addListItemFormContainer", "createItineraryForm", "cancelItineraryButton", "createItineraryCont", "inputTitle", "addListItemForm"];
 
   displayForm() {
-    this.addListItemFormTarget.classList.add("d-none");
+    this.addListItemFormContainerTarget.classList.add("d-none");
     this.createItineraryContTarget.classList.remove("d-none");
   }
 
   cancelForm() {
-    this.addListItemFormTarget.classList.remove("d-none");
+    this.addListItemFormContainerTarget.classList.remove("d-none");
     this.createItineraryContTarget.classList.add("d-none");
   }
 
   createItinerary(event) {
     event.preventDefault()
-    // console.log(this.createItineraryFormTarget.action)
-    let title = this.inputTitleTarget.value
     fetch(this.createItineraryFormTarget.action, {
       method: "POST",
       headers: {"Accept": "application/json", "X-CSRF-Token": csrfToken() },
@@ -26,14 +23,26 @@ export default class extends Controller {
     })
     .then(response => response.json())
     .then((data) => {
-      this.modalController.updateLists(data)
-      console.log(data)
+      this.indexController.updateLists(data)
     })
-
-    this.modalController.updateLists()
+    this.cancelForm()
   }
 
-  get modalController() {
+  addItemToItinerary(event) {
+    console.log(this.addListItemFormTarget)
+    event.preventDefault()
+    fetch(this.addListItemFormTarget.action, {
+      method: "POST",
+      headers: {"Accept": "application/json", "X-CSRF-Token": csrfToken() },
+      body: new FormData(this.addListItemFormTarget)
+    })
+    .then(response => response)
+    .then((data) => {
+      console.log(data)
+    })
+  }
+
+  get indexController() {
     let item = document.querySelector('.locations-container');
     return this.application.getControllerForElementAndIdentifier(item, 'location-index');
   }
