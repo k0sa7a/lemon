@@ -6,7 +6,7 @@ export default class extends Controller {
   LikeOrUnlike() {
     this.heartTarget.classList.toggle('not-favorited-heart');
     this.heartTarget.classList.toggle('favorited-heart');
-    this.cardheartTarget.classList.toggle('not-favorited-heart');
-    this.cardheartTarget.classList.toggle('favorited-heart');
+    this.cardheartTarget.classList.toggle('not-favorited-cardheart');
+    this.cardheartTarget.classList.toggle('favorited-cardheart');
   }
 }

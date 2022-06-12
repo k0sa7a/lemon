@@ -1,5 +1,6 @@
-<h1>Locations</h1>
 
+<div class="locations__wrapper">
+  <h1>Locations</h1>
   <div class="search-form">
     <%= form_with url: locations_path, method: :get, class: "d-flex" do |form| %>
       <div data-controller="geoform" data-geoform-api-key-value= <%= ENV['MAPBOX_API_KEY'] %> >
@@ -9,11 +10,7 @@
       <%= form.submit "Search" %>
     <% end %>
   </div>
-
-
-
-
-<div class="index-content mx-1">
+<div class="index-content">
   <div>
     <% if params[:query] && @query_loc != nil %>
       <div class="weather d-flex justify-content-center">
@@ -36,4 +33,5 @@
       data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
+</div>
 </div>
