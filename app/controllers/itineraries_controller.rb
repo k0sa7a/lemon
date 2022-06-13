@@ -15,12 +15,20 @@ class ItinerariesController < ApplicationController
   def create
     @itinerary = Itinerary.new(itinerary_params)
     @itinerary.user = current_user
-    if @itinerary.save
-    else
-      puts @itinerary.errors.full_messages
-      puts "something went wrong"
+    # @itinerary.save!
+    @itinerary.save
+    respond_to do |format|
+      format.json
     end
-    redirect_to locations_path
+
+    # redirect_to locations_path
+
+
+    #     format.html { render "locations" }
+    #     # puts @itinerary.errors.full_messages
+    #     # puts "something went wrong"
+    #   end
+    # redirect_to locations_path/
   end
 
   private

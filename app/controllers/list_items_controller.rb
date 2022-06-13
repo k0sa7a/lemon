@@ -8,11 +8,14 @@ class ListItemsController < ApplicationController
     @list_item.start = true unless get_starting_point(@list_item.itinerary)
 
     if @list_item.save
+      respond_to do |format|
+        format.json { head :ok }
+        # notice: 'Location was added.'
+      end
     else
       puts @list_item.errors.full_messages
       puts "something went wrong"
     end
-    redirect_to locations_path
   end
 
   def destroy

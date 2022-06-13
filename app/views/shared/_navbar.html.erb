@@ -29,7 +29,7 @@
             </div>
             <li class="nav-item dropdown">
               <a class="dropdown-toggle nav-link" data-bs-toggle="dropdown">My Routes</a>
-              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" id="routesDropDown">
                 <% unless current_user.itineraries.empty? %>
                   <% current_user.itineraries.each do |itinerary| %>
                     <%= link_to "#{itinerary.title}", itinerary_path(itinerary), class: "dropdown-item" %>
