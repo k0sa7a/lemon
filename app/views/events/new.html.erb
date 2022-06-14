@@ -1,1 +1,11 @@
-<h1>create a new event</h1>
+<div class="parent-form container d-flex justify-content-center align-items-center h-100">
+  <div class="wrapper form-design">
+    <h2 class=form-font>Add a new event</h2>
+      <%= simple_form_for(@event) do |f| %>
+        <%= f.input :title %>
+        <%= f.input :start_time, :as => :datetime %>
+        <%= f.input :end_time, :as => :datetime %>
+        <%= f.button :submit, class: "btn__lemon_form" %>
+      <% end %>
+  </div>
+</div>
