@@ -21,7 +21,7 @@
     </div>
 
     <div class="mx-auto" style="width:300px">
-      <div class="mt-5 profile_dropdown d-flex d-flex justify-content-between">
+      <div id="calendar" class="mt-5 profile_dropdown d-flex d-flex justify-content-between">
         <div><h3>Skating level</h3></div>
           <% if current_user.skater_level.length == 0 %>
             <div><p>Unknown</p></div>
@@ -47,6 +47,7 @@
           <div class="meeting">
             <p><%= meeting.name %></p>
             <small><%= meeting.time unless meeting.multi_days? %></small>
+            <%= link_to "edit", edit_meeting_path(meeting)%>
           </div>
         <% end %>
       <% end %>
