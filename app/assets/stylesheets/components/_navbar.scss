@@ -14,6 +14,10 @@
   z-index: 1000;
 }
 
+.navbar-lewagon .dropdown {
+  cursor: pointer;
+}
+
 .navbar-lewagon.scrolled {
   background:$color-primary !important;
 }
@@ -72,6 +76,10 @@ a.nav-link:hover {
   width: 600px;
 }
 
+.navbar-dark .navbar-nav .nav-link {
+  color: $color-white;
+}
+
 @media(max-width: 992px) {
   .form_width{
     width: 350px;
@@ -85,4 +93,12 @@ a.nav-link:hover {
   .kill-mx-auto{
     margin-left: 0 !important;
   }
+}
+
+@media(max-width: 576px) {
+  .navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.55);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
 }
