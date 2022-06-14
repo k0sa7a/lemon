@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_14_180830) do
+ActiveRecord::Schema.define(version: 2022_06_14_194959) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,22 @@ ActiveRecord::Schema.define(version: 2022_06_14_180830) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.bigint "itinerary_id", null: false
+    t.bigint "chatroom_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "meeting_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string "title"
+    t.index ["chatroom_id"], name: "index_events_on_chatroom_id"
+    t.index ["itinerary_id"], name: "index_events_on_itinerary_id"
+    t.index ["meeting_id"], name: "index_events_on_meeting_id"
+    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -136,6 +152,10 @@ ActiveRecord::Schema.define(version: 2022_06_14_180830) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "events", "chatrooms"
+  add_foreign_key "events", "itineraries"
+  add_foreign_key "events", "meetings"
+  add_foreign_key "events", "users"
   add_foreign_key "itineraries", "users"
   add_foreign_key "list_items", "itineraries"
   add_foreign_key "list_items", "locations"

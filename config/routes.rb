@@ -20,8 +20,10 @@ Rails.application.routes.draw do
 
   resources :meetings
 
-  resources :chatrooms, only: :show do
-    resources :messages, only: :create
+  resources :events do
+    resources :chatrooms, only: :show do
+      resources :messages, only: :create
+    end
   end
 
   get '/404', to: 'errors#not_found'
