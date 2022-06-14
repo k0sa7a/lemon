@@ -1,6 +1,6 @@
-import { Controller } from "stimulus"
-import { csrfToken } from "@rails/ujs"
-import Swal from 'sweetalert2'
+import { Controller } from "stimulus";
+import { csrfToken } from "@rails/ujs";
+import Swal from "sweetalert2";
 
 export default class extends Controller {
   static targets = [
@@ -29,35 +29,36 @@ export default class extends Controller {
       headers: { Accept: "application/json", "X-CSRF-Token": csrfToken() },
       body: new FormData(this.createItineraryFormTarget),
     })
-    .then(response => response.json())
-    .then((data) => {
-      this.indexController.updateLists(data)
-      Swal.fire({
-        title: 'Success!',
-        text: 'Itinerary added!',
-        icon: 'success',
-        confirmButtonText: 'Cool'
-      })
-    })
-    this.cancelForm()
+      .then((response) => response.json())
+      .then((data) => {
+        this.indexController.updateLists(data);
+        Swal.fire({
+          title: "Success!",
+          text: "Itinerary added!",
+          icon: "success",
+          confirmButtonText: "Cool",
+        });
+      });
+    this.cancelForm();
   }
 
   addItemToItinerary(event) {
     event.preventDefault();
     fetch(this.addListItemFormTarget.action, {
       method: "POST",
-      headers: {"Accept": "application/json", "X-CSRF-Token": csrfToken() },
-      body: new FormData(this.addListItemFormTarget)
+      headers: { Accept: "application/json", "X-CSRF-Token": csrfToken() },
+      body: new FormData(this.addListItemFormTarget),
     })
-    .then(response => response)
-    .then((data) => {
-      console.log(data)
-      Swal.fire({
-        title: 'Success!',
-        text: 'Location added!',
-        icon: 'success',
-        confirmButtonText: 'Cool'
-      })
+      .then((response) => response)
+      .then((data) => {
+        console.log(data);
+        Swal.fire({
+          title: "Success!",
+          text: "Location added!",
+          icon: "success",
+          confirmButtonText: "Cool",
+        });
+      });
   }
 
   resetForm() {
