@@ -1,5 +1,6 @@
 import { Controller } from "stimulus"
 import { csrfToken } from "@rails/ujs"
+import Swal from 'sweetalert2'
 
 export default class extends Controller {
   static targets = ["addListItemFormContainer", "createItineraryForm", "cancelItineraryButton", "createItineraryCont", "inputTitle", "addListItemForm"];
@@ -24,6 +25,12 @@ export default class extends Controller {
     .then(response => response.json())
     .then((data) => {
       this.indexController.updateLists(data)
+      Swal.fire({
+        title: 'Success!',
+        text: 'Itinerary added!',
+        icon: 'success',
+        confirmButtonText: 'Cool'
+      })
     })
     this.cancelForm()
   }
@@ -39,6 +46,12 @@ export default class extends Controller {
     .then(response => response)
     .then((data) => {
       console.log(data)
+      Swal.fire({
+        title: 'Success!',
+        text: 'Location added!',
+        icon: 'success',
+        confirmButtonText: 'Cool'
+      })
     })
   }
 
