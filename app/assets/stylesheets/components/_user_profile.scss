@@ -1,20 +1,22 @@
 
 .item1 { grid-area: u; }
 .item2 { grid-area: fave; }
-.item3 { grid-area: other; }
 .item4 { grid-area: cal; }
 
 .profile_container{
   margin: 16px;
   display: grid;
   grid-template-areas:
-    'u fave'
     'u cal'
-    'other cal';
-  grid-template-rows: 325px 400px;
+    'u cal'
+    'u fave';
   grid-template-columns: 40% 58%;
   gap: 20px;
   padding: 10px;
+}
+
+.item2 {
+  height: 500px;
 }
 
 .profile_container h2{

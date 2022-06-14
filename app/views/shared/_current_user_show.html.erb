@@ -21,7 +21,7 @@
     </div>
 
     <div class="mx-auto" style="width:300px">
-      <div class="mt-5 profile_dropdown d-flex d-flex justify-content-between">
+      <div id="calendar" class="mt-5 profile_dropdown d-flex d-flex justify-content-between">
         <div><h3>Skating level</h3></div>
           <% if current_user.skater_level.length == 0 %>
             <div><p>Unknown</p></div>
@@ -29,6 +29,22 @@
             <div><p><%=current_user.skater_level%></p></div>
           <% end %>
       </div>
+    </div>
+  </div>
+
+  <div class="item4">
+    <h2>Calendar</h2>
+    <div class="calendar-container">
+      <%= month_calendar(events: @meetings, end_attribute: :end_time) do |date, meetings| %>
+        <%= date %>
+        <% meetings.each do |meeting| %>
+          <div class="meeting">
+            <p><%= meeting.name %></p>
+            <small><%= meeting.time unless meeting.multi_days? %></small>
+            <%= link_to "edit", edit_meeting_path(meeting)%>
+          </div>
+        <% end %>
+      <% end %>
     </div>
   </div>
 
@@ -42,29 +58,9 @@
         <%= image_tag(url) %>
         <div class="card-product-infos">
           <h2><%= location.title %></h2>
-          <p><%= location.description[0..64] %>...</p>
         </div>
       </div>
       <% end %>
-
-
-      <% end %>
-    </div>
-  </div>
-  <div class="item3">
-    <h2>Friends</h2>
-  </div>
-  <div class="item4">
-    <h2>Calendar</h2>
-    <div class="calendar-container">
-      <%= month_calendar(events: @meetings, end_attribute: :end_time) do |date, meetings| %>
-        <%= date %>
-        <% meetings.each do |meeting| %>
-          <div class="meeting">
-            <p><%= meeting.name %></p>
-            <small><%= meeting.time unless meeting.multi_days? %></small>
-          </div>
-        <% end %>
       <% end %>
     </div>
   </div>
