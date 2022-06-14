@@ -27,7 +27,16 @@
   .list_item_itinerary {
     margin-bottom: 0 !important;
   }
-  .modal__form__button {
-    width: auto;
-  }
+}
+
+.modal__form__button {
+  width: auto;
+}
+
+.modal__form__link {
+  cursor: pointer;
+}
+
+.location-modal__itinerary_form__input_wrapper {
+  margin: 0 !important;
 }

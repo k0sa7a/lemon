@@ -1,9 +1,11 @@
-<div class="modal__form__container w-100">
-  <%= simple_form_for([location, list_item]) do |f| %>
+<div class="modal__form__container w-100 <%= empty ? 'd-none' : '' %>" data-location-modal-target="addListItemFormContainer" data-location-index-target="addListItemForm">
+  <%= simple_form_for([location, list_item], data: { location_modal_target: "addListItemForm", action: "submit->location-modal#addItemToItinerary" }) do |f| %>
     <div class="d-flex justify-content-between">
-      <%= f.association :itinerary, collection: current_user.itineraries, prompt: "Select a route", label: false, input_html: {class: "m-0"} %>
+      <%# <%= render :partial => 'shared/itinerary_select', :locals => { :f => f } %>
+      <%= f.association :itinerary, collection: current_user.itineraries, prompt: "Select a route", label: false,
+        input_html: {class: "m-0", data: {location_index_target:"dropDown"}} %>
       <%= f.submit "Add to route", class: "btn btn-primary modal__form__button" %>
     </div>
   <% end %>
-  <small>Create a new route</small>
+  <a class="modal__form__link" data-action="click->location-modal#displayForm">Create a new route</a>
 </div>

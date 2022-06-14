@@ -4,7 +4,7 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="locationModal<%= num %>" tabindex="-1" aria-labelledby="locationModalLabel<%= num %>" aria-hidden="true">
+<div class="modal fade" id="locationModal<%= num %>" tabindex="-1" data-controller="location-modal" data-location-index-target="modal" aria-labelledby="locationModalLabel<%= num %>" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content border-killer">
       <div class="modal-header kill-padding">
@@ -12,7 +12,6 @@
         <%= render "show_carousel", location: location, num: location.id %>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-
       <div class="modal-body">
         <div class="detail-container">
           <div class="d-flex">
@@ -30,8 +29,9 @@
         <button type="button" class="btn btn-secondary d-none" data-bs-dismiss="modal">Place Holder</button>
 
         <button type="button" class="btn btn-secondary d-none">Add to custom route</button>
-
-        <%= current_user.itineraries.empty? ? (render "shared/itinerary_form", itinerary: itinerary) : (render "shared/list_item_form", location: location, list_item: list_item) %>
+        <%= render "shared/list_item_form", location: location, list_item: list_item, empty: empty %>
+        <%= render "shared/itinerary_form", itinerary: itinerary, empty: empty %>
+        <%# <%= empty ? (render "shared/itinerary_form", itinerary: itinerary) : (render "shared/list_item_form", location: location, list_item: list_item) %>
       </div>
 
     </div>
