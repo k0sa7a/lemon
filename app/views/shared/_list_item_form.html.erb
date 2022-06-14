@@ -1,5 +1,13 @@
 <div class="modal__form__container w-100 <%= empty ? 'd-none' : '' %>" data-location-modal-target="addListItemFormContainer" data-location-index-target="addListItemForm">
-  <%= simple_form_for([location, list_item], data: { location_modal_target: "addListItemForm", action: "submit->location-modal#addItemToItinerary" }) do |f| %>
+  <%= simple_form_for(
+    [location, list_item],
+    remote: true,
+    data: {
+      location_modal_target: "addListItemForm",
+      action: "submit->location-modal#addItemToItinerary",
+      action: "ajax:success->location-modal#resetForm"
+      }) do |f|
+  %>
     <div class="d-flex justify-content-between">
       <%# <%= render :partial => 'shared/itinerary_select', :locals => { :f => f } %>
       <%= f.association :itinerary, collection: current_user.itineraries, prompt: "Select a route", label: false,

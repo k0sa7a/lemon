@@ -3,7 +3,14 @@ import { csrfToken } from "@rails/ujs"
 import Swal from 'sweetalert2'
 
 export default class extends Controller {
-  static targets = ["addListItemFormContainer", "createItineraryForm", "cancelItineraryButton", "createItineraryCont", "inputTitle", "addListItemForm"];
+  static targets = [
+    "addListItemFormContainer",
+    "createItineraryForm",
+    "cancelItineraryButton",
+    "createItineraryCont",
+    "inputTitle",
+    "addListItemForm",
+  ];
 
   displayForm() {
     this.addListItemFormContainerTarget.classList.add("d-none");
@@ -16,11 +23,11 @@ export default class extends Controller {
   }
 
   createItinerary(event) {
-    event.preventDefault()
+    event.preventDefault();
     fetch(this.createItineraryFormTarget.action, {
       method: "POST",
-      headers: {"Accept": "application/json", "X-CSRF-Token": csrfToken() },
-      body: new FormData(this.createItineraryFormTarget)
+      headers: { Accept: "application/json", "X-CSRF-Token": csrfToken() },
+      body: new FormData(this.createItineraryFormTarget),
     })
     .then(response => response.json())
     .then((data) => {
@@ -36,8 +43,7 @@ export default class extends Controller {
   }
 
   addItemToItinerary(event) {
-    console.log(this.addListItemFormTarget)
-    event.preventDefault()
+    event.preventDefault();
     fetch(this.addListItemFormTarget.action, {
       method: "POST",
       headers: {"Accept": "application/json", "X-CSRF-Token": csrfToken() },
@@ -52,11 +58,18 @@ export default class extends Controller {
         icon: 'success',
         confirmButtonText: 'Cool'
       })
-    })
+  }
+
+  resetForm() {
+    this.addListItemFormTarget.reset();
+    console.log("hi");
   }
 
   get indexController() {
-    let item = document.querySelector('.locations-container');
-    return this.application.getControllerForElementAndIdentifier(item, 'location-index');
+    let item = document.querySelector(".locations-container");
+    return this.application.getControllerForElementAndIdentifier(
+      item,
+      "location-index"
+    );
   }
 }

@@ -17,6 +17,12 @@ class MeetingsController < ApplicationController
     @meeting = Meeting.find(params[:id])
   end
 
+  def update
+    @meeting = Meeting.find(params[:id])
+    @meeting.update(meeting_params)
+    redirect_to user_path(current_user)
+  end
+
   def meeting_params
     params.require(:meeting).permit(
       :start_time,
