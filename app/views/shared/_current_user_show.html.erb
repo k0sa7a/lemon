@@ -32,28 +32,6 @@
     </div>
   </div>
 
-  <div class="item2">
-    <h2>Favourite locations</h2>
-    <div class="cards-user-show-container">
-      <% @fav_locations.each do |location|%>
-      <%= link_to location_path(location) do %>
-      <div class="card-product">
-        <% url = location.photos.attached? ? cl_image_path(location.photos.first.key) : "stock_location1.jpg" %>
-        <%= image_tag(url) %>
-        <div class="card-product-infos">
-          <h2><%= location.title %></h2>
-          <p><%= location.description[0..64] %>...</p>
-        </div>
-      </div>
-      <% end %>
-
-
-      <% end %>
-    </div>
-  </div>
-  <div class="item3">
-    <h2>Friends</h2>
-  </div>
   <div class="item4">
     <h2>Calendar</h2>
     <div class="calendar-container">
@@ -66,6 +44,23 @@
             <%= link_to "edit", edit_meeting_path(meeting)%>
           </div>
         <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="item2">
+    <h2>Favourite locations</h2>
+    <div class="cards-user-show-container">
+      <% @fav_locations.each do |location|%>
+      <%= link_to location_path(location) do %>
+      <div class="card-product">
+        <% url = location.photos.attached? ? cl_image_path(location.photos.first.key) : "stock_location1.jpg" %>
+        <%= image_tag(url) %>
+        <div class="card-product-infos">
+          <h2><%= location.title %></h2>
+        </div>
+      </div>
+      <% end %>
       <% end %>
     </div>
   </div>

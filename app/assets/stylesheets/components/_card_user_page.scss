@@ -1,9 +1,9 @@
 .cards-user-show-container {
   display:grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 56px;
   padding: 24px;
+  overflow: scroll;
 }
 
 .card-product {
@@ -13,8 +13,8 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
-  max-width: 500px;
-  min-width: 400px;
+  max-width: 300px;
+  min-width: 300px;
   border-radius: 8px;
 }
 

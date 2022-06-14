@@ -1,9 +1,13 @@
-<div class="simple-calendar">
+<div class="simple-calendar" data-controller= "calendar" data-action="click->calendar#clickcalbutton" >
   <div class="d-flex align-items-center justify-content-between">
     <div class="calendar-heading my-2">
-      <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view, class: 'btn'%>
+      <div data-calendar-target="previousbutton">
+        <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view, class: 'btn', remote: true %>
+      </div>
       <span class="calendar-title btn btn-primary"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
-      <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view, class: 'btn' %>
+      <div data-calendar-target="nextbutton">
+        <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view, class: 'btn' %>
+      </div>
     </div>
     <%= link_to 'Create meeting', new_meeting_path, class: 'btn' %>
   </div>
