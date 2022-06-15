@@ -51,19 +51,35 @@ export default class extends Controller {
     })
       .then((response) => response)
       .then((data) => {
-        console.log(data);
+        if (data.status != 200) {
+          throw "error";
+        }
+      })
+      .then(() => {
         Swal.fire({
           title: "Success!",
           text: "Location added!",
           icon: "success",
           confirmButtonText: "Cool",
         });
+      })
+      .catch((err) => {
+        // console.log(err);
+        Swal.fire({
+          title: "Error!",
+          text: "Location not added!",
+          icon: "error",
+          confirmButtonText: "OK",
+        });
+      })
+      .finally(() => {
+        this.resetForm(event);
       });
   }
 
-  resetForm() {
-    this.addListItemFormTarget.reset();
-    console.log("hi");
+  resetForm(event) {
+    event.target.reset();
+    event.submitter.disabled = false;
   }
 
   get indexController() {
