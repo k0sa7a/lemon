@@ -196,7 +196,19 @@ h4 {
 }
 
 @media(max-width: 768px) {
+  h1.home {
+    font-size: 5rem;
+    text-align: center;
+  }
 
+  .call_to_action {
+    margin-bottom: 0 auto 90px auto;
+    width: 300px;
+  }
+
+  #in_video_wrap {
+    margin: 0;
+  }
 }
 
 @media(max-width: 576px) {
