@@ -19,14 +19,14 @@ export default class extends Controller {
     if (this.coordsValue.length <= 0) {
       this.map = new mapboxgl.Map({
         container: this.element,
-        style: "mapbox://styles/mapbox/streets-v11",
+        style: "mapbox://styles/piresgabrielgit/cl3q0obfl000j15lfzbp762gg",
         center: [-0.11878659646091592, 51.51183314085651], // starting position
         zoom: 12,
       });
     } else {
       this.map = new mapboxgl.Map({
         container: this.element,
-        style: "mapbox://styles/mapbox/streets-v11",
+        style: "mapbox://styles/piresgabrielgit/cl3q0obfl000j15lfzbp762gg",
       });
 
       this.#addMarkersToMap();

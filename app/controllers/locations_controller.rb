@@ -41,9 +41,12 @@ class LocationsController < ApplicationController
 
   def create
     @location = Location.new(location_params)
+    @location.user = current_user
     if @location.save
+      flash[:notice] = "Location created"
       redirect_to location_path(@location)
     else
+      flash.now[:alert] = "Sorry there was an issue"
       render :new
     end
   end
