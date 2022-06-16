@@ -2,7 +2,7 @@
   <% empty = current_user.itineraries.empty? %>
   <% @locations.each do |location| %>
     <div data-controller="favorites">
-      <p><%= render "show_modal", location: location, num: location.id, list_item: @list_item, itinerary: @itinerary, empty: empty %></p>
+      <%= render "show_modal", location: location, num: location.id, list_item: @list_item, itinerary: @itinerary, empty: empty %>
     </div>
   <% end %>
 </div>
