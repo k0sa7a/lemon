@@ -1,10 +1,8 @@
 .search-form {
   border-style: solid;
-}
-
-.search-form{
   width: 700px;
 }
+
 
 @media(max-width: 992px) {
   .search-form{
@@ -19,4 +17,8 @@
   .search-form{
     margin-left: 0 !important;
   }
+}
+
+.locations__wrapper__form-container {
+  margin: 16px 0 16px 50px;
 }
