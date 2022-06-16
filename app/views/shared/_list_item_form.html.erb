@@ -1,11 +1,12 @@
 <div class="modal__form__container w-100 <%= empty ? 'd-none' : '' %>" data-location-modal-target="addListItemFormContainer" data-location-index-target="addListItemForm">
   <%= simple_form_for(
     [location, list_item],
-    remote: true,
+    # remote: true,
     data: {
       location_modal_target: "addListItemForm",
       action: "submit->location-modal#addItemToItinerary",
-      action: "ajax:success->location-modal#resetForm"
+      # action: "ajax:success->location-modal#addItemToItinerarySuccess",
+      # action: "ajax:fail->location-modal#addItemToItineraryFail"
       }) do |f|
   %>
     <div class="d-flex justify-content-between">

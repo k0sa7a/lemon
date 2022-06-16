@@ -26,3 +26,14 @@
 .footer .fa-heart {
   color: $color-primary;
 }
+
+@media(max-width: 576px) {
+  .footer {
+    padding: 0px 10px;
+  }
+
+  .footer-copyright {
+    margin-left: 10px;
+    font-size: 0.7rem;
+  }
+}
