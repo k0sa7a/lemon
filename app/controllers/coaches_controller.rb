@@ -16,6 +16,14 @@ class CoachesController < ApplicationController
     else
       @coaches = Coach.all
     end
+
+    respond_to do |format|
+      format.html
+      format.text {render partial: 'shared/coaches_list',
+                          locals: {coaches: @coaches},
+                          formats: [:html] }
+    end
+
   end
 
   def edit
