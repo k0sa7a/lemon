@@ -5,6 +5,7 @@ class MeetingsController < ApplicationController
 
   def create
     @meeting = Meeting.new(meeting_params)
+    @chatroom = Chatroom.create(name: @meeting.name)
     @meeting.user = current_user
     if @meeting.save
       redirect_to user_path(current_user)
@@ -21,6 +22,14 @@ class MeetingsController < ApplicationController
     @meeting = Meeting.find(params[:id])
     @meeting.update(meeting_params)
     redirect_to user_path(current_user)
+  end
+
+  def show
+    @meeting = Meeting.find(params[:id])
+    start_date = params.fetch(:start_date, Date.today).to_date
+    @meetings = Meeting.where(start_time: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
+    @chatroom = Chatroom.find(@meeting.chatroom_id)
+    @message = Message.new
   end
 
   def meeting_params

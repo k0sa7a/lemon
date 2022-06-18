@@ -1,0 +1,6 @@
+<h1><%= @meeting.name %></h1>
+<p><%=@meeting.start_time%></p>
+<p><%=@meeting.end_time%></p>
+
+
+<%= render "chatrooms/show_meeting", meeting: @meeting, chatroom: @chatroom, message: @message%>

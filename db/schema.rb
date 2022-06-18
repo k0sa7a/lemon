@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_14_194959) do
+ActiveRecord::Schema.define(version: 2022_06_18_103624) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -121,6 +121,10 @@ ActiveRecord::Schema.define(version: 2022_06_14_194959) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "itinerary_id"
+    t.bigint "chatroom_id"
+    t.index ["chatroom_id"], name: "index_meetings_on_chatroom_id"
+    t.index ["itinerary_id"], name: "index_meetings_on_itinerary_id"
     t.index ["user_id"], name: "index_meetings_on_user_id"
   end
 
@@ -160,6 +164,8 @@ ActiveRecord::Schema.define(version: 2022_06_14_194959) do
   add_foreign_key "list_items", "itineraries"
   add_foreign_key "list_items", "locations"
   add_foreign_key "locations", "users"
+  add_foreign_key "meetings", "chatrooms"
+  add_foreign_key "meetings", "itineraries"
   add_foreign_key "meetings", "users"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
