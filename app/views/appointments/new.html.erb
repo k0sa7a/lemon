@@ -1,0 +1,13 @@
+<div class="wrapper bg-white">
+  <div class="container">
+    <h2 class="p-4">Request an Appointment with <%= @coach.user.first_name%></h2>
+
+    <%= simple_form_for([@coach, @appointment]) do |f| %>
+      <%= f.input :start_time, as: :datetime, html5: true %>
+      <%= f.input :end_time, as: :datetime, html5: true %>
+
+      <%= f.button :submit, "Confirm changes" %>
+    <% end %>
+
+  </div>
+</div>

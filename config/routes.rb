@@ -16,17 +16,25 @@ Rails.application.routes.draw do
     resources :list_items, only: [:update]
   end
 
-  resources :users
+  resources :users do
+    resources :notifications
+  end
+
+  # resources :notifications, only: [:show]
 
   resources :meetings
 
-  resources :events do
-    resources :chatrooms, only: :show do
-      resources :messages, only: :create
-    end
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
   end
 
-  resources :coaches, only: [:new, :create, :index]
+  resources :events
+
+
+  resources :coaches, only: [:new, :create, :index, :show] do
+    resources :appointments, only: [:new, :create]
+  end
+
 
   get '/404', to: 'errors#not_found'
   get '/500', to: 'errors#internal_server'

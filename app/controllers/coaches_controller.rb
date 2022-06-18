@@ -1,8 +1,13 @@
 class CoachesController < ApplicationController
+  before_action :set_itinerary, only: [:show, :edit, :update]
   def new
   end
 
   def create
+  end
+
+  def show
+    @appointment = Appointment.new
   end
 
   def index
@@ -19,5 +24,17 @@ class CoachesController < ApplicationController
                           formats: [:html] }
     end
 
+  end
+
+  def edit
+  end
+
+  def update
+  end
+
+  private
+
+  def set_coach
+    @coach = Coach.find(params[:id])
   end
 end

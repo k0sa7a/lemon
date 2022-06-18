@@ -1,0 +1,21 @@
+<h1>Notification</h1>
+<% if @user_type == 'student' %>
+  <p><%= @sent_from.first_name  %> has responded to your request for a class on  <%= @appointment.start_time %> until <%= @appointment.end_time %></p>
+  <p>Response: Your request has been <%= @notification.content%> </p>
+  <p>Please make payment to secure this booking</p>
+  <button>Pay</button>
+<% else %>
+  <p><%= @sent_from.first_name  %> is requesting a booking for skate lessons for <%= @appointment.start_time %> until <%= @appointment.end_time %></p>
+  <%= simple_form_for ([@sent_from, @response]) do |f| %>
+    <%= f.input :appointment_id, as: :hidden, input_html: { value: @appointment.id  }%>
+    <%= f.input :content, as: :hidden, input_html: { value: "Approved"  } %>
+    <%= f.submit "Approve", class: "btn btn-primary" %>
+  <% end %>
+  <%= simple_form_for ([@sent_from, @response]) do |f| %>
+    <%= f.input :appointment_id, as: :hidden, input_html: { value: @appointment.id  }%>
+    <%= f.input :content, as: :hidden, input_html: { value: "Rejected"  } %>
+    <%= f.submit "Rejected", class: "btn btn-primary" %>
+  <% end %>
+<% end %>
+
+<%= link_to "Return to Notifications", user_notifications_path(current_user) %>
