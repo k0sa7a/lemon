@@ -1,7 +1,16 @@
   <div data-coaches-search-target="list">
-    <% coaches.each do |coach| %>
-      <p>Name: <%= coach.user.first_name %></p>
-      <p>Style: <%= coach.style  %></p>
-      <p>Bio: <%= coach.bio  %></p>
-   <% end %>
+    <div class="coaches__container">
+      <% coaches.each do |coach| %>
+      <div class="card__coach">
+        <div class="card__coach-header">
+          <img src="<%= cl_image_path coach.user.photo.key, gravity: :face,  crop: :fill %>" class="avatar-bordered">
+        </div>
+        <div class="card__coach-body">
+          <h2><%= coach.user.first_name %></h2>
+          <h3>Style: <%= coach.style  %></h3>
+          <h4>"<%= coach.bio  %>"</h4>
+        </div>
+      </div>
+      <% end %>
+    </div>
   </div>
