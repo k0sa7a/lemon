@@ -12,6 +12,7 @@ class AppointmentsController < ApplicationController
     if @appointment.save!
       flash[:notice] = "Appointment requested"
       # redirect_to appointment_path(@appointment)
+      create_notification(@appointment)
     else
       flash.now[:alert] = "Sorry there was an issue"
       render :new
@@ -26,6 +27,13 @@ class AppointmentsController < ApplicationController
       :end_time,
       :coach_id
     )
+  end
+
+  def create_notification(appointment)
+    @notification = Notification.new
+    @notification.appointment = appointment
+    @notification.user = appointment.coach.user
+    @notification.save!
   end
 
   def set_appointment

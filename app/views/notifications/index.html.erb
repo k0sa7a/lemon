@@ -1,0 +1,10 @@
+<h1>Notifications</h1>
+
+<% @notifications.each do |notification| %>
+  <% if notification.viewed %>
+    <i class="fa-regular fa-circle"></i>
+  <% else %>
+    <i class="fa-solid fa-circle"></i>
+  <% end %>
+  <%= link_to "Appointment request from #{notification.appointment.user.first_name}", user_notification_path(current_user, notification) %>
+<% end %>

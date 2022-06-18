@@ -20,13 +20,16 @@ Rails.application.routes.draw do
     resources :notifications
   end
 
+  # resources :notifications, only: [:show]
+
   resources :meetings
 
-  resources :events do
-    resources :chatrooms, only: :show do
-      resources :messages, only: :create
-    end
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
   end
+
+  resources :events
+
 
   resources :coaches, only: [:new, :create, :index, :show] do
     resources :appointments, only: [:new, :create]
