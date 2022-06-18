@@ -13,6 +13,7 @@ puts "Clearing Database..."
 ListItem.destroy_all
 Location.destroy_all
 Itinerary.destroy_all
+Coach.destroy_all
 User.destroy_all
 
 puts "Creating a new database..."
@@ -81,6 +82,18 @@ user_four = User.new(fourth_user_hash)
 user_four.photo.attach(io: fourth_user_image, filename: 'user4.png', content_type: 'image/png')
 user_four.save!
 
+coach_one = Coach.new
+coach_one.user = User.last
+coach_one.bio = "I am an elite skater born and bred in London. I was at the 2012 Olympics and have participated in multiple international Skating competitions. I look forward to motivated students to work with. If you book me you are bound to be a PRO in no time!"
+coach_one.style = "aggressive"
+coach_one.save!
+
+coach_two = Coach.new
+coach_two.user = User.find((User.last.id - 1))
+coach_two.bio = "Skating is my passion. I skate to the shop, skate to my doctors appointments, skate in the tube... I live to skate! If you are a passionate skater and want to improve your freestyle skills, I am the coach for you!"
+coach_two.style = "freestyle"
+coach_two.save!
+
 users = [user_one, user_two, user_three, user_four]
 
 10.times do
@@ -132,4 +145,4 @@ location = Location.find_by(title: "Bedfont Skatepark")
 location.address = "TW14 8JA"
 location.save
 
-puts "Done! #{Location.count} locations and #{User.count} users created!"
+puts "Done! #{Location.count} locations, #{User.count} users and #{Coach.count} coaches created!"
