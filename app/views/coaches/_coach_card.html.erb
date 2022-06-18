@@ -1,0 +1,13 @@
+<div class="coach_card">
+  <div class="card-header">
+    <%= image_tag(url) %>
+  </div>
+  <div class="card-body">
+    <div>
+      <i class="heart-icon fas fa-heart <%= current_user.favorited?(coach) ? "favorited-cardheart" : "not-favorited-cardheart" %>" data-favorites-target="cardheart"></i>
+      <h3><%= coach.user %></h3>
+      <h4><%= coach.bio%></h4>
+      <h4><%= coach.style%></h4>
+    </div>
+  </div>
+</div>
