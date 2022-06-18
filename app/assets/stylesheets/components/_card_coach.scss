@@ -64,13 +64,12 @@
   min-height: 100px;
 }
 
-.coaches-container {
-  display: grid;
-  grid-template-columns: 3fr 3fr;
-  grid-gap: 16px;
+.coaches__container {
+  display: flex;
+  grid-template-columns: 1fr;
+  grid-gap: 25%;
   margin: 20px;
-  min-width: 700px;
-  padding: 50px;
+  padding: 8px;
 }
 
 
