@@ -84,7 +84,7 @@ user_four.save!
 
 coach_one = Coach.new
 coach_one.user = User.last
-coach_one.bio = "I am an elite skater born and bred in London. I was at the 2012 Olympics and have participated in multiple international Skating competitions. I look forward to motivated students to work with. If you book me you are bound to be a PRO in no time!"
+coach_one.bio = "I am an elite skater born and bred in London. I was at the 2012 Olympics and have participated in multiple international Skating competitions. I am looking for motivated students to work with. If you book me you are bound to be a PRO in no time!"
 coach_one.style = "aggressive"
 coach_one.save!
 
