@@ -49,6 +49,15 @@ ActiveRecord::Schema.define(version: 2022_06_18_103624) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "coaches", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.text "bio"
+    t.string "style"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_coaches_on_user_id"
+  end
+
   create_table "events", force: :cascade do |t|
     t.bigint "itinerary_id", null: false
     t.bigint "chatroom_id", null: false
@@ -156,6 +165,7 @@ ActiveRecord::Schema.define(version: 2022_06_18_103624) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "coaches", "users"
   add_foreign_key "events", "chatrooms"
   add_foreign_key "events", "itineraries"
   add_foreign_key "events", "meetings"

@@ -17,8 +17,10 @@
 
 .map-container {
   height: calc(100vh - 180px);
+  min-height: 80vh;
   flex-grow: 2;
-  position: relative;
+  top: 120px;
+  position: sticky;
 }
 
 #map {

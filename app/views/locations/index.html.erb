@@ -1,14 +1,16 @@
 
 <div class="locations__wrapper">
-  <h1>Locations</h1>
-  <div class="search-form">
-    <%= form_with url: locations_path, method: :get, class: "d-flex" do |form| %>
-      <div data-controller="geoform" data-geoform-api-key-value= <%= ENV['MAPBOX_API_KEY'] %> >
-        <%= form.text_field :query, value: params[:query], placeholder: "Postcode/Location", class: "d-none", data: {geoform_target: "address"} %>
-      </div>
-      <%= form.number_field :distance, in: 1.0..70.0, step: 0.5, placeholder: "Distance: 1km", value: params[:distance] %>
-      <%= form.submit "Search" %>
-    <% end %>
+  <div class="locations__wrapper__form-container">
+    <h1>Locations</h1>
+    <div class="search-form">
+      <%= form_with url: locations_path, method: :get, class: "d-flex" do |form| %>
+        <div data-controller="geoform" data-geoform-api-key-value= <%= ENV['MAPBOX_API_KEY'] %> >
+          <%= form.text_field :query, value: params[:query], placeholder: "Postcode/Location", class: "d-none", data: {geoform_target: "address"} %>
+        </div>
+        <%= form.number_field :distance, in: 1.0..70.0, step: 0.5, placeholder: "Distance: 1km", value: params[:distance] %>
+        <%= form.submit "Search" %>
+      <% end %>
+    </div>
   </div>
 <div class="index-content">
   <div>

@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   acts_as_favoritor
+  has_one :coach
   has_many :locations
   has_many :itineraries
   has_one_attached :photo

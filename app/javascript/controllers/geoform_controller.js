@@ -14,7 +14,7 @@ export default class extends Controller {
 
 
 
-    this.geocoder.setPlaceholder("Post Code")
+    this.geocoder.setPlaceholder("Postcode")
     // alternative solution where input value of geocoder is updated when hidden input is not empty (created some issues with the dropdown always appearing)
     // if (this.addressTarget.value != "") {
     //   this.geocoder.setInput(this.addressTarget.value)
