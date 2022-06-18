@@ -1,8 +1,9 @@
 .card__coach {
   margin: 20px !important;
-  overflow: hidden;
-  width: 20%;
+  align-items: center !important;
   padding: 20px;
+  width: 300px;
+  height: 600px;
 }
 
 .card__coach:hover {
@@ -13,15 +14,17 @@
 .card__coach-header {
   height: 250px;
   border-bottom-style: none;
+  align-items: center;
   background-color: white !important;
   border-radius: 10px !important;
 }
 
 .card__coach-header img {
-  object-position: center;
-  display: block;
-  height: 100%;
-  width: 100%;
+  object-position: center !important;
+  position: relative;
+  height: 200px;
+  width: 200px;
+  margin-left: 32px;
   background-color: white;
   border-radius: 100% !important;
 }
@@ -58,6 +61,7 @@
 .card__coach-body {
   border-top-style: none;
   display: flex;
+  align-items: center;
   flex-direction: column;
   justify-content: center;
   padding: 8px;
@@ -67,15 +71,16 @@
 .coaches__container {
   display: flex;
   grid-template-columns: 1fr;
-  grid-gap: 25%;
   margin: 20px;
   padding: 8px;
+  justify-content: space-between;
 }
 
 
 .index-content {
   display: grid;
   grid-template-columns: 3fr 3fr;
+  align-items: center;
 }
 
 .heart-icon {
@@ -100,35 +105,5 @@
   }
   .map-container{
     visibility: hidden;
-  }
-}
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-  .locations-container {
-    grid-template-columns: 1fr 1fr;
-  }
-  .map-container{
-    visibility: hidden;
-  }
-}
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-  .locations-container {
-    grid-template-columns: 1fr 1fr;
-  }
-  .map-container{
-    visibility: visible;
-  }
-}
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-  .locations-container {
-    grid-template-columns: 1fr 1fr;
-  }
-  .map-container{
-    visibility: visible;
   }
 }
