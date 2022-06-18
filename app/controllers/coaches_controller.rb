@@ -11,7 +11,11 @@ class CoachesController < ApplicationController
   end
 
   def index
-    @coaches = Coach.all
+    if params[:query].present?
+      @coaches = Coach.search_by_style_and_bio(params[:query])
+    else
+      @coaches = Coach.all
+    end
   end
 
   def edit
