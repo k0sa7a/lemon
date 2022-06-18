@@ -1,0 +1,7 @@
+  <div data-coaches-search-target="list">
+    <% coaches.each do |coach| %>
+      <p>Name: <%= coach.user.first_name %></p>
+      <p>Style: <%= coach.style  %></p>
+      <p>Bio: <%= coach.bio  %></p>
+   <% end %>
+  </div>
