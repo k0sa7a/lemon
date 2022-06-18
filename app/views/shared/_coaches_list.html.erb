@@ -1,16 +1,19 @@
   <div data-coaches-search-target="list">
     <div class="coaches__container">
       <% coaches.each do |coach| %>
-      <div class="card__coach">
-        <div class="card__coach-header">
-          <img src="<%= cl_image_path coach.user.photo.key, gravity: :face,  crop: :fill %>" class="avatar-bordered">
-        </div>
-        <div class="card__coach-body">
-          <h2><%= coach.user.first_name %></h2>
-          <h3>Style: <%= coach.style  %></h3>
-          <h4>"<%= coach.bio  %>"</h4>
-        </div>
-      </div>
+        <%= link_to coach_path(coach) do %>
+
+          <div class="card__coach">
+           <div class="card__coach-header">
+              <img src="<%= cl_image_path coach.user.photo.key, gravity: :face,  crop: :fill %>" class="avatar-bordered">
+            </div>
+           <div class="card__coach-body">
+             <h2><%= coach.user.first_name %></h2>
+              <h3>Style: <%= coach.style  %></h3>
+              <h4>"<%= coach.bio  %>"</h4>
+           </div>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>

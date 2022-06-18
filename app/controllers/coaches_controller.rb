@@ -1,5 +1,4 @@
 class CoachesController < ApplicationController
-  before_action :set_itinerary, only: [:show, :edit, :update]
   def new
   end
 
@@ -8,6 +7,7 @@ class CoachesController < ApplicationController
 
   def show
     @appointment = Appointment.new
+    @coach = Coach.find(params[:id])
   end
 
   def index
