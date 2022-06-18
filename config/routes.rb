@@ -16,7 +16,9 @@ Rails.application.routes.draw do
     resources :list_items, only: [:update]
   end
 
-  resources :users
+  resources :users do
+    resources :notifications
+  end
 
   resources :meetings
 
@@ -27,7 +29,7 @@ Rails.application.routes.draw do
   end
 
   resources :coaches, only: [:new, :create, :index, :show] do
-    resources :appointments
+    resources :appointments, only: [:new, :create]
   end
 
 
