@@ -3,7 +3,7 @@
       <% coaches.each do |coach| %>
       <div class="card__coach">
         <div class="card__coach-header">
-          <img src="<%= cl_image_path coach.user.photo.key, gravity: :face,  crop: :fill, width: 400, height: 400 %>" class="avatar-bordered", data-bs-toggle="dropdown", aria-haspopup=true, aria-expanded=false>
+          <img src="<%= cl_image_path coach.user.photo.key, gravity: :face,  crop: :fill %>" class="avatar-bordered">
         </div>
         <div class="card__coach-body">
           <h2><%= coach.user.first_name %></h2>
