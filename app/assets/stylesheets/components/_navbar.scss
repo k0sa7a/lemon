@@ -1,6 +1,7 @@
 .navbar-lewagon {
   background:transparent !important;
   transition: 0.5s ease;
+  height: 85px !important;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -9,6 +10,7 @@
 .navbar-nothome {
   background:$color-secondary !important;
   transition: 0.5s ease;
+  height: 85px !important;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -48,11 +50,11 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 200px;
+  width: 140px;
 }
 
 .navbar-nothome .navbar-brand img {
-  width: 200px;
+  width: 140px;
 }
 
 a.nav-link {
