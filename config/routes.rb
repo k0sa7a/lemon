@@ -26,7 +26,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :coaches, only: [:new, :create, :index]
+  resources :coaches, only: [:new, :create, :index, :show] do
+    resources :appointments
+  end
+
 
   get '/404', to: 'errors#not_found'
   get '/500', to: 'errors#internal_server'
