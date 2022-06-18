@@ -1,0 +1,131 @@
+.card__coach {
+  margin: 0 10px 10px 30px !important;
+  overflow: hidden;
+  width: 300px;
+}
+
+.card__coach:hover {
+  box-shadow: 0 2px 10px $color-secondary;
+  color: $color-grey-6 !important
+}
+
+.card__coach-header {
+  height: 250px;
+  border-bottom-style: none;
+  background-color: white !important;
+  border-radius: 10px !important;
+}
+
+.card__coach-header img {
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px !important;
+}
+
+.card__coach h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  text-align: center;
+  color: $color-grey-6 !important;
+}
+
+
+.card__coach p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+  text-align: center;
+  color: $color-grey-6 !important
+}
+
+.card__coach h3 {
+  font-size: medium !important;
+  text-align: center;
+}
+
+.card__coach h4 {
+  text-align: center;
+}
+
+.card__coach-body {
+  border-top-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8px;
+  min-height: 100px;
+}
+
+.coaches-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+  margin: 0 20px;
+  min-width: 700px;
+}
+
+
+.index-content {
+  display: flex;
+  grid-template-columns: 1fr 1fr;
+}
+
+.heart-icon {
+  position: absolute;
+  top: 22px;
+  right: 26px;
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .locations-container {
+    grid-template-columns: 1fr;
+  }
+  .map-container{
+    visibility: hidden;
+  }
+}
+
+@media (min-width: 576px) {
+  .locations-container {
+    grid-template-columns: 1fr;
+  }
+  .map-container{
+    visibility: hidden;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .locations-container {
+    grid-template-columns: 1fr 1fr;
+  }
+  .map-container{
+    visibility: hidden;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .locations-container {
+    grid-template-columns: 1fr 1fr;
+  }
+  .map-container{
+    visibility: visible;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .locations-container {
+    grid-template-columns: 1fr 1fr;
+  }
+  .map-container{
+    visibility: visible;
+  }
+}
