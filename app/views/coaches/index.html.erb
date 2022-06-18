@@ -1,4 +1,14 @@
 <h1>COACHES INDEX</h1>
+
+<div class="search-form">
+  <%= form_with url: coaches_path, method: :get, class: "d-flex" do |form| %>
+    <div>
+      <%= form.text_field :query, value: params[:query], placeholder: "Coaches search" %>
+    </div>
+    <%= form.submit "Search" %>
+  <% end %>
+</div>
+
 <% @coaches.each do |coach| %>
 <p>Name: <%= coach.user.first_name %></p>
 <p>Style: <%= coach.style  %></p>
