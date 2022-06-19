@@ -73,3 +73,6 @@ gem 'cloudinary', '~> 1.16.0'
 gem "geocoder"
 
 gem "simple_calendar", "~> 2.4"
+
+# stripe integration
+gem 'money-rails'
