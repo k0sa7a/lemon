@@ -1,3 +1,4 @@
 <h1><%= @coach.user.first_name %></h1>
 <p><%= @coach.style %></p>
 <p><%= @coach.bio %></p>
+<p>Rate per hour: <%= humanized_money_with_symbol(@coach.price) %></p>

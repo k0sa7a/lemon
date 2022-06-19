@@ -122,42 +122,49 @@ coach_one = Coach.new
 coach_one.user = User.last
 coach_one.bio = "To be honest I am a complete beginner, but I really need the money, so wanted to try coaching. I can't really show you a lot of skating tricks, but I am great at giving orders, so I feel you can learn a lot by booking a session with me! PLEASE..."
 coach_one.style = "recreational"
+coach_one.price = 20
 coach_one.save!
 
 coach_two = Coach.new
 coach_two.user = User.find((User.last.id - 1))
 coach_two.bio = "Skating is my passion. I skate to the shop, skate to my doctors appointments, skate in the tube... I live to skate! If you are a passionate skater and want to improve your freestyle skills, I am the coach for you!"
 coach_two.style = "freestyle"
+coach_two.price = 35
 coach_two.save!
 
 coach_three = Coach.new
 coach_three.user = User.find((User.last.id - 2))
 coach_three.bio = "I am an elite skater born and bred in London. I was at the 2012 Olympics and have participated in multiple international Skating competitions. I am looking for motivated students to work with. If you book me you are bound to be a PRO in no time!"
 coach_three.style = "aggressive"
+coach_three.price = 40
 coach_three.save!
 
 coach_four = Coach.new
 coach_four.user = User.find((User.last.id - 3))
 coach_four.bio = "I started skating 5 years ago and since then have been a regular at most of London's skateparks. I broke my leg 6 months ago, so had to take some time off, but am back now. Hope to get some great students this summer."
 coach_four.style = "aggressive"
+coach_four.price = 32
 coach_four.save!
 
 coach_five = Coach.new
 coach_five.user = User.find((User.last.id - 4))
 coach_five.bio = "Tricks and skate-parks are not my thing, but if you are looking to learn how to skate at 80 mph down a hill without breaking your neck book me for a coaching session."
 coach_five.style = "speed"
+coach_five.price = 43
 coach_five.save!
 
 coach_six = Coach.new
 coach_six.user = User.find((User.last.id - 5))
 coach_six.bio = "I am an investment banker by day and skater-nut by night. I can't do coaching sessions before 9PM, but if you want to try out some night-skating, I would love to teach you a thing or two."
 coach_six.style = "freestyle"
+coach_six.price = 50
 coach_six.save!
 
 coach_seven = Coach.new
 coach_seven.user = User.find((User.last.id - 6))
 coach_seven.bio = "I used to skate a lot when I was younger and just recently rediscovered my interest for the sport. I can show you some oldschool moves that kids used to go crazy about back in my day."
 coach_seven.style = "aggressive"
+coach_seven.price = 25
 coach_seven.save!
 
 
