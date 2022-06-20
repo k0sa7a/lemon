@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'errors/not_found'
   get 'errors/internal_server_error'
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
   devise_for :users
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
@@ -30,10 +31,13 @@ Rails.application.routes.draw do
 
   resources :events
 
-
-  resources :coaches, only: [:new, :create, :index, :show] do
-    resources :appointments, only: [:new, :create]
+  resources :appointments, only: [:new, :show, :create] do
+    resources :payments, only: :new
   end
+
+
+
+  resources :coaches, only: [:new, :create, :index, :show]
 
 
   get '/404', to: 'errors#not_found'

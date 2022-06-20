@@ -1,18 +1,35 @@
 class AppointmentsController < ApplicationController
-  def new
-    @appointment = Appointment.new
-    @coach = Coach.find(params[:coach_id])
+  def show
+    @appointment = current_user.appointments.find(params[:id])
   end
 
   def create
-    @coach = Coach.find(params[:coach_id])
     @appointment = Appointment.new(appointment_params)
-    @appointment.coach = @coach
+    @coach = @appointment.coach
+    @appointment.amount = @coach.price
     @appointment.user = current_user
+    @appointment.state = 'pending'
+
     if @appointment.save!
-      flash[:notice] = "Appointment requested"
       # redirect_to appointment_path(@appointment)
-      create_notification(@appointment)
+      # create_notification(@appointment)
+      # redirect_to coach_path(@coach)
+      session = Stripe::Checkout::Session.create(
+        payment_method_types: ['card'],
+        line_items: [{
+          name: @coach.user.first_name,
+          images: [@coach.user.photo.key],
+          amount: @appointment.amount_cents,
+          currency: 'gbp',
+          quantity: 1
+        }],
+        success_url: appointment_url(@appointment),
+        cancel_url: appointment_url(@appointment)
+      )
+
+      @appointment.update(checkout_session_id: session.id)
+      redirect_to new_appointment_payment_path(@appointment)
+      flash[:notice] = "Appointment requested"
     else
       flash.now[:alert] = "Sorry there was an issue"
       render :new
