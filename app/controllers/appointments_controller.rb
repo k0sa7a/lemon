@@ -4,8 +4,6 @@ class AppointmentsController < ApplicationController
   end
 
   def create
-
-    # @appointment = Appointment.create!(coach: @coach, amount: teddy.price, state: 'pending', user: current_user)
     @appointment = Appointment.new(appointment_params)
     @coach = @appointment.coach
     @appointment.amount = @coach.price
@@ -13,7 +11,6 @@ class AppointmentsController < ApplicationController
     @appointment.state = 'pending'
 
     if @appointment.save!
-      flash[:notice] = "Appointment requested"
       # redirect_to appointment_path(@appointment)
       # create_notification(@appointment)
       # redirect_to coach_path(@coach)
@@ -32,7 +29,7 @@ class AppointmentsController < ApplicationController
 
       @appointment.update(checkout_session_id: session.id)
       redirect_to new_appointment_payment_path(@appointment)
-
+      flash[:notice] = "Appointment requested"
     else
       flash.now[:alert] = "Sorry there was an issue"
       render :new
