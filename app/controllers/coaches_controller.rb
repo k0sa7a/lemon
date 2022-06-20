@@ -6,8 +6,8 @@ class CoachesController < ApplicationController
   end
 
   def show
-    @appointment = Appointment.new
     @coach = Coach.find(params[:id])
+    @appointment = Appointment.new
   end
 
   def index

@@ -76,3 +76,5 @@ gem "simple_calendar", "~> 2.4"
 
 # stripe integration
 gem 'money-rails'
+gem 'stripe'
+gem 'stripe_event'
