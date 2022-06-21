@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     @fav_locations = current_user.all_favorited
     start_date = params.fetch(:start_date, Date.today).to_date
     @meetings = Meeting.where(start_time: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
-    @meeting = Meeting.find(params[:id])
+    #@meeting = Meeting.find(params[:id])
   end
 
   def edit
