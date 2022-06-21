@@ -23,7 +23,6 @@ Rails.application.routes.draw do
 
   # resources :notifications, only: [:show]
 
-<<<<<<< HEAD
   resources :meetings do
     resources :chatrooms, only: :show do
       resources :messages, only: :create
@@ -32,25 +31,11 @@ Rails.application.routes.draw do
 
   resources :events
 
-  resources :coaches, only: [:new, :create, :index]
-=======
-  resources :meetings
-
-  resources :chatrooms, only: :show do
-    resources :messages, only: :create
-  end
-
-  resources :events
-
   resources :appointments, only: [:new, :show, :create] do
     resources :payments, only: :new
   end
 
-
-
   resources :coaches, only: [:new, :create, :index, :show]
-
->>>>>>> master
 
   get '/404', to: 'errors#not_found'
   get '/500', to: 'errors#internal_server'
