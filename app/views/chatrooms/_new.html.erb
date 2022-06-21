@@ -1,0 +1,7 @@
+<%= simple_form_for(chatroom) do |f| %>
+  <%= f.input :name, as: :hidden, input_html: { value: "chat between #{coach.user.first_name} and #{current_user.first_name}"  }%>
+  <%= f.input :private, as: :hidden, input_html: { value: true  }%>
+  <%= f.input :private, as: :hidden, input_html: { value: true  }%>
+  <%= f.input :coach_id, as: :hidden, input_html: { value: coach.id  }%>
+  <%= f.button :submit, "Chat" %>
+<% end %>

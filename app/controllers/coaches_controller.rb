@@ -18,6 +18,7 @@ class CoachesController < ApplicationController
   def show
     @coach = Coach.find(params[:id])
     @appointment = Appointment.new
+    @chatroom = Chatroom.new
   end
 
   def index

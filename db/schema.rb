@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_20_083912) do
+ActiveRecord::Schema.define(version: 2022_06_21_200228) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 2022_06_20_083912) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "private", default: false
   end
 
   create_table "coaches", force: :cascade do |t|
@@ -173,6 +174,17 @@ ActiveRecord::Schema.define(version: 2022_06_20_083912) do
     t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
+  create_table "privatechats", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "chatroom_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "coach_id", null: false
+    t.index ["chatroom_id"], name: "index_privatechats_on_chatroom_id"
+    t.index ["coach_id"], name: "index_privatechats_on_coach_id"
+    t.index ["user_id"], name: "index_privatechats_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -209,4 +221,7 @@ ActiveRecord::Schema.define(version: 2022_06_20_083912) do
   add_foreign_key "messages", "users"
   add_foreign_key "notifications", "appointments"
   add_foreign_key "notifications", "users"
+  add_foreign_key "privatechats", "chatrooms"
+  add_foreign_key "privatechats", "coaches"
+  add_foreign_key "privatechats", "users"
 end
