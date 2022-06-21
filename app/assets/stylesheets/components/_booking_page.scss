@@ -1,23 +1,25 @@
 .booking__container {
-  position: center;
-  height: 100px;
-  width: 500px;
-
+  height: auto;
+  width: 50%;
+  margin: auto;
+  padding: 10px;
 }
 
 .booking__h2 {
   font-size: 30px;
+  margin-top: 10px;
   font-weight: bold;
   text-align: center;
   color: $color-grey-6 !important;
 }
 
 .coach__booking img {
-  object-position: center !important;
-  position: relative;
-  height: 200px;
-  width: 200px;
-  margin-left: 32px;
+  display: block;
+  height: 240px;
+  width: 240px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 32px;
   background-color: white;
   border-radius: 100% !important;
 }

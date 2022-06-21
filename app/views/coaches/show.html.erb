@@ -1,6 +1,6 @@
 <div class="booking__container">
-  <h2 class="booking_h2"><%= @coach.user.first_name %></h2>
-  <div class="coach_booking">
+  <h2 class="booking__h2"><%= @coach.user.first_name %></h2>
+  <div class="coach__booking">
     <img src="<%= cl_image_path @coach.user.photo.key, gravity: :face,  crop: :fill %>" class="avatar-bordered">
   </div>
   <p>Style: <%= @coach.style %></p>
