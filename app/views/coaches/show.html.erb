@@ -2,4 +2,6 @@
 <p><%= @coach.style %></p>
 <p><%= @coach.bio %></p>
 <p>Rate per hour: <%= humanized_money_with_symbol(@coach.price) %></p>
-<%= render "appointments/new.html.erb", coach: @coach, appointment: @appointment %>
+<% if @coach.user != current_user %>
+  <%= render "appointments/new.html.erb", coach: @coach, appointment: @appointment %>
+<% end %>
