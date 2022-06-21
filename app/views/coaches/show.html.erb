@@ -1,5 +1,10 @@
-<h1><%= @coach.user.first_name %></h1>
-<p><%= @coach.style %></p>
-<p><%= @coach.bio %></p>
-<p>Rate per hour: <%= humanized_money_with_symbol(@coach.price) %></p>
-<%= render "appointments/new.html.erb", coach: @coach, appointment: @appointment %>
+<div class="booking__container">
+  <h2 class="booking_h2"><%= @coach.user.first_name %></h2>
+  <div class="coach_booking">
+    <img src="<%= cl_image_path @coach.user.photo.key, gravity: :face,  crop: :fill %>" class="avatar-bordered">
+  </div>
+  <p>Style: <%= @coach.style %></p>
+  <p><%= @coach.bio %></p>
+  <p>Rate per hour: <%= humanized_money_with_symbol(@coach.price) %></p>
+  <%= render "appointments/new.html.erb", coach: @coach, appointment: @appointment %>
+</div>
