@@ -15,13 +15,39 @@
 
   .messages {
     height: 100%;
-    overflow: scroll;
+    overflow-y: scroll;
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
+
+    .other-user-message {
+      align-self: end;
+      border: 1px solid $color-primary;
+      background-color: $color-primary;
+    }
+    .current-user-message {
+      border: 1px solid $color-secondary;
+      background-color: $color-secondary;
+    }
+    .message {
+      width: fit-content;
+      border-radius: 5px;
+      padding: 20px;
+      margin-bottom: 5px;
+    }
   }
 
   #new_message {
     border-top: 1px solid $gray-200;
     padding: 1rem;
+
+    .message_content {
+      margin: 0 !important;
+    }
+
+    .btn {
+      width: auto !important;
+    }
 
     .form-group {
       margin-bottom: 0;

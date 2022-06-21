@@ -2,7 +2,10 @@ import { Controller } from "@hotwired/stimulus";
 import consumer from "../channels/consumer";
 
 export default class extends Controller {
-  static values = { chatroomId: Number };
+  static values = {
+    chatroomId: Number,
+    userName: String,
+  };
   static targets = ["messages"];
 
   connect() {
@@ -21,7 +24,13 @@ export default class extends Controller {
   }
 
   #insertMessageAndScrollDown(data) {
-    this.messagesTarget.insertAdjacentHTML("beforeend", data);
+    let newData = "";
+    if (data.includes(`<strong>${this.userNameValue}</strong>`)) {
+      newData = data;
+    } else {
+      newData = data.replace("current-user-message", "other-user-message");
+    }
+    this.messagesTarget.insertAdjacentHTML("beforeend", newData);
     this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight);
   }
 
