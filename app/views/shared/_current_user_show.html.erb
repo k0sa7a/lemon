@@ -18,6 +18,7 @@
       <% else %>
         <p><%=current_user.about%></p>
       <% end %>
+      <%= link_to "Become a coach", new_coach_path, class: "btn__lemon" %>
     </div>
 
     <div class="mx-auto" style="width:300px">
@@ -38,11 +39,13 @@
       <%= month_calendar(events: @meetings, end_attribute: :end_time) do |date, meetings| %>
         <%= date %>
         <% meetings.each do |meeting| %>
-          <div class="meeting">
-            <p><%= meeting.name %></p>
-            <small><%= meeting.time unless meeting.multi_days? %></small>
-            <%= link_to "edit", edit_meeting_path(meeting)%>
-          </div>
+          <%= link_to meeting_path(meeting), class:"text-decoration-none" do %>
+            <div class="meeting">
+              <p><%= meeting.name %></p>
+              <small><%= meeting.time unless meeting.multi_days? %></small>
+              <%= link_to "edit", edit_meeting_path(meeting)%>
+            </div>
+          <% end %>
         <% end %>
       <% end %>
     </div>

@@ -7,7 +7,7 @@
       <% end %>
     </div>
 
-  <%= simple_form_for [@chatroom, @message],
+  <%= simple_form_for [@meeting, @chatroom, @message],
     remote: true,
     html: {
       data: {action: "ajax:success->chatroom-subscription#resetForm"},

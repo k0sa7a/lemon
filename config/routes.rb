@@ -23,10 +23,10 @@ Rails.application.routes.draw do
 
   # resources :notifications, only: [:show]
 
-  resources :meetings
-
-  resources :chatrooms, only: :show do
-    resources :messages, only: :create
+  resources :meetings do
+    resources :chatrooms, only: :show do
+      resources :messages, only: :create
+    end
   end
 
   resources :events
@@ -35,10 +35,7 @@ Rails.application.routes.draw do
     resources :payments, only: :new
   end
 
-
-
   resources :coaches, only: [:new, :create, :index, :show]
-
 
   get '/404', to: 'errors#not_found'
   get '/500', to: 'errors#internal_server'
