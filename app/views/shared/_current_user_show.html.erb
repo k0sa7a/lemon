@@ -18,6 +18,7 @@
       <% else %>
         <p><%=current_user.about%></p>
       <% end %>
+      <%= link_to "Become a coach", new_coach_path, class: "btn__lemon" %>
     </div>
 
     <div class="mx-auto" style="width:300px">
