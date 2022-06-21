@@ -1,0 +1,11 @@
+<div class="parent-form container d-flex justify-content-center align-items-center h-100">
+  <div class="wrapper form-design">
+    <h2 class=form-font>Register as a coach</h2>
+      <%= simple_form_for(@coach) do |f| %>
+        <%= f.input :bio %>
+        <%= f.input :style, collection: ["Aggressive", "Freestyle", "Recreational", "Speed"] %>
+        <%= f.input :price, label: "Price (GBP)" %>
+        <%= f.button :submit, class: "btn__lemon_form" %>
+      <% end %>
+  </div>
+</div>

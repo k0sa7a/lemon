@@ -1,8 +1,18 @@
 class CoachesController < ApplicationController
   def new
+    @coach = Coach.new
   end
 
   def create
+    @coach = Coach.new(coach_params)
+    @coach.user = current_user
+    if @coach.save
+      flash[:notice] = "You have registered as a coach"
+      redirect_to coach_path(@coach)
+    else
+      flash.now[:alert] = "Sorry there was an issue"
+      render :new
+    end
   end
 
   def show
@@ -36,5 +46,13 @@ class CoachesController < ApplicationController
 
   def set_coach
     @coach = Coach.find(params[:id])
+  end
+
+  def coach_params
+    params.require(:coach).permit(
+      :bio,
+      :style,
+      :price
+    )
   end
 end
