@@ -5,9 +5,11 @@ class MeetingsController < ApplicationController
 
   def create
     @meeting = Meeting.new(meeting_params)
-    @chatroom = Chatroom.create(name: @meeting.name)
     @meeting.user = current_user
     if @meeting.save
+      @chatroom = Chatroom.create(name: @meeting.name)
+      @chatroom.meeting = @meeting
+      @meeting.save
       redirect_to user_path(current_user)
     else
       render :new

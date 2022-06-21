@@ -1,5 +1,4 @@
 class Chatroom < ApplicationRecord
   has_many :messages
-  has_one :event
-  belongs_to :meeting
+  has_one :meeting
 end
