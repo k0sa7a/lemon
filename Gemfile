@@ -34,7 +34,7 @@ gem 'pg_search'
 gem 'acts_as_favoritor'
 
 gem 'autoprefixer-rails', '10.2.5'
-gem 'font-awesome-sass', '~> 5.6.1'
+gem 'font-awesome-sass', '~> 6.1.1'
 gem 'simple_form', github: 'heartcombo/simple_form'
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
@@ -73,3 +73,8 @@ gem 'cloudinary', '~> 1.16.0'
 gem "geocoder"
 
 gem "simple_calendar", "~> 2.4"
+
+# stripe integration
+gem 'money-rails'
+gem 'stripe'
+gem 'stripe_event'

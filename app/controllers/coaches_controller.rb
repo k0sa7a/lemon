@@ -5,6 +5,11 @@ class CoachesController < ApplicationController
   def create
   end
 
+  def show
+    @coach = Coach.find(params[:id])
+    @appointment = Appointment.new
+  end
+
   def index
     if params[:query].present?
       @coaches = Coach.search_by_style_and_bio(params[:query])
@@ -19,5 +24,17 @@ class CoachesController < ApplicationController
                           formats: [:html] }
     end
 
+  end
+
+  def edit
+  end
+
+  def update
+  end
+
+  private
+
+  def set_coach
+    @coach = Coach.find(params[:id])
   end
 end

@@ -1,0 +1,109 @@
+// .card__coach {
+//   margin: 20px !important;
+//   align-items: center !important;
+//   padding: 20px;
+//   width: 300px;
+//   height: 600px;
+// }
+
+// .card__coach:hover {
+//   box-shadow: 0 0.5px 2px $color-secondary;
+//   color: $color-grey-6 !important
+// }
+
+// .card__coach-header {
+//   height: 250px;
+//   border-bottom-style: none;
+//   align-items: center;
+//   background-color: white !important;
+//   border-radius: 10px !important;
+// }
+
+// .card__coach-header img {
+//   object-position: center !important;
+//   position: relative;
+//   height: 200px;
+//   width: 200px;
+//   margin-left: 32px;
+//   background-color: white;
+//   border-radius: 100% !important;
+// }
+
+// .card__coach h2 {
+//   font-size: 30px;
+//   font-weight: bold;
+//   margin: 0;
+//   text-align: center;
+//   color: $color-grey-6 !important;
+// }
+
+
+// .card__coach p {
+//   font-size: 12px;
+//   opacity: .7;
+//   margin: 0;
+//   text-align: center;
+//   color: $color-grey-6 !important
+// }
+
+// .card__coach h3 {
+//   text-align: center;
+//   font-size: 20px;
+//   opacity: .8;
+//   color: $color-grey-6 !important
+// }
+
+// .card__coach h4 {
+//   text-align: center;
+//   font-style: italic;
+// }
+
+// .card__coach-body {
+//   border-top-style: none;
+//   display: flex;
+//   align-items: center;
+//   flex-direction: column;
+//   justify-content: center;
+//   padding: 8px;
+//   min-height: 100px;
+// }
+
+// .coaches__container {
+//   display: flex;
+//   grid-template-columns: 1fr;
+//   margin: 20px;
+//   padding: 8px;
+//   justify-content: space-between;
+// }
+
+
+// .index-content {
+//   display: grid;
+//   grid-template-columns: 3fr 3fr;
+//   align-items: center;
+// }
+
+// .heart-icon {
+//   position: absolute;
+//   top: 22px;
+//   right: 26px;
+// }
+
+// // Smallest device
+// @media (min-width: 100px) and (max-width: 575px) {
+//   .locations-container {
+//     grid-template-columns: 1fr;
+//   }
+//   .map-container{
+//     visibility: hidden;
+//   }
+// }
+
+// @media (min-width: 576px) {
+//   .locations-container {
+//     grid-template-columns: 1fr;
+//   }
+//   .map-container{
+//     visibility: hidden;
+//   }
+// }

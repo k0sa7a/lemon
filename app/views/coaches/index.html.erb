@@ -1,13 +1,14 @@
-<h1>COACHES INDEX</h1>
-
-<div data-controller="coaches-search">
-  <div class="search-form">
-   <%= form_with url: coaches_path, method: :get, class: "d-flex", data: {coaches_search_target: 'form'} do |form| %>
-     <div>
-       <%= form.text_field :query, value: params[:query], placeholder: "Coaches search", data: {coaches_search_target: 'input', action: 'keyup->coaches-search#update'} %>
-     </div>
-      <%= form.submit "Search" %>
-   <% end %>
+<div class="coaches__wrapper">
+  <h1>Find your next coach</h1>
+  <div data-controller="coaches-search">
+      <div class="search-form">
+      <%= form_with url: coaches_path, method: :get, class: "d-flex", data: {coaches_search_target: 'form'} do |form| %>
+        <div>
+          <%= form.text_field :query, value: params[:query], placeholder: "Search by coaching style", data: {coaches_search_target: 'input', action: 'keyup->coaches-search#update'} %>
+        </div>
+          <%= form.submit "Search" %>
+      <% end %>
+      </div>
+      <%= render "shared/coaches_list", coaches: @coaches %>
   </div>
-<%= render "shared/coaches_list", coaches: @coaches %>
 </div>

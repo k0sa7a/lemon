@@ -1,0 +1,7 @@
+    <%= simple_form_for(appointment) do |f| %>
+      <%= f.input :coach_id, as: :hidden, input_html: { value: coach.id  }%>
+      <%= f.input :start_time, as: :datetime, html5: true %>
+      <%= f.input :end_time, as: :datetime, html5: true %>
+
+      <%= f.button :submit, "Confirm changes" %>
+    <% end %>
