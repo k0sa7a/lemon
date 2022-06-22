@@ -1,7 +1,30 @@
-    <%= simple_form_for(appointment) do |f| %>
-      <%= f.input :coach_id, as: :hidden, input_html: { value: coach.id  }%>
-      <%= f.input :start_time, as: :datetime, html5: true %>
-      <%= f.input :end_time, as: :datetime, html5: true %>
 
-      <%= f.button :submit, "Confirm booking" %>
-    <% end %>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn__lemon-generic" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Book Me
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for(appointment) do |f| %>
+          <%= f.input :coach_id, as: :hidden, input_html: { value: coach.id  }%>
+          <%= f.input :start_time, as: :datetime, html5: true %>
+          <%= f.input :end_time, as: :datetime, html5: true %>
+          <div class="modal-footer">
+
+          <%= f.button :submit, "Confirm booking", class:"btn btn__lemon-generic" %>
+        <% end %>
+        <button type="button" class="btn btn btn__lemon-generic" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
