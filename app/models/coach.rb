@@ -12,4 +12,5 @@ class Coach < ApplicationRecord
       prefix: true
     }
   }
+
 end

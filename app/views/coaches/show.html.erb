@@ -1,10 +1,29 @@
-<div class="booking__container">
-  <h2 class="booking__h2"><%= @coach.user.first_name %></h2>
-  <div class="coach__booking">
-    <img src="<%= cl_image_path @coach.user.photo.key, gravity: :face,  crop: :fill %>" class="avatar-bordered">
+<div class="booking__container container">
+
+  <div class=coach-container>
+    <div class="coach__booking">
+      <img src="<%= cl_image_path @coach.user.photo.key, gravity: :face,  crop: :fill %>" class="avatar-bordered">
+    </div>
+    <div class="coach-details">
+    <h2 class="booking__h2"><%= @coach.user.first_name %></h2>
+      <h3 class="coach-details__heading">About Me</h3>
+      <p><%= @coach.bio %></p>
+      <h3 class="coach-details__heading">My Styles</h3>
+      <p><%= @coach.style.capitalize %></p>
+      <h3 class="coach-details__heading">My Rate Per Hour</h3>
+      <p><%= humanized_money_with_symbol(@coach.price) %></p>
+    </div>
   </div>
-  <p>Style: <%= @coach.style %></p>
-  <p><%= @coach.bio %></p>
-  <p>Rate per hour: <%= humanized_money_with_symbol(@coach.price) %></p>
-  <%= render "appointments/new.html.erb", coach: @coach, appointment: @appointment %>
+  <div class='coach-controls-container'>
+    <%= render "appointments/new.html.erb", coach: @coach, appointment: @appointment %>
+    <% if @chat_exists%>
+      <%= link_to "Let's Chat", chatroom_path(@chat_exists), class:'btn btn__lemon-generic' %>
+    <% else %>
+      <%= render "chatrooms/new.html.erb", chatroom: @chatroom, coach: @coach %>
+    <% end %>
+    <%= link_to 'Back to coaches', coaches_path, class:'btn btn__lemon-generic'  %>
+  </div>
+
+
+
 </div>

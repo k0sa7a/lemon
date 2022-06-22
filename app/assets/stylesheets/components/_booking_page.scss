@@ -1,25 +1,48 @@
 .booking__container {
   height: auto;
-  width: 50%;
+  // width: 50%;
   margin: auto;
   padding: 10px;
+  .coach-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 2rem 0 3rem 0;
+  }
 }
 
 .booking__h2 {
   font-size: 30px;
   margin-top: 10px;
   font-weight: bold;
-  text-align: center;
+  text-align: left;
   color: $color-grey-6 !important;
 }
 
 .coach__booking img {
   display: block;
-  height: 240px;
-  width: 240px;
+  height: 350px;
+  width: 350px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 32px;
   background-color: white;
   border-radius: 100% !important;
+}
+.coach__booking {
+  margin-right: 2rem;
+}
+
+.coach-details  {
+  max-width: 50%;
+  font-size: large;
+  .coach-details__heading {
+    text-align: left;
+    margin-left: 0;
+    padding-left: 0;
+  }
+}
+
+.coach-controls-container {
+  display: flex;
+  justify-content: space-around;
 }

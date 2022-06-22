@@ -18,7 +18,7 @@ class AppointmentsController < ApplicationController
         payment_method_types: ['card'],
         line_items: [{
           name: @coach.user.first_name,
-          images: [@coach.user.photo.key],
+          # images: [Cloudinary::Utils.cloudinary_url(@coach.user.photo.key, {width: 50, height: 50, crop: :fill})],
           amount: @appointment.amount_cents,
           currency: 'gbp',
           quantity: 1
@@ -57,3 +57,5 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.find(params[:id])
   end
 end
+# options = {width: 50, height: 50, crop: :fill}
+# Cloudinary::Utils.cloudinary_url(@coach.user.photo.key, {width: 50, height: 50, crop: :fill})
