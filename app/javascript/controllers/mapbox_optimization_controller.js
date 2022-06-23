@@ -242,7 +242,7 @@ export default class extends Controller {
     }
     instructions.innerHTML = `<p><strong>Trip duration: ${Math.floor(
       duration / 60
-    )} min 🛼 </strong></p><ol>${tripInstructions}</ol>`;
+    )} min 🛼 </strong></p><div class='show-directions'> Show directions</div><div class='detailed-directions d-none'><ol>${tripInstructions}</ol></div>`;
   }
 
   rerouting() {

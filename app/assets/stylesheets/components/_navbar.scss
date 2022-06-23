@@ -17,6 +17,9 @@
   color: $color-black !important;
   .nav-item .nav-link {
     color: $color-black;
+    &:hover {
+      color: $color-grey-5
+    }
   }
 }
 
@@ -32,6 +35,9 @@
 
 .nav-item.textcolor a{
   color: $color-black !important;
+  &:hover {
+    color: $color-grey-5
+  }
 }
 
 
@@ -40,7 +46,7 @@
 }
 
 .nav-item-loggedin.textcolor a{
-  color: $color-black !important;
+  color: $color-black;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -102,6 +108,7 @@ a.nav-link:hover {
   border-radius: 5px;
   border: none;
   background-color: rgba(255, 255, 255, 0);
+  border: solid 2px $color-white;
   .dropdown-item {
     color: $color-white;
     font-weight: bold;
@@ -121,7 +128,7 @@ a.nav-link:hover {
     font-weight: bold;
     &:hover {
       background-color: $color-primary;
-      color: $color-grey-5;
+      color: $color-grey-5 !important;
     }
   }
 }
@@ -135,7 +142,7 @@ a.nav-link:hover {
     font-weight: bold;
     &:hover {
       background-color: $color-primary;
-      color: rgb(221, 221, 221);
+      color: $color-grey-5;
     }
   }
 }
