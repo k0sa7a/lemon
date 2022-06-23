@@ -41,7 +41,7 @@ export default class extends Controller {
           confirmButtonText: "Cool",
         });
       });
-    this.cancelForm();
+    this.cancelForm(event);
   }
 
   addItemToItinerary(event) {
