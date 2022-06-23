@@ -15,11 +15,13 @@
     </div>
   </div>
   <div class='coach-controls-container'>
-    <%= render "appointments/new.html.erb", coach: @coach, appointment: @appointment %>
-    <% if @chat_exists%>
-      <%= link_to "Let's Chat", chatroom_path(@chat_exists), class:'btn btn__lemon-generic' %>
-    <% else %>
-      <%= render "chatrooms/new.html.erb", chatroom: @chatroom, coach: @coach %>
+    <% if @coach.user != current_user %>
+      <%= render "appointments/new.html.erb", coach: @coach, appointment: @appointment %>
+      <% if @chat_exists%>
+        <%= link_to "Let's Chat", chatroom_path(@chat_exists), class:'btn btn__lemon-generic' %>
+      <% else %>
+        <%= render "chatrooms/new.html.erb", chatroom: @chatroom, coach: @coach %>
+      <% end %>
     <% end %>
     <%= link_to 'Back to coaches', coaches_path, class:'btn btn__lemon-generic'  %>
   </div>
@@ -27,3 +29,4 @@
 
 
 </div>
+
