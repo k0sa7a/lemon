@@ -14,6 +14,10 @@
   position: sticky;
   top: 0;
   z-index: 1000;
+  color: $color-black !important;
+  .nav-item .nav-link {
+    color: $color-black;
+  }
 }
 
 .navbar-lewagon .dropdown, .navbar-nothome .dropdown {
@@ -25,9 +29,6 @@
   background:$color-primary !important;
 }
 
-.navbar-nothome.scrolled {
-  background:$color-primary !important;
-}
 
 .nav-item.textcolor a{
   color: $color-black !important;
@@ -83,12 +84,12 @@ a.nav-link:hover {
   color: $color-white;
 }
 
-.dropdown-menu.dropdown-menu-end.show {
+.navbar-nothome .dropdown-menu.dropdown-menu-end.show {
   border-radius: 5px;
   border: none;
   background-color: $color-primary;
   .dropdown-item {
-    color: #fff;
+    color: $color-black;
     font-weight: bold;
     &:hover {
       background-color: $color-primary;
