@@ -40,10 +40,28 @@ bottom: 20%;
 padding: 20px;
 background-color: #0e2127;
 opacity: 80%;
-overflow-y: auto;
+overflow-y: hidden;
 overflow-x: hidden;
 font-family: sans-serif;
 color: #fff;
+height: fit-content;
+max-height: 19vh;
+border-radius: 5px;
+p {
+  margin-bottom: 0;
+}
+}
+
+.show-directions {
+  max-height: 60vh !important;
+  overflow-y: auto !important;
+}
+
+#directions-show, #directions-hide {
+  cursor: pointer;
+  &:hover {
+    color: $color-secondary;
+  }
 }
 
 .truck {
