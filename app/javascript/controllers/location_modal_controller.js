@@ -10,6 +10,7 @@ export default class extends Controller {
     "createItineraryCont",
     "inputTitle",
     "addListItemForm",
+    "closeBtn",
   ];
 
   displayForm() {
@@ -17,7 +18,8 @@ export default class extends Controller {
     this.createItineraryContTarget.classList.remove("d-none");
   }
 
-  cancelForm() {
+  cancelForm(event) {
+    event.preventDefault();
     this.addListItemFormContainerTarget.classList.remove("d-none");
     this.createItineraryContTarget.classList.add("d-none");
   }
@@ -74,6 +76,7 @@ export default class extends Controller {
       })
       .finally(() => {
         this.resetForm(event);
+        this.closeBtnTarget.click();
       });
   }
 

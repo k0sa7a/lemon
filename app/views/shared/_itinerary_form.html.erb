@@ -4,8 +4,12 @@
     <div class="d-flex justify-content-between mb-3">
       <%= f.input :title, label: false, wrapper_html: { class: "location-modal__itinerary_form__input_wrapper" },
       input_html: {data: {location_modal_target: "inputTitle"}} %>
-      <%= f.submit "create itinerary", class: "btn btn-primary modal__form__button" %>
-    </div>
+      </div>
+      <div class="d-flex justify-content-between mb-3">
+      <%= f.submit "create itinerary", class: "btn btn__lemon-generic modal__form__button" %>
     <% end %>
-    <button class="btn btn-primary" data-action="click->location-modal#cancelForm">Cancel</button>
+    <div>
+    <button class="btn btn__lemon-generic" data-action="click->location-modal#cancelForm">Cancel</button>
+    </div>
+    </div>
 </div>

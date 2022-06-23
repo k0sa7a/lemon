@@ -6,7 +6,7 @@ class ChatroomsController < ApplicationController
   end
 
   def index
-    @chatrooms = Chatroom
+    @chatrooms = current_user.chat_rooms
   end
 
   def create
