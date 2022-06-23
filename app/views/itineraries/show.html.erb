@@ -17,9 +17,11 @@
     <div class="list-items-container">
       <h1><%= @itinerary.title %></h1>
       <%= render "shared/itinerary_summary", itinerary: @itinerary %>
-      <%= link_to "Add more skate spots", locations_path  %>
-      <div>
-        <%= link_to "Create meeting", new_meeting_path %>
+      <div class='itinerary-additional-options'>
+        <%= link_to "Add more spots", locations_path, class:'btn btn__lemon-generic'  %>
+        <div>
+          <%= link_to "Create Event", new_meeting_path, class:'btn btn__lemon-generic' %>
+        </div>
       </div>
     </div>
     <div class="map-container" >
