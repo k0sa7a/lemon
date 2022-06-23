@@ -7,6 +7,7 @@ const initFlatpickr = () => {
     dateFormat: "Y-m-d H:i",
     minDate: "today",
     enableTime: true,
+    inline: true
   });
 }
 
