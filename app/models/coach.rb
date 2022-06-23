@@ -1,6 +1,7 @@
 class Coach < ApplicationRecord
   belongs_to :user
   has_many :appointments
+  has_many :privatechats
   monetize :price_cents
   validates :user_id, uniqueness: true
 
@@ -12,4 +13,5 @@ class Coach < ApplicationRecord
       prefix: true
     }
   }
+
 end

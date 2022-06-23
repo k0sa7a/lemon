@@ -18,6 +18,9 @@ class CoachesController < ApplicationController
   def show
     @coach = Coach.find(params[:id])
     @appointment = Appointment.new
+
+    @chatroom = Chatroom.new
+    @chat_exists = chat_exists
   end
 
   def index
@@ -54,5 +57,11 @@ class CoachesController < ApplicationController
       :style,
       :price
     )
+  end
+
+  def chat_exists
+    @coach = Coach.find(params[:id])
+    @chat = Privatechat.where(user_id: current_user, coach_id: @coach.id)
+    @chat.empty? ? false : @chat.last.id
   end
 end

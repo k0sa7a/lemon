@@ -1,15 +1,13 @@
 .card__coach {
-  margin: 20px !important;
+  display: flex;
+  flex-direction: column;
   align-items: center !important;
-  padding: 20px;
-  width: 300px;
-  height: 600px;
+  justify-content: center;
+  min-width: 300px;
+  min-height: 400px;
 }
 
-.card__coach:hover {
-  box-shadow: 0 0.5px 2px $color-secondary;
-  color: $color-grey-6 !important
-}
+
 
 .card__coach-header {
   height: 250px;
@@ -24,7 +22,6 @@
   position: relative;
   height: 200px;
   width: 200px;
-  margin-left: 32px;
   background-color: white;
   border-radius: 100% !important;
 }
@@ -69,11 +66,20 @@
 }
 
 .coaches__container {
-  display: flex;
-  // grid-template-columns: 30px 200px auto 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   // padding: 8px;
   margin: 20px;
   padding: 8px;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  // justify-content: space-around;
+  // flex-wrap: wrap;
+  .coach__card_link {
+    margin: 20px !important;
+    padding: 20px;
+  }
+}
+
+.coach__card_link:hover {
+  box-shadow: 0 0.5px 2px $color-secondary;
+  color: $color-grey-6 !important
 }

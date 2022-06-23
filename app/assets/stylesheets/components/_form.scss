@@ -7,6 +7,11 @@
   vertical-align: middle !important;
 }
 
+.form-control:focus {
+  border-color: $color-secondary !important;
+  box-shadow: none !important;
+}
+
 .parent-form {
   min-height: 100vh;
 }
