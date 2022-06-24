@@ -13,10 +13,18 @@
       <h3 class="coach-details__heading">My Rate Per Hour</h3>
       <p><%= humanized_money_with_symbol(@coach.price) %></p>
     </div>
+    <% if @coach.user != current_user %>
+      <%= simple_form_for @appointment, html: { class: "book-me-form"} do |f| %>
+        <%= f.input :coach_id, as: :hidden, input_html: { value: @coach.id  }%>
+        <%= f.input :start_time, as: :string, label: false, html5: true, input_html: {class: "datepicker"} %>
   </div>
   <div class='coach-controls-container'>
+        <%= f.button :submit, "Request booking", class:"btn btn__lemon-generic btn__request-booking" %>
+      <% end %>
+    <% end %>
+  <%# </div> %>
+  <%# <div class='coach-controls-container'> %>
     <% if @coach.user != current_user %>
-      <%= render "appointments/new.html.erb", coach: @coach, appointment: @appointment %>
       <% if @chat_exists%>
         <%= link_to "Let's Chat", chatroom_path(@chat_exists), class:'btn btn__lemon-generic' %>
       <% else %>
@@ -29,4 +37,3 @@
 
 
 </div>
-

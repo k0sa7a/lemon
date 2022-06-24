@@ -52,3 +52,19 @@
   flex-direction: column;
   align-items: center;
 }
+.flatpickr-month  {
+  background-color: $color-primary !important;
+  .flatpickr-monthDropdown-months {
+    background-color: $color-primary !important;
+    .flatpickr-monthDropdown-month {
+      background-color: $color-primary !important;
+    }
+  }
+}
+
+.flatpickr-weekdays {
+  background-color: $color-primary !important;
+  .flatpickr-weekday {
+    background-color: $color-primary !important;
+  }
+}
