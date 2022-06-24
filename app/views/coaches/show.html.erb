@@ -14,24 +14,35 @@
       <p><%= humanized_money_with_symbol(@coach.price) %></p>
     </div>
     <% if @coach.user != current_user %>
+    <div class='coach-details__select-date-time'>
+      <h2 class="booking__h2">Select a time</h2>
       <%= simple_form_for @appointment, html: { class: "book-me-form"} do |f| %>
         <%= f.input :coach_id, as: :hidden, input_html: { value: @coach.id  }%>
         <%= f.input :start_time, as: :string, label: false, html5: true, input_html: {class: "datepicker"} %>
+        </div>
   </div>
   <div class='coach-controls-container'>
-        <%= f.button :submit, "Request booking", class:"btn btn__lemon-generic btn__request-booking" %>
+    <div class='btn__coaches-controls__container rev-1'>
+      <%= f.button :submit, "Request booking", class:"btn btn__lemon-generic btn__request-booking btn__coaches-controls" %>
+    </div>
       <% end %>
     <% end %>
   <%# </div> %>
   <%# <div class='coach-controls-container'> %>
     <% if @coach.user != current_user %>
       <% if @chat_exists%>
-        <%= link_to "Let's Chat", chatroom_path(@chat_exists), class:'btn btn__lemon-generic' %>
+        <div class='btn__coaches-controls__container rev-2'>
+          <%= link_to "Let's Chat", chatroom_path(@chat_exists), class:'btn btn__lemon-generic btn__coaches-controls' %>
+        </div>
       <% else %>
-        <%= render "chatrooms/new.html.erb", chatroom: @chatroom, coach: @coach %>
+        <div class='btn__coaches-controls__container'>
+          <%= render "chatrooms/new.html.erb", chatroom: @chatroom, coach: @coach %>
+        </div>
       <% end %>
     <% end %>
-    <%= link_to 'Back to coaches', coaches_path, class:'btn btn__lemon-generic'  %>
+    <div class='btn__coaches-controls__container rev-3'>
+      <%= link_to 'Back to coaches', coaches_path, class:'btn btn__lemon-generic btn__coaches-controls'  %>
+    </div>
   </div>
 
 
