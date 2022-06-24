@@ -35,7 +35,7 @@
           <%= link_to "Let's Chat", chatroom_path(@chat_exists), class:'btn btn__lemon-generic btn__coaches-controls' %>
         </div>
       <% else %>
-        <div class='btn__coaches-controls__container'>
+        <div class='btn__coaches-controls__container rev-2'>
           <%= render "chatrooms/new.html.erb", chatroom: @chatroom, coach: @coach %>
         </div>
       <% end %>
