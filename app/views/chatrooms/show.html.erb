@@ -1,10 +1,27 @@
 <div class="container chatroom" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>" data-chatroom-subscription-user-name-value="<%= current_user.first_name %>">
-    <h1>#<%= @chatroom.name %></h1>
-
+    <% if @chatroom.private %>
+      <% if current_user == @user %>
+        <% title = "Chat with #{@coach}" %>
+        <%placeholder = @coach%>
+      <% else %>
+        <% title = "Chat with #{@user.first_name}" %>
+        <%placeholder = @user.first_name%>
+      <% end %>
+    <% else %>
+      <% title = "##{@chatroom.name}" %>
+      <%placeholder = @chatroom.name%>
+    <% end %>
+    <h2><%= title %></h2>
+    <div class='hr-cont'>
+      <hr>
+    </div>
     <div class="messages" data-chatroom-subscription-target="messages" >
       <% @chatroom.messages.each do |message| %>
         <%= render "messages/message", message: message %>
       <% end %>
+    </div>
+    <div class='hr-cont'>
+      <hr>
     </div>
 
   <%= simple_form_for [@meeting, @chatroom, @message],
@@ -15,11 +32,14 @@
   %>
     <%= f.input :content,
       label: false,
-      placeholder: "Message ##{@chatroom.name}",
+      placeholder: "Message #{placeholder}",
       wrapper_html: {class: "flex-grow-1"}
     %>
     <%= f.submit "Send", class: "btn btn-chat" %>
   <% end %>
+  <div class='hr-cont'>
+    <hr>
+  </div>
   <div class='chatroom-additional-controls'>
       <% if @chatroom.private%>
       <% unless @chatroom.privatechat.coach.user == current_user %>
