@@ -63,6 +63,7 @@
 
 .locations-container {
   display: grid;
+  position: relative;
   grid-template-columns: 1fr 1fr;
   grid-gap: 16px;
   margin: 0 20px;
@@ -72,7 +73,7 @@
 
 .index-content {
   display: flex;
-  grid-template-columns: 1fr 1fr;
+  // grid-template-columns: 1fr 1fr;
 }
 
 .heart-icon {

@@ -6,29 +6,45 @@
   margin: 16px 0 16px 50px;
 }
 
+.search-controls-container.coaches-search {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  margin: 1rem 0;
+}
+
+
 .coach-search-form {
   display: flex;
   justify-content: space-between;
-  width: 700px;
-  margin: 16px 0 16px 50px;
+  width: 450px;
+  margin: 16px 0 16px 0px;
 }
 
 #coach-input {
   border-radius: 15px 0 0 15px;
   flex-grow: 4;
-  border-top: 1px solid $gray-200;
-  border-left: 1px solid $gray-200;
-  border-bottom: 1px solid $gray-200;
+  border-top: 1px solid $color-grey-8;
+  border-left: 1px solid $color-grey-8;
+  border-bottom: 1px solid $color-grey-8;
   padding-left: 20px;
   padding-right: 10px;
+  background-color: $light-gray;
 }
 
 #distance {
   flex-grow: 4;
-  border-top: 1px solid $gray-200;
-  border-bottom: 1px solid $gray-200;
+  border-top: 1px solid $color-grey-8;
+  border-bottom: 1px solid $color-grey-8;
   padding-left: 10px;
   padding-right: 10px;
+  background-color: $light-gray;
+  border-color: $color-grey-8;
+
+}
+
+.mapboxgl-ctrl-geocoder.mapboxgl-ctrl {
+  border-radius: 15px 0 0 15px;
 }
 
 
