@@ -1,9 +1,12 @@
 <div class="container">
-  <div class="row py-4">
-    <div class="col-md-3"><img src="<%= cl_image_path @appointment.coach.user.photo.key, gravity: :face,  crop: :fill %>" class="avatar-bordered"></div>
-    <div class="col">
-      <h1>Checkout summary</h1>
-      <p>Booking a lesson with <strong><%= @appointment.coach.user.first_name %></strong> for <strong><%= humanized_money_with_symbol @appointment.amount %></strong></p>
+<h2 class="heading checkout-heading">Checkout summary</h2>
+  <div class="d-flex">
+    <div class=""><img src="<%= cl_image_path @appointment.coach.user.photo.key, gravity: :face,  crop: :fill %>" class="avatar-bordered"></div>
+    <div class="">
+      <p>You are booking a lesson with <strong><%= @appointment.coach.user.first_name %></strong></p>
+      <p><strong>Price:</strong> <%= humanized_money_with_symbol @appointment.amount %></p>
+      <p><strong>Day:</strong> <%= @time_slot.strftime("%A %d %B %Y")%></p>
+      <p><strong>Time slot:</strong> <%= @time_slot.strftime("%I:%M%p - ")%> <%=  (@time_slot + 3600).strftime("%I:%M%p") %></p>
       <button id="pay" class="btn btn__lemon-generic">Pay Now</button>
       <script src="https://js.stripe.com/v3/"></script>
       <script>
