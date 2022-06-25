@@ -1,7 +1,7 @@
 <div class="container">
 <h2 class="heading checkout-heading">Checkout summary</h2>
   <div class="d-flex justify-content-center align-items-center">
-    <div class="coach__avatar-payments"><img src="<%= cl_image_path @appointment.coach.user.photo.key, gravity: :face,  crop: :fill %>" class="avatar-bordered"></div>
+    <div class="coach__avatar-payments"><img src="<%= cl_image_path @coach_pic, gravity: :face,  crop: :fill %>" class="avatar-bordered"></div>
     <div class="checkout-info">
       <p>You are booking a lesson with <strong><%= @appointment.coach.user.first_name %></strong></p>
       <p><strong>Price:</strong> <%= humanized_money_with_symbol @appointment.amount %></p>
