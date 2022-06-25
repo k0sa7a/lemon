@@ -1,8 +1,26 @@
 .search-form {
-  border-style: solid;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 15px 0 0 15px;
   width: 700px;
+  margin: 16px 0 16px 50px;
 }
 
+#distance {
+  flex-grow: 4;
+  border-top: 1px solid $gray-200;
+  border-bottom: 1px solid $gray-200;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.btn-no-margin {
+  margin-right: 0 !important;
+}
+
+#h1-locations {
+  margin: 16px 0 16px 50px;
+}
 
 @media(max-width: 992px) {
   .search-form{
@@ -19,6 +37,6 @@
   }
 }
 
-.locations__wrapper__form-container {
-  margin: 16px 0 16px 50px;
-}
+// .locations__wrapper__form-container {
+//   margin: 16px 0 16px 50px;
+// }
