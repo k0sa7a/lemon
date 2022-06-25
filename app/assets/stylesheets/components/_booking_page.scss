@@ -14,6 +14,17 @@
   }
 }
 
+.coach-container .row1 {
+  min-height: 470px;
+  justify-content: space-between;
+}
+
+.coach-image-wrapper {
+  display: flex;
+  align-items: center;
+  min-height: 470px;
+}
+
 .booking__h2 {
   font-size: 30px;
   margin-top: 10px;
@@ -37,6 +48,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+}
+
+.coach-show-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
 }
 
 .coach-details  {
@@ -101,6 +120,7 @@
   position: relative;
   flex-direction: column-reverse;
   margin-bottom: 0 !important;
+  margin-top: -5rem;
   .datepicker.form-control.input {
     position: absolute;
     bottom: -3.5rem;
@@ -114,7 +134,20 @@
 }
 
 .coach-details__select-date-time{
-  .booking__h2 {
-    margin-left: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  #new_appointment {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
   }
+
+  .row2 {
+    margin-top: 2rem;
+  }
+
 }

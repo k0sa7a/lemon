@@ -15,7 +15,7 @@ class AppointmentsController < ApplicationController
     time_slot = @appointment.start_time
     @coach_pic = @appointment.coach.user.photo.key
 
-    image_url = Cloudinary::Utils.cloudinary_url(@coach_pic, {gravity: :face, height: 300, width: 300, radius: :max, crop: :fill, :border=>"5px_solid_rgb:ffef64", :background=>"rgb:ffc65a"})
+    image_url = Cloudinary::Utils.cloudinary_url(@coach_pic, {gravity: :face, height: 300, width: 300, radius: :max, crop: :fill, :border=>"5px_solid_rgb:ffef64", :background=>"rgb:1edd88"})
     pattern = %r{res.cloudinary.com/[a-zA-z]+/image/upload/[\w,:]+}
     if Rails.env.development?
       text_to_add = '/v1/development'

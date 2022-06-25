@@ -41,9 +41,8 @@ export default class extends Controller {
 
   //to stop the squashed map issue - https://stackoverflow.com/questions/57166761/mapbox-gl-height-100
   #rerender() {
-    this.map.on("render", async () => {
+    this.map.on("load", async () => {
       this.map.resize();
-      console.log(this.map);
     });
   }
 
