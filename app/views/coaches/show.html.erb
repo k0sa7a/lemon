@@ -1,50 +1,53 @@
 <div class="booking__container container">
 
   <div class=coach-container>
-    <div class="coach__booking">
-      <img src="<%= cl_image_path @coach.user.photo.key, gravity: :face,  crop: :fill %>" class="avatar-bordered">
+
+    <div class="coach__booking coach-show-column">
+      <div class="coach-image-wrapper">
+        <img src="<%= cl_image_path @coach.user.photo.key, gravity: :face,  crop: :fill %>" class="avatar-bordered">
+      </div>
+      <div class="row2">
+        <%= link_to 'Back to coaches', coaches_path, class:'btn btn__lemon-generic btn__coaches-controls'  %>
+      </div>
     </div>
-    <div class="coach-details">
-    <h2 class="booking__h2"><%= @coach.user.first_name %></h2>
-      <h3 class="coach-details__heading">About Me</h3>
-      <p><%= @coach.bio %></p>
-      <h3 class="coach-details__heading">My Styles</h3>
-      <p><%= @coach.style.capitalize %></p>
-      <h3 class="coach-details__heading">My Rate Per Hour</h3>
-      <p><%= humanized_money_with_symbol(@coach.price) %></p>
-    </div>
-    <% if @coach.user != current_user %>
-    <div class='coach-details__select-date-time'>
-      <h2 class="booking__h2">Select a time</h2>
-      <%= simple_form_for @appointment, html: { class: "book-me-form"} do |f| %>
-        <%= f.input :coach_id, as: :hidden, input_html: { value: @coach.id  }%>
-        <%= f.input :start_time, as: :string, label: false, html5: true, input_html: {class: "datepicker"} %>
-        </div>
-  </div>
-  <div class='coach-controls-container'>
-    <div class='btn__coaches-controls__container rev-1'>
-      <%= f.button :submit, "Make a booking", class:"btn btn__lemon-generic btn__request-booking btn__coaches-controls" %>
-    </div>
+
+    <div class="coach-details coach-show-column">
+      <div class="row1">
+        <h2 class="booking__h2"><%= @coach.user.first_name %></h2>
+        <h3 class="coach-details__heading">About Me</h3>
+        <p><%= @coach.bio %></p>
+        <h3 class="coach-details__heading">My Styles</h3>
+        <p><%= @coach.style.capitalize %></p>
+        <h3 class="coach-details__heading">My Rate Per Hour</h3>
+        <p><%= humanized_money_with_symbol(@coach.price) %></p>
+      </div>
+      <div class="row2">
+      <% if @coach.user != current_user %>
+        <% if @chat_exists%>
+          <div class='btn__coaches-controls__container rev-2'>
+            <%= link_to "Let's Chat", chatroom_path(@chat_exists), class:'btn btn__lemon-generic btn__coaches-controls' %>
+          </div>
+        <% else %>
+          <div class='btn__coaches-controls__container rev-2 row2'>
+            <%= render "chatrooms/new.html.erb", chatroom: @chatroom, coach: @coach %>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
-  <%# </div> %>
-  <%# <div class='coach-controls-container'> %>
-    <% if @coach.user != current_user %>
-      <% if @chat_exists%>
-        <div class='btn__coaches-controls__container rev-2'>
-          <%= link_to "Let's Chat", chatroom_path(@chat_exists), class:'btn btn__lemon-generic btn__coaches-controls' %>
-        </div>
-      <% else %>
-        <div class='btn__coaches-controls__container rev-2'>
-          <%= render "chatrooms/new.html.erb", chatroom: @chatroom, coach: @coach %>
-        </div>
-      <% end %>
-    <% end %>
-    <div class='btn__coaches-controls__container rev-3'>
-      <%= link_to 'Back to coaches', coaches_path, class:'btn btn__lemon-generic btn__coaches-controls'  %>
+      </div>
     </div>
+
+    <% if @coach.user != current_user %>
+    <div class='coach-details__select-date-time coach-show-column'>
+        <h2 class="booking__h2">Select a time</h2>
+        <%= simple_form_for @appointment, html: { class: "book-me-form"} do |f| %>
+          <%= f.input :coach_id, as: :hidden, input_html: { value: @coach.id  }%>
+          <%= f.input :start_time, as: :string, label: false, html5: true, input_html: {class: "datepicker"} %>
+          <div class='btn__coaches-controls__container rev-1'>
+            <%= f.button :submit, "Make a booking", class:"btn btn__lemon-generic btn__request-booking btn__coaches-controls" %>
+          </div>
+            <% end %>
+          <% end %>
+      </div>
+
   </div>
-
-
-
 </div>
