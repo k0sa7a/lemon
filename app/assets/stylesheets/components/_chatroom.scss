@@ -7,10 +7,22 @@
   justify-content: space-between;
   flex-grow: 1;
 
-  h1 {
-    border-bottom: 1px solid $gray-200;
+  .hr-cont {
+    background-color: $gray-200;
+    display: flex;
+    justify-content: center;
+    hr {
+      color: $color-grey-3;
+      width: 97%;
+    }
+  }
+
+
+  h2 {
+    padding-top: 1rem;
+    background-color: $gray-200;
     margin-bottom: 0;
-    padding: 1rem;
+    border-radius: 15px 15px 0 0;
   }
 
   .messages {
@@ -41,10 +53,13 @@
 
   #new_message {
     border-top: 1px solid $gray-200;
-    padding: 1rem 0;
+    background-color: $gray-200;
 
     .message_content {
-      margin: 0 !important;
+      margin: 0 0 0 1rem !important;
+      #message_content {
+        border-radius: 15px 0 0 15px;
+      }
     }
 
     .btn {
@@ -60,4 +75,7 @@
 .chatroom-additional-controls {
   display: flex;
   justify-content: space-between;
+  background-color: $gray-200;
+  padding: 0 1rem 1rem 1rem;
+  border-radius: 0 0 15px 15px;
 }
