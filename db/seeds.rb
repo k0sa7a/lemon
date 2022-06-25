@@ -43,11 +43,18 @@ html_doc.search('.info h3').each do |element|
 end
 
 
-arr = [1, 2, 3]
+arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 images = []
 html_doc.search('.image img').each do |element|
   if element.attr('src') == "https://www.skateparks.co.uk/wp-content/themes/FoundationSkate/assets/img/placeholder.png"
-    image_url = "app/assets/images/stock_location#{arr.sample}.jpg"
+    if arr.length.zero?
+      arr_el = rand(1..14)
+      image_url = "app/assets/images/stock_location#{arr_el}.jpg"
+    else
+      arr_el = arr.sample
+      image_url = "app/assets/images/stock_location#{arr_el}.jpg"
+      arr.delete(arr_el)
+    end
   else
     image_url = element.attr('src')
   end
@@ -193,9 +200,18 @@ users = [user_one, user_two, user_three, user_four]
   images.delete_at(0)
 end
 
+arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 Location.all.each do |location|
-  location.photos.attach(io: File.open("app/assets/images/stock_location#{arr.sample}.jpg"), filename: "stock_location#{arr.sample}.jpg", content_type: 'image/jpg')
-  location.save!
+  if arr.length.zero?
+    arr_sam = rand(1..14)
+    location.photos.attach(io: File.open("app/assets/images/stock_location#{arr_sam}.jpg"), filename: "stock_location#{arr_sam}.jpg", content_type: 'image/jpg')
+    location.save!
+  else
+    arr_sam = arr.sample
+    location.photos.attach(io: File.open("app/assets/images/stock_location#{arr_sam}.jpg"), filename: "stock_location#{arr_sam}.jpg", content_type: 'image/jpg')
+    location.save!
+    arr.delete(arr_sam)
+  end
 end
 
 # manual fix to locations that did not get correct long/lat
@@ -230,6 +246,9 @@ location2 = Location.new(title: "Green Park", description: "One of the less busy
 location2.user = User.find(rand((User.first.id)..(User.last.id)))
 file = URI.open("https://images.unsplash.com/photo-1483633118203-e785579ec4a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1734&q=80")
 location2.photos.attach(io: file, filename: 'location.png', content_type: 'image/png')
+location2.save!
+file = URI.open("https://images.unsplash.com/photo-1542299642-a194ad3a7199?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80")
+location2.photos.attach(io: file, filename: 'location1.png', content_type: 'image/png')
 location2.save!
 
 location3 = Location.new(title: "Mayfair/Berkeley square", description: "Cool spot to try out your grinds! A lot of rails and obstacles. One problem is that security comes every now and then and kicks everyone out.", address: "W1J 6HE")
