@@ -2,6 +2,10 @@ class ChatroomsController < ApplicationController
   def show
     @chatroom = Chatroom.find(params[:id])
     @message = Message.new
+    if @chatroom.private
+      @user = @chatroom.privatechat.user
+      @coach = @chatroom.privatechat.coach.user.first_name
+    end
     # @meeting = Meeting.find(params[:meeting_id])
   end
 
