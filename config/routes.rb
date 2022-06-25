@@ -23,10 +23,11 @@ Rails.application.routes.draw do
 
   # resources :notifications, only: [:show]
 
-  resources :meetings do
-    resources :chatrooms, only: :show do
-      resources :messages, only: :create
-    end
+  resources :meetings
+
+
+  resources :chatrooms, only: [:show, :new, :create, :index] do
+    resources :messages, only: :create
   end
 
   resources :events

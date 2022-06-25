@@ -52,7 +52,7 @@ input{
   border: none;
   outline: none;
   box-shadow: none;
-  width: 100%;
+  // width: 100%;
   padding: 0px 2px;
   font-family: $body-font;
 }
@@ -63,10 +63,10 @@ a{
   font-weight: 700;
 }
 
-a:hover{
-  text-decoration: none;
-  color:$color-primary;
-}
+// a:hover{
+//   text-decoration: none;
+//   color:$color-primary;
+// }
 .option{
   position: relative;
   padding-left: 30px;

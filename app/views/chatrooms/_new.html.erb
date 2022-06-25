@@ -1,0 +1,7 @@
+<%= simple_form_for(chatroom) do |f| %>
+  <%= f.input :name, as: :hidden, input_html: { value: "chat between #{coach.user.first_name} and #{current_user.first_name}"  }, wrapper_html: {class:"d-none"}%>
+  <%= f.input :private, as: :hidden, input_html: { value: true  }, wrapper_html: {class:"d-none"}%>
+  <%= f.input :private, as: :hidden, input_html: { value: true  }, wrapper_html: {class:"d-none"}%>
+  <%= f.input :coach_id, as: :hidden, input_html: { value: coach.id  }, wrapper_html: {class:"d-none"}%>
+  <%= f.button :submit, "Let's Chat", class:'btn btn__lemon-generic' %>
+<% end %>
