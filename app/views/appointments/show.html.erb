@@ -1,15 +1,18 @@
 <div class="container">
-  <div class="row py-4">
-    <div class="col-md-3"> <img src="<%= cl_image_path @appointment.coach.user.photo.key, gravity: :face,  crop: :fill %>" class="avatar-bordered"></div>
-    <div class="col">
-      <h1>Order #<%= @appointment.id %> <small><span class="badge bg-primary"><%= @appointment.state %></span></small></h1>
+<h2 class="heading checkout-heading">Order summary</h2>
+  <div class="d-flex justify-content-center align-items-center">
+    <div class="coach__avatar-payments"> <img src="<%= cl_image_path @appointment.coach.user.photo.key, gravity: :face,  crop: :fill %>" class="avatar-bordered"></div>
+    <div class="checkout-info">
+      <h1>Order #<%= @appointment.id %> <small><span class="badge bg-lemon"><%= @appointment.state %></span></small></h1>
       <ul class="list-unstyled">
-        <li><strong>ISSUED ON</strong> <%= @appointment.created_at.to_date %></li>
+        <li><strong>Issued on</strong> <%= @appointment.created_at.to_date %></li>
         <li><strong>Coach</strong> <%= @appointment.coach.user.first_name %></li>
-        <li><strong>TOTAL PAID</strong> <%= humanized_money_with_symbol @appointment.amount %></li>
-        </li>
+        <li><strong>Total Paid</strong> <%= humanized_money_with_symbol @appointment.amount %></li>
+        <li><strong>Your lesson is:</strong> <%= @time_slot.strftime("%I:%M%p - ")%> <%=  (@time_slot + 3600).strftime("%I:%M%p") %> on <%= @time_slot.strftime("%A %d %B %Y")%></li>
       </ul>
-      <p>Your lesson is on <strong><%= @appointment.start_time %></strong></p>
     </div>
   </div>
+      <div class='btn__coaches-controls__container d-flex justify-content-center align-items-center mt-5'>
+      <%= link_to 'Back to coaches', coaches_path, class:'btn btn__lemon-generic btn__coaches-controls'  %>
+    </div>
 </div>

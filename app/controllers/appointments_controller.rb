@@ -1,6 +1,9 @@
 class AppointmentsController < ApplicationController
   def show
     @appointment = current_user.appointments.find(params[:id])
+    @coach = @appointment.coach
+    @coach_pic = @appointment.coach.user.photo.key
+    @time_slot = @appointment.start_time
   end
 
   def create
