@@ -219,4 +219,23 @@ location = Location.find_by(title: "Bedfont Skatepark")
 location.address = "TW14 8JA"
 location.save
 
+# manual locations in central London for demo
+location1 = Location.new(title: "Hyde Park South skate spot", description: "When it is not too crowded, this is a perfect spot to try out some tricks and socialize. Avoid on weekends, as it is full of tourists", address: "W2 2UH")
+location1.user = User.find(rand((User.first.id)..(User.last.id)))
+file = URI.open("https://images.unsplash.com/photo-1623246112598-ce2f39818003?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80")
+location1.photos.attach(io: file, filename: 'location.png', content_type: 'image/png')
+location1.save!
+
+location2 = Location.new(title: "Green Park", description: "One of the less busy skate spots. Great for testing your max speed. Always some friendly skaters around that can help with tips and suggestions.", address: "SW1A 1BW")
+location2.user = User.find(rand((User.first.id)..(User.last.id)))
+file = URI.open("https://images.unsplash.com/photo-1483633118203-e785579ec4a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1734&q=80")
+location2.photos.attach(io: file, filename: 'location.png', content_type: 'image/png')
+location2.save!
+
+location3 = Location.new(title: "Mayfair/Berkeley square", description: "Cool spot to try out your grinds! A lot of rails and obstacles. One problem is that security comes every now and then and kicks everyone out.", address: "W1J 6HE")
+location3.user = User.find(rand((User.first.id)..(User.last.id)))
+file = URI.open("https://images.unsplash.com/photo-1520190319646-36e4469ed921?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80")
+location3.photos.attach(io: file, filename: 'location.png', content_type: 'image/png')
+location3.save!
+
 puts "Done! #{Location.count} locations, #{User.count} users and #{Coach.count} coaches created!"
