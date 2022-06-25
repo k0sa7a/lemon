@@ -1,14 +1,19 @@
 <div class="coaches__wrapper">
-  <h1 id="h1-form">Find your next coach</h1>
   <div data-controller="coaches-search">
+    <div class="search-controls-container coaches-search">
+      <h1 id="h1-form">Find your next coach</h1>
 
-      <%= form_with url: coaches_path, method: :get, data: {coaches_search_target: 'form'}, class:"coach-search-form" do |form| %>
+      <div class='d-flex justify-content-center'>
+        <%= form_with url: coaches_path, method: :get, data: {coaches_search_target: 'form'}, class:"coach-search-form" do |form| %>
 
-          <%= form.text_field :query, value: params[:query], placeholder: "Search by coaching style", data: {coaches_search_target: 'input', action: 'keyup->coaches-search#update'}, id:"coach-input" %>
+            <%= form.text_field :query, value: params[:query], placeholder: "Search by coaching style", data: {coaches_search_target: 'input', action: 'keyup->coaches-search#update'}, id:"coach-input" %>
 
-          <%= form.submit "Search", class: "btn btn-coach-form" %>
-      <% end %>
+            <%= form.submit "Search", class: "btn btn-coach-form" %>
+        <% end %>
+      </div>
+    </div>
 
-      <%= render "shared/coaches_list", coaches: @coaches %>
+    <%= render "shared/coaches_list", coaches: @coaches %>
+
   </div>
 </div>

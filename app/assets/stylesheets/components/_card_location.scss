@@ -63,6 +63,7 @@
 
 .locations-container {
   display: grid;
+  position: relative;
   grid-template-columns: 1fr 1fr;
   grid-gap: 16px;
   margin: 0 20px;

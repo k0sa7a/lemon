@@ -1,8 +1,16 @@
-<div class="locations-container" data-controller="location-index" >
-  <% empty = current_user.itineraries.empty? %>
-  <% @locations.each do |location| %>
-    <div data-controller="favorites">
-      <%= render "show_modal", location: location, num: location.id, list_item: @list_item, itinerary: @itinerary, empty: empty %>
-    </div>
+  <div class="locations-container" data-controller="location-index" >
+  <% if @locations.empty? %>
+  <div class="no-location-image-cont">
+    <p>Oh no! We have no skate spots listed near you. Try expand your search radius or search for a different location.</p>
+    <%= image_tag "skates-hung-up.png", class: "no-location-image" %>
+  </div>
+
+  <% else %>
+    <% empty = current_user.itineraries.empty? %>
+    <% @locations.each do |location| %>
+      <div data-controller="favorites">
+        <%= render "show_modal", location: location, num: location.id, list_item: @list_item, itinerary: @itinerary, empty: empty %>
+      </div>
+    <% end %>
   <% end %>
 </div>
