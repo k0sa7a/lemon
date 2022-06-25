@@ -1,6 +1,6 @@
 <div class="locations__wrapper">
 
-    <h1 id="h1-locations">Locations</h1>
+    <h1 id="h1-form">Locations</h1>
 
       <%= form_with url: locations_path, method: :get, class:"search-form" do |form| %>
         <div data-controller="geoform" data-geoform-api-key-value= <%= ENV['MAPBOX_API_KEY'] %> >
