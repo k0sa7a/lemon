@@ -6,6 +6,23 @@
   margin: 16px 0 16px 50px;
 }
 
+.coach-search-form {
+  display: flex;
+  justify-content: space-between;
+  width: 700px;
+  margin: 16px 0 16px 50px;
+}
+
+#coach-input {
+  border-radius: 15px 0 0 15px;
+  flex-grow: 4;
+  border-top: 1px solid $gray-200;
+  border-left: 1px solid $gray-200;
+  border-bottom: 1px solid $gray-200;
+  padding-left: 20px;
+  padding-right: 10px;
+}
+
 #distance {
   flex-grow: 4;
   border-top: 1px solid $gray-200;
@@ -21,11 +38,12 @@
   border-radius: 15px 0 0 15px;
 }
 
+
 .btn-no-margin {
   margin-right: 0 !important;
 }
 
-#h1-locations {
+#h1-form {
   margin: 16px 0 16px 50px;
 }
 
