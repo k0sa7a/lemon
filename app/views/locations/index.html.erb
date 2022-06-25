@@ -1,27 +1,27 @@
 <div class="locations__wrapper">
-  <div class="locations__wrapper__form-container">
-    <h1>Locations</h1>
-    <div class="search-form">
-      <%= form_with url: locations_path, method: :get, class: "d-flex" do |form| %>
+
+    <h1 id="h1-locations">Locations</h1>
+
+      <%= form_with url: locations_path, method: :get, class:"search-form" do |form| %>
         <div data-controller="geoform" data-geoform-api-key-value= <%= ENV['MAPBOX_API_KEY'] %> >
           <%= form.text_field :query, value: params[:query], placeholder: "Postcode/Location", class: "d-none", data: {geoform_target: "address"} %>
         </div>
         <%= form.number_field :distance, in: 1.0..70.0, step: 0.5, placeholder: "Distance: 1km", value: params[:distance] %>
-        <%= form.submit "Search" %>
+        <%= form.submit "Search", class: "btn btn-form" %>
       <% end %>
-    </div>
-  </div>
-<div class="index-content">
-  <div>
-    <% if params[:query] && @query_loc != nil %>
-      <div class="weather d-flex justify-content-center">
-      <%= image_tag @weather_icon %>
-      <div class="d-flex flex-column align-items-center">
-        <p><%= "Temperature: #{@temp}°C" %></p>
-        <p><%= "Wind speed: #{@wind}m/s" %></p>
-      </div>
-    </div>
-    <% end %>
+
+
+  <div class="index-content">
+    <div>
+      <% if params[:query] && @query_loc != nil %>
+        <div class="weather d-flex justify-content-center">
+          <%= image_tag @weather_icon %>
+          <div class="d-flex flex-column align-items-center">
+          <p><%= "Temperature: #{@temp}°C" %></p>
+          <p><%= "Wind speed: #{@wind}m/s" %></p>
+          </div>
+        </div>
+      <% end %>
     <div>
     <%= render "locations_container", locations: @location %>
     </div>
