@@ -3,15 +3,15 @@
   <td><div class='itinerary-cell title-cell'> <%= item.location.title %> </div></td>
   <td><div class='itinerary-cell start-cell'>
     <% if item.start %>
-      <p>Starting Here</p>
+      <p class='list-item__start-tag'>Start <span><i class="fa-solid fa-flag-checkered list-item__start-icon"></i></span></p>
         <%= simple_form_for [item.itinerary, item], html: {class: 'form d-none', data: {edit_list_items_target: "form", action: "submit->edit-list-items#setStart"}} do |f| %>
           <%= f.input :start, input_html: { checked: true }, label:false %>
-          <%= f.submit "Make start", class: "btn btn-primary" %>
+          <%= f.submit "Start here", class: "btn btn__lemon-generic" %>
         <% end %>
     <% else %>
       <%= simple_form_for [item.itinerary, item], html: {class: 'form', data: {edit_list_items_target: "form", action: "submit->edit-list-items#setStart"}} do |f| %>
         <%= f.input :start, input_html: { checked: true }, label:false %>
-        <%= f.submit "Make start", class: "btn btn-primary" %>
+        <%= f.submit "Start here", class: "btn btn__lemon-generic" %>
       <% end %>
     <% end %>
   </div></td>

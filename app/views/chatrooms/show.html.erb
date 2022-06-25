@@ -18,6 +18,14 @@
       placeholder: "Message ##{@chatroom.name}",
       wrapper_html: {class: "flex-grow-1"}
     %>
-    <%= f.submit "Send", class: "btn btn-primary" %>
+    <%= f.submit "Send", class: "btn btn-chat" %>
   <% end %>
+  <div class='chatroom-additional-controls'>
+      <% if @chatroom.private%>
+      <% unless @chatroom.privatechat.coach.user == current_user %>
+        <%= link_to "Back to #{@chatroom.privatechat.coach.user.first_name}", coach_path(@chatroom.privatechat.coach), class:'btn btn__lemon-generic' %>
+      <% end %>
+    <% end %>
+    <%= link_to 'To my chats', chatrooms_path, class:'btn btn__lemon-generic' %>
+  </div>
 </div>

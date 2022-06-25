@@ -1,0 +1,20 @@
+.list-item__start-tag {
+  margin: 0 10px 0 0;
+  color: $color-secondary;
+  font-size: 20px;
+}
+
+.list-item__start-icon {
+  color: $color-secondary;
+  font-size: 20px;
+}
+
+.itinerary-cell.start-cell {
+  justify-content: center;
+}
+
+.itinerary-additional-options {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}

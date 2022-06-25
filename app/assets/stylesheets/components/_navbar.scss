@@ -8,28 +8,36 @@
 }
 
 .navbar-nothome {
-  background:$color-secondary !important;
+  background:$color-primary !important;
   transition: 0.5s ease;
   height: 85px !important;
   position: sticky;
   top: 0;
   z-index: 1000;
+  color: $color-black !important;
+  .nav-item .nav-link {
+    color: $color-black;
+    &:hover {
+      color: $color-grey-5
+    }
+  }
 }
 
-.navbar-lewagon .dropdown {
+.navbar-lewagon .dropdown, .navbar-nothome .dropdown {
   cursor: pointer;
 }
+
 
 .navbar-lewagon.scrolled {
   background:$color-primary !important;
 }
 
-.navbar-nothome.scrolled {
-  background:$color-primary !important;
-}
 
 .nav-item.textcolor a{
   color: $color-black !important;
+  &:hover {
+    color: $color-grey-5
+  }
 }
 
 
@@ -38,7 +46,7 @@
 }
 
 .nav-item-loggedin.textcolor a{
-  color: $color-black !important;
+  color: $color-black;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -80,6 +88,63 @@ a.nav-link:hover {
 
 .navbar-dark .navbar-nav .nav-link {
   color: $color-white;
+}
+
+.navbar-lewagon .dropdown-menu.dropdown-menu-end.show {
+  border-radius: 5px;
+  border: none;
+  background-color: $color-primary;
+  .dropdown-item {
+    color: $color-white;
+    font-weight: bold;
+    &:hover {
+      background-color: $color-primary;
+      color: rgb(221, 221, 221);
+    }
+  }
+}
+
+.navbar-lewagon .dropdown-menu.dropdown-menu-end.show {
+  border-radius: 5px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+  border: solid 2px $color-white;
+  .dropdown-item {
+    color: $color-white;
+    font-weight: bold;
+    &:hover {
+      background-color: rgba(255, 255, 255, 0);
+      color: rgb(221, 221, 221);
+    }
+  }
+}
+
+.navbar-lewagon.scrolled .dropdown-menu.dropdown-menu-end.show {
+  border-radius: 5px;
+  border: none;
+  background-color: $color-primary;
+  .dropdown-item {
+    color: $color-black;
+    font-weight: bold;
+    &:hover {
+      background-color: $color-primary;
+      color: $color-grey-5 !important;
+    }
+  }
+}
+
+.navbar-nothome .dropdown-menu.dropdown-menu-end.show {
+  border-radius: 5px;
+  border: none;
+  background-color: $color-primary;
+  .dropdown-item {
+    color: $color-black;
+    font-weight: bold;
+    &:hover {
+      background-color: $color-primary;
+      color: $color-grey-5;
+    }
+  }
 }
 
 @media(max-width: 992px) {
