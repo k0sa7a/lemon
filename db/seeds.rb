@@ -238,8 +238,11 @@ location.save
 # manual locations in central London for demo
 location1 = Location.new(title: "Hyde Park South skate spot", description: "When it is not too crowded, this is a perfect spot to try out some tricks and socialize. Avoid on weekends, as it is full of tourists", address: "W2 2UH")
 location1.user = User.find(rand((User.first.id)..(User.last.id)))
-file = URI.open("https://images.unsplash.com/photo-1623246112598-ce2f39818003?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80")
+file = URI.open("https://images.pexels.com/photos/11084176/pexels-photo-11084176.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
 location1.photos.attach(io: file, filename: 'location.png', content_type: 'image/png')
+location1.save!
+file = URI.open("https://images.pexels.com/photos/4816809/pexels-photo-4816809.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+location1.photos.attach(io: file, filename: 'location2.png', content_type: 'image/png')
 location1.save!
 
 location2 = Location.new(title: "Green Park", description: "One of the less busy skate spots. Great for testing your max speed. Always some friendly skaters around that can help with tips and suggestions.", address: "SW1A 1BW")
@@ -255,6 +258,9 @@ location3 = Location.new(title: "Mayfair/Berkeley square", description: "Cool sp
 location3.user = User.find(rand((User.first.id)..(User.last.id)))
 file = URI.open("https://images.unsplash.com/photo-1520190319646-36e4469ed921?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80")
 location3.photos.attach(io: file, filename: 'location.png', content_type: 'image/png')
+location3.save!
+file = URI.open("https://images.pexels.com/photos/11288810/pexels-photo-11288810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+location3.photos.attach(io: file, filename: 'location3.png', content_type: 'image/png')
 location3.save!
 
 puts "Done! #{Location.count} locations, #{User.count} users and #{Coach.count} coaches created!"
