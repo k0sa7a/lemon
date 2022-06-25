@@ -1,10 +1,13 @@
 <div class="container">
-  <div class="row py-4">
-    <div class="col-md-3"><img src="<%= cl_image_path @appointment.coach.user.photo.key, gravity: :face,  crop: :fill %>" class="avatar-bordered"></div>
-    <div class="col">
-      <h1>Checkout summary</h1>
-      <p>Booking a lesson with <strong><%= @appointment.coach.user.first_name %></strong> for <strong><%= humanized_money_with_symbol @appointment.amount %></strong></p>
-      <button id="pay" class="btn btn__lemon-generic">Pay Now</button>
+<h2 class="heading checkout-heading">Checkout summary</h2>
+  <div class="d-flex justify-content-center align-items-center">
+    <div class="coach__avatar-payments"><img src="<%= cl_image_path @coach_pic, gravity: :face,  crop: :fill %>" class="avatar-bordered"></div>
+    <div class="checkout-info">
+      <p>You are booking a lesson with <strong><%= @appointment.coach.user.first_name %></strong></p>
+      <p><strong>Price:</strong> <%= humanized_money_with_symbol @appointment.amount %></p>
+      <p><strong>Day:</strong> <%= @time_slot.strftime("%A %d %B %Y")%></p>
+      <p><strong>Time slot:</strong> <%= @time_slot.strftime("%I:%M%p - ")%> <%=  (@time_slot + 3600).strftime("%I:%M%p") %></p>
+      <button id="pay" class="btn btn__lemon-generic btn_checkout">Checkout</button>
       <script src="https://js.stripe.com/v3/"></script>
       <script>
         const paymentButton = document.getElementById('pay');
