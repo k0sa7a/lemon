@@ -2,3 +2,9 @@
   margin-right: auto;
   margin-left: auto;
 }
+
+.search-controls-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  margin: 1rem 0;
+}

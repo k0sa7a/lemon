@@ -12,6 +12,13 @@
   border-bottom: 1px solid $gray-200;
   padding-left: 10px;
   padding-right: 10px;
+  background-color: $light-gray;
+  border-color: $color-grey-8;
+
+}
+
+.mapboxgl-ctrl-geocoder.mapboxgl-ctrl {
+  border-radius: 15px 0 0 15px;
 }
 
 .btn-no-margin {
