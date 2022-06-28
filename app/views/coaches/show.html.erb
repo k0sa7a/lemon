@@ -16,7 +16,7 @@
         <h2 class="booking__h2"><%= @coach.user.first_name %></h2>
         <h3 class="coach-details__heading">About Me</h3>
         <p><%= @coach.bio %></p>
-        <h3 class="coach-details__heading">My Styles</h3>
+        <h3 class="coach-details__heading">My Style</h3>
         <p><%= @coach.style.capitalize %></p>
         <h3 class="coach-details__heading">My Rate Per Hour</h3>
         <p><%= humanized_money_with_symbol(@coach.price) %></p>

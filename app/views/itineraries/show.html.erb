@@ -15,7 +15,7 @@
     </div>
   <% else %>
     <div class="list-items-container">
-      <h1><%= @itinerary.title %></h1>
+      <h1 id="h1-form" class="no-margin-left no-margin-bottom"><%= @itinerary.title %></h1>
       <%= render "shared/itinerary_summary", itinerary: @itinerary %>
       <div class='itinerary-additional-options'>
         <%= link_to "Add more spots", locations_path, class:'btn btn__lemon-generic'  %>
