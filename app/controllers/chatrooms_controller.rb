@@ -2,6 +2,7 @@ class ChatroomsController < ApplicationController
   def show
     @chatroom = Chatroom.find(params[:id])
     @message = Message.new
+    @lemon_background = true
     if @chatroom.private
       @user = @chatroom.privatechat.user
       @coach = @chatroom.privatechat.coach.user.first_name
@@ -12,7 +13,7 @@ class ChatroomsController < ApplicationController
   def index
     @private_chatrooms = current_user.chat_rooms
     @public_chatrooms = Chatroom.where(private: false)
-    @chatroom_index = true
+    @lemon_background = true
   end
 
   def create

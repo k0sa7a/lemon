@@ -1,4 +1,4 @@
-<div class="container chatroom" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>" data-chatroom-subscription-user-name-value="<%= current_user.first_name %>">
+<div class="container chatroom no-padding" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>" data-chatroom-subscription-user-name-value="<%= current_user.first_name %>">
     <% if @chatroom.private %>
       <% if current_user == @user %>
         <% title = "Chat with #{@coach}" %>
