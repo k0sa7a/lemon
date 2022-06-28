@@ -1,3 +1,22 @@
-<% @chatrooms.each do |room| %>
-  <%= link_to room.name.capitalize, chatroom_path(room) %>
-<% end %>
+<h2>Chats</h2>
+<div>
+  <h3>Private chats</h3>
+  <ul>
+  <% @private_chatrooms.each do |room| %>
+  <li>
+    <%= link_to room.name.capitalize, chatroom_path(room) %>
+  </li>
+  <% end %>
+  </ul>
+</div>
+
+<div>
+  <h3>Public chatrooms</h3>
+  <ul>
+  <% @public_chatrooms.each do |room| %>
+  <li>
+    <%= link_to room.name.capitalize, chatroom_path(room) %>
+  </li>
+  <% end %>
+  </ul>
+</div>
