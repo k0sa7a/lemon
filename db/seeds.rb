@@ -263,4 +263,10 @@ file = URI.open("https://images.pexels.com/photos/11288810/pexels-photo-11288810
 location3.photos.attach(io: file, filename: 'location3.png', content_type: 'image/png')
 location3.save!
 
-puts "Done! #{Location.count} locations, #{User.count} users and #{Coach.count} coaches created!"
+Chatroom.create!(name: 'Sunday Strolls')
+Chatroom.create!(name: 'Friday Night Skate')
+Chatroom.create!(name: 'Open Chat')
+Chatroom.create!(name: 'Skate Talk')
+Chatroom.create!(name: 'Skate Gear Advice')
+
+puts "Done! #{Location.count} locations, #{User.count} users, #{Chatroom.count} chatrooms and #{Coach.count} coaches created!"
