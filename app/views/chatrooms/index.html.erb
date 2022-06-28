@@ -1,22 +1,30 @@
+<div class='container chat-list-container'>
 <h2>Chats</h2>
-<div>
-  <h3>Private chats</h3>
-  <ul>
-  <% @private_chatrooms.each do |room| %>
-  <li>
-    <%= link_to room.name.capitalize, chatroom_path(room) %>
-  </li>
-  <% end %>
-  </ul>
-</div>
+<div class="">
+  <div>
+    <h3>Private chats</h3>
+    <div class='d-flex justify-content-center'>
+      <ul>
+      <% @private_chatrooms.each do |room| %>
+      <li>
+        <%= link_to room.name.capitalize, chatroom_path(room) %>
+      </li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
 
-<div>
-  <h3>Public chatrooms</h3>
-  <ul>
-  <% @public_chatrooms.each do |room| %>
-  <li>
-    <%= link_to room.name.capitalize, chatroom_path(room) %>
-  </li>
-  <% end %>
-  </ul>
+  <div>
+    <h3 class="f">Public chatrooms</h3>
+    <div class='d-flex justify-content-center'>
+      <ul>
+      <% @public_chatrooms.each do |room| %>
+      <li>
+        <%= link_to room.name.capitalize, chatroom_path(room) %>
+      </li>
+      <% end %>
+      </ul>
+    </div>
+</div>
+</div>
 </div>

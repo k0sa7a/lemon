@@ -12,6 +12,7 @@ class ChatroomsController < ApplicationController
   def index
     @private_chatrooms = current_user.chat_rooms
     @public_chatrooms = Chatroom.where(private: false)
+    @chatroom_index = true
   end
 
   def create

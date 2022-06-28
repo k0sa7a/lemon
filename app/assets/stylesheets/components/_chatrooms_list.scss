@@ -1,0 +1,26 @@
+.chat-list-container {
+  text-align: center;
+  padding: 24px;
+  background-color: $color-grey-5;
+  font-weight:900;
+  vertical-align: middle !important;
+  border-radius: 15px;
+  margin-top: 3rem;
+  width: fit-content;
+  padding: 4rem;
+  h2, h3 {
+    color: $color-white !important;
+  }
+  ul {
+    list-style: none;
+    color: $color-white !important;
+  }
+  li a{
+    color: $color-white !important;
+    text-decoration: none;
+    &:hover{
+      color: $color-secondary !important;
+    }
+  }
+
+}
