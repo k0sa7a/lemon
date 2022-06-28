@@ -4,7 +4,7 @@
   <div>
     <h3>Private chats</h3>
     <div class='d-flex justify-content-center'>
-      <ul>
+      <ul class='no-padding'>
       <% @private_chatrooms.each do |room| %>
       <li>
         <%= link_to room.name.capitalize, chatroom_path(room) %>
@@ -17,7 +17,7 @@
   <div>
     <h3 class="f">Public chatrooms</h3>
     <div class='d-flex justify-content-center'>
-      <ul>
+      <ul class='no-padding'>
       <% @public_chatrooms.each do |room| %>
       <li>
         <%= link_to room.name.capitalize, chatroom_path(room) %>
