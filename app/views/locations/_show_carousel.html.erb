@@ -20,7 +20,7 @@
       <% if location.photos.attached? %>
         <% location.photos.each_with_index do |photo, index| %>
           <%= index == 0 ? '<div class="carousel-item active">'.html_safe : '<div class="carousel-item">'.html_safe  %>
-            <img src="<%= cl_image_path photo.key, crop: :fill, width: 1000, height: 1000 %>" class="d-block w-100" alt="..." style='height: 200px;
+            <img src="<%= cl_image_path photo.key, :quality=>100 ,:gravity=>"center", :height=>200, :width=>500, :crop=>"fill"  %>" class="d-block w-100" alt="..." style='height: 200px;
               object-fit: cover;'>
           </div>
         <% end %>
