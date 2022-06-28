@@ -34,9 +34,15 @@
         data-mapbox-optimization-markers-value="<%= @markers.to_json %>"
         data-mapbox-optimization-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
-      <div class="info-box directions-box" id="instructions">
-        <p>
-        </p>
+      <div class='directions-controls-container'>
+        <div class="info-box directions-box" id="instructions">
+          <p>
+          </p>
+        </div>
+        <div class='directions-show-cont'>
+          <i id='directions-show' class="fa-solid fa-chevron-down"></i>
+          <i id='directions-hide' class="fa-solid fa-chevron-up d-none"></i>
+        </div>
       </div>
     </div>
   <% end %>

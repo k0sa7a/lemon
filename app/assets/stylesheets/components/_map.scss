@@ -16,10 +16,10 @@
 }
 
 .map-container {
-  height: calc(100vh - 180px);
+  height: calc(100vh - 100px);
   min-height: 80vh;
   flex-grow: 2;
-  top: 120px;
+  top: 100px;
   position: sticky;
 }
 
@@ -32,12 +32,6 @@
 
 
 #instructions {
-position: absolute;
-margin: 20px;
-width: 25%;
-top: 0;
-bottom: 20%;
-padding: 20px;
 background-color: #0e2127;
 opacity: 80%;
 overflow-y: hidden;
@@ -52,9 +46,33 @@ p {
 }
 }
 
+.directions-controls-container {
+  position: absolute;
+  margin: 20px;
+  width: 27%;
+  top: 0;
+  bottom: 20%;
+  padding: 20px;
+  background-color: #0e2127;
+  opacity: 80%;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  font-family: sans-serif;
+  color: #fff;
+  height: fit-content;
+  border-radius: 5px;
+}
+
 .show-directions {
   max-height: 60vh !important;
   overflow-y: auto !important;
+
+}
+
+.directions-show-cont {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
 }
 
 #directions-show, #directions-hide {
@@ -62,6 +80,13 @@ p {
   &:hover {
     color: $color-secondary;
   }
+  text-align: center;
+  display: inline-block;
+        margin: 10px;
+        -webkit-transform: scale(5, 1);
+        -moz-transform: scale(5, 1);
+        -o-transform: scale(5, 1);
+        transform: scale(5, 1);
 }
 
 .truck {

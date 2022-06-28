@@ -242,7 +242,7 @@ export default class extends Controller {
     }
     instructions.innerHTML = `<p><strong>Trip duration: ${Math.floor(
       duration / 60
-    )} min 🛼 </strong></p><div class='show-directions'><i id='directions-show' class="fa-solid fa-arrow-down-wide-short"></i><i id='directions-hide' class="fa-solid fa-arrow-up-wide-short d-none"></i></div><div id='directions-detail' class='detailed-directions'><ol>${tripInstructions}</ol></div>`;
+    )} min 🛼 </strong></p><div class='directions-show-cont'></div><div id='directions-detail' class='detailed-directions'><ol>${tripInstructions}</ol></div>`;
     const directionList = document.getElementById("directions-detail");
     const iconUp = document.getElementById("directions-hide");
     const iconDown = document.getElementById("directions-show");

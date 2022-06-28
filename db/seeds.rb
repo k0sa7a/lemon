@@ -43,11 +43,18 @@ html_doc.search('.info h3').each do |element|
 end
 
 
-arr = [1, 2, 3]
+arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 images = []
 html_doc.search('.image img').each do |element|
   if element.attr('src') == "https://www.skateparks.co.uk/wp-content/themes/FoundationSkate/assets/img/placeholder.png"
-    image_url = "app/assets/images/stock_location#{arr.sample}.jpg"
+    if arr.length.zero?
+      arr_el = rand(1..14)
+      image_url = "app/assets/images/stock_location#{arr_el}.jpg"
+    else
+      arr_el = arr.sample
+      image_url = "app/assets/images/stock_location#{arr_el}.jpg"
+      arr.delete(arr_el)
+    end
   else
     image_url = element.attr('src')
   end
@@ -73,7 +80,7 @@ third_user_image = URI.open("https://images.unsplash.com/photo-1618077360395-f30
 fourth_user_image = URI.open("https://images.unsplash.com/photo-1547212371-eb5e6a4b590c?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880")
 fifth_user_image = URI.open("https://images.unsplash.com/photo-1485893226355-9a1c32a0c81e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80")
 sixt_user_image = URI.open("https://images.unsplash.com/photo-1629378962667-aecffa490225?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1158&q=80")
-seventh_user_image = URI.open("https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1234&q=80")
+seventh_user_image = URI.open("https://images.unsplash.com/photo-1494158064015-7ff877b5bb2b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80")
 eighth_user_image = URI.open("https://images.unsplash.com/photo-1617200785733-6237c87c9ece?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80")
 ninth_user_image = URI.open("https://images.unsplash.com/photo-1626981065755-d0939b5baa76?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80")
 tenth_user_image = URI.open("https://images.unsplash.com/photo-1592790807458-d7980c141d90?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1162&q=80")
@@ -193,9 +200,18 @@ users = [user_one, user_two, user_three, user_four]
   images.delete_at(0)
 end
 
+arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 Location.all.each do |location|
-  location.photos.attach(io: File.open("app/assets/images/stock_location#{arr.sample}.jpg"), filename: "stock_location#{arr.sample}.jpg", content_type: 'image/jpg')
-  location.save!
+  if arr.length.zero?
+    arr_sam = rand(1..14)
+    location.photos.attach(io: File.open("app/assets/images/stock_location#{arr_sam}.jpg"), filename: "stock_location#{arr_sam}.jpg", content_type: 'image/jpg')
+    location.save!
+  else
+    arr_sam = arr.sample
+    location.photos.attach(io: File.open("app/assets/images/stock_location#{arr_sam}.jpg"), filename: "stock_location#{arr_sam}.jpg", content_type: 'image/jpg')
+    location.save!
+    arr.delete(arr_sam)
+  end
 end
 
 # manual fix to locations that did not get correct long/lat
@@ -218,5 +234,33 @@ location.save
 location = Location.find_by(title: "Bedfont Skatepark")
 location.address = "TW14 8JA"
 location.save
+
+# manual locations in central London for demo
+location1 = Location.new(title: "Hyde Park South skate spot", description: "When it is not too crowded, this is a perfect spot to try out some tricks and socialize. Avoid on weekends, as it is full of tourists", address: "W2 2UH")
+location1.user = User.find(rand((User.first.id)..(User.last.id)))
+file = URI.open("https://images.pexels.com/photos/11084176/pexels-photo-11084176.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+location1.photos.attach(io: file, filename: 'location.png', content_type: 'image/png')
+location1.save!
+file = URI.open("https://images.pexels.com/photos/4816809/pexels-photo-4816809.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+location1.photos.attach(io: file, filename: 'location2.png', content_type: 'image/png')
+location1.save!
+
+location2 = Location.new(title: "Green Park", description: "One of the less busy skate spots. Great for testing your max speed. Always some friendly skaters around that can help with tips and suggestions.", address: "SW1A 1BW")
+location2.user = User.find(rand((User.first.id)..(User.last.id)))
+file = URI.open("https://images.unsplash.com/photo-1483633118203-e785579ec4a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1734&q=80")
+location2.photos.attach(io: file, filename: 'location.png', content_type: 'image/png')
+location2.save!
+file = URI.open("https://images.unsplash.com/photo-1542299642-a194ad3a7199?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80")
+location2.photos.attach(io: file, filename: 'location1.png', content_type: 'image/png')
+location2.save!
+
+location3 = Location.new(title: "Mayfair/Berkeley square", description: "Cool spot to try out your grinds! A lot of rails and obstacles. One problem is that security comes every now and then and kicks everyone out.", address: "W1J 6HE")
+location3.user = User.find(rand((User.first.id)..(User.last.id)))
+file = URI.open("https://images.unsplash.com/photo-1520190319646-36e4469ed921?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80")
+location3.photos.attach(io: file, filename: 'location.png', content_type: 'image/png')
+location3.save!
+file = URI.open("https://images.pexels.com/photos/11288810/pexels-photo-11288810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+location3.photos.attach(io: file, filename: 'location3.png', content_type: 'image/png')
+location3.save!
 
 puts "Done! #{Location.count} locations, #{User.count} users and #{Coach.count} coaches created!"

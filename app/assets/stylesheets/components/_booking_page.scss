@@ -2,12 +2,27 @@
   height: auto;
   // width: 50%;
   margin: auto;
+  margin-top: 2rem;
   padding: 10px;
   .coach-container {
-    display: flex;
-    justify-content: space-around;
-    margin: 2rem 0 3rem 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    // display: flex;
+    // justify-content: space-around;
+    // margin: 2rem 0 3rem 0;
   }
+}
+
+.coach-container .row1 {
+  min-height: 470px;
+  justify-content: space-between;
+}
+
+.coach-image-wrapper {
+  display: flex;
+  align-items: center;
+  min-height: 470px;
 }
 
 .booking__h2 {
@@ -20,21 +35,33 @@
 
 .coach__booking img {
   display: block;
-  height: 350px;
-  width: 350px;
-  margin-left: auto;
-  margin-right: auto;
+  height: 310px;
+  width: 310px;
+  // margin-left: auto;
+  // margin-right: auto;
   margin-bottom: 32px;
   background-color: white;
   border-radius: 100% !important;
 }
 .coach__booking {
-  margin-right: 2rem;
+  // margin-right: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.coach-show-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
 }
 
 .coach-details  {
-  max-width: 50%;
+  max-width: 100%;
   font-size: large;
+  min-height: 470px;
   .coach-details__heading {
     text-align: left;
     margin-left: 0;
@@ -43,12 +70,84 @@
 }
 
 .coach-controls-container {
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  .btn__coaches-controls__container {
+    display: flex;
+    justify-content: center;
+  }
+  .rev-1 {
+    order: 3;
+  }
+  .rev-2 {
+    order: 1;
+  }
+  .rev-3 {
+    order: 0;
+  }
+  // display: flex;
+  // justify-content: space-around;
+  // flex-direction: row-reverse;
 }
 
 .book-me-form {
   display:flex;
+  justify-content: center;
+  // flex-direction: column;
+  align-items: center;
+}
+.flatpickr-month  {
+  background-color: $color-primary !important;
+  .flatpickr-monthDropdown-months {
+    background-color: $color-primary !important;
+    .flatpickr-monthDropdown-month {
+      background-color: $color-primary !important;
+    }
+  }
+}
+
+.flatpickr-weekdays {
+  background-color: $color-primary !important;
+  .flatpickr-weekday {
+    background-color: $color-primary !important;
+  }
+}
+
+
+.appointment_start_time {
+  display: flex;
+  position: relative;
+  flex-direction: column-reverse;
+  margin-bottom: 0 !important;
+  margin-top: -5rem;
+  .datepicker.form-control.input {
+    position: absolute;
+    bottom: -3.5rem;
+    z-index: 5;
+    background: none;
+    border: none;
+    text-align: center;
+    // margin-top: 1.5rem;
+    font-weight: bold;
+  }
+}
+
+.coach-details__select-date-time{
+  display: flex;
   flex-direction: column;
   align-items: center;
+
+  #new_appointment {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+
+  .row2 {
+    margin-top: 2rem;
+  }
+
 }
