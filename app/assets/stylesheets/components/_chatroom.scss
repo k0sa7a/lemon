@@ -1,6 +1,6 @@
 .chatroom {
-  background: white;
-  margin-top: 9px;
+  // background: white;
+  margin-top: 2rem;
   height: calc(100vh - 200px);
   display: flex;
   flex-direction: column;
@@ -17,6 +17,9 @@
     }
   }
 
+  .no-padding {
+    padding: 0 !important;
+  }
 
   h2 {
     padding-top: 1rem;

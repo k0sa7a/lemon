@@ -36,7 +36,7 @@ class LocationsController < ApplicationController
 
   def new
     @location = Location.new
-    @location_page = true
+    @lemon_background = true
   end
 
   def create
