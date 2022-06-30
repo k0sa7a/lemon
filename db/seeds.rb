@@ -269,4 +269,24 @@ Chatroom.create!(name: 'Open Chat')
 Chatroom.create!(name: 'Skate Talk')
 Chatroom.create!(name: 'Skate Gear Advice')
 
+message1 = Message.new(content: 'Hey guys what skates should I get for 20 quid max?')
+message1.user = User.find(User.count - 5)
+message1.chatroom = Chatroom.find_by(name: 'Skate Gear Advice')
+message1.save!
+
+message2 = Message.new(content: 'Hahaha! LOL 😂 For 20 GBP you can only get imaginary skates')
+message2.user = User.find(User.count - 7)
+message2.chatroom = Chatroom.find_by(name: 'Skate Gear Advice')
+message2.save!
+
+message3 = Message.new(content: '🤔 You can try renting first to see if you like skating and then invest a bit more in good equipment')
+message3.user = User.find(User.count - 3)
+message3.chatroom = Chatroom.find_by(name: 'Skate Gear Advice')
+message3.save!
+
+message4 = Message.new(content: 'Thanks ❤️! Will do that.')
+message4.user = User.find(User.count - 5)
+message4.chatroom = Chatroom.find_by(name: 'Skate Gear Advice')
+message4.save!
+
 puts "Done! #{Location.count} locations, #{User.count} users, #{Chatroom.count} chatrooms and #{Coach.count} coaches created!"
