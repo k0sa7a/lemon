@@ -62,6 +62,6 @@ class CoachesController < ApplicationController
   def chat_exists
     @coach = Coach.find(params[:id])
     @chat = Privatechat.where(user_id: current_user, coach_id: @coach.id)
-    @chat.empty? ? false : @chat.last.id
+    @chat.empty? ? false : @chat.last.chatroom_id
   end
 end
