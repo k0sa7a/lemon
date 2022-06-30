@@ -1,13 +1,12 @@
 .chat-list-container {
   text-align: center;
-  padding: 24px;
   background-color: $color-grey-5;
   font-weight:900;
   vertical-align: middle !important;
   border-radius: 15px;
   margin-top: 3rem;
   width: fit-content;
-  padding: 4rem;
+  padding: 4rem 0 4rem 0;
   h2, h3 {
     color: $color-white !important;
   }
@@ -23,4 +22,20 @@
     }
   }
 
+}
+
+
+.chatroom-cat-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.private-chat-cont, .public-chat-cont{
+  text-align: left;
+  margin: 0 40px 0 40px;
+  h3 {
+    text-align: left;
+    margin-left: 0;
+    padding-left: 0;
+  }
 }

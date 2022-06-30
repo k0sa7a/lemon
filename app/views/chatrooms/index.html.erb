@@ -1,26 +1,26 @@
 <div class='container chat-list-container'>
 <h2>Chats</h2>
-<div class="">
-  <div>
+<div class="chatroom-cat-container">
+  <div class='private-chat-cont'>
     <h3>Private chats</h3>
-    <div class='d-flex justify-content-center'>
+    <div class=''>
       <ul class='no-padding'>
       <% @private_chatrooms.each do |room| %>
       <li>
-        <%= link_to room.name.capitalize, chatroom_path(room) %>
+        <%= link_to room.name.gsub(/\S+/, &:capitalize), chatroom_path(room) %>
       </li>
       <% end %>
       </ul>
     </div>
   </div>
 
-  <div>
-    <h3 class="f">Public chatrooms</h3>
-    <div class='d-flex justify-content-center'>
+  <div class='public-chat-cont'>
+    <h3 class="">Public chatrooms</h3>
+    <div class=''>
       <ul class='no-padding'>
       <% @public_chatrooms.each do |room| %>
       <li>
-        <%= link_to room.name.capitalize, chatroom_path(room) %>
+        <%= link_to "##{room.name.gsub(/\S+/, &:capitalize)}", chatroom_path(room) %>
       </li>
       <% end %>
       </ul>
